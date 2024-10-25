@@ -1,0 +1,49 @@
+{
+  // style lint
+  "stylelint.validate": [ "css", "scss", "vue" ],
+  //tailwindcss
+  // "files.associations": {
+  //   "*.css": "tailwindcss"
+  // },
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "css.validate": false,
+  "editor.inlineSuggest.enabled": true,
+
+  // todo tree
+  "todo-tree.general.tags": [
+    // 額外增加關鍵字
+    "TODO",
+    "BEFIX",
+    "DONE",
+    "NOTE"
+  ],
+  "todo-tree.highlights.customHighlight": {
+    // background: 背景色
+    // foreground: 文字顏色
+    // iconColour: 圖標顏色
+    // icon: 圖標
+    // hideFromTree: 在左邊隱藏該項目
+    "TODO": {
+        "background": "#EEDF6B",
+        "foreground": "#000",
+        "iconColour": "#EEDF6B"
+    },
+    "BEFIX": {
+        "background": "#EE6B6B",
+        "foreground": "#000",
+        "icon": "beaker",
+        "iconColour": "#EE6B6B",
+    },
+    "NOTE": {
+        "background": "#6BEEE5",
+        "foreground": "#000",
+        "iconColour ": "#6BEEE5",
+        // "hideFromTree": true
+    }
+  },
+  "scss.lint.unknownAtRules": "ignore",
+  "commentTranslate.targetLanguage": "zh-TW" // 忽略未知的 at-rule
+}
+

@@ -1,17 +1,17 @@
 <script setup lang="ts">
-// app 請填寫功能描述👈
+// Layout 請填寫功能描述👈
 </script>
 
 <template lang="pug">
-//- NuxtRouteAnnouncer
-NuxtLayout
-  NuxtPage
+.Layout
+  p Layout
 </template>
 
 <style lang="scss" scoped>
 // 佈局 ----
-.app {
+.Layout {
   // TODO
+  color: #f00;
 }
 
 // 組件 ----
