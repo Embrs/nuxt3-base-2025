@@ -1,27 +1,37 @@
 {
-  "name": "nuxt-app",
+  "name": "nuxt-basic",
   "private": true,
   "type": "module",
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev",
+    "dev": "nuxt dev --dotenv .env.dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
-    "lint": "eslint --ext .ts,.js,.vue ."
+    "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "mitt": "^3.0.1",
     "nuxt": "^3.13.2",
     "vue": "latest",
     "vue-router": "latest"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config-typescript": "^12.1.0",
+    "@nuxtjs/google-fonts": "^3.2.0",
+    "@nuxtjs/stylelint-module": "^5.2.0",
     "@vue/language-plugin-pug": "^2.1.6",
     "eslint": "^8.57.1",
     "eslint-plugin-vue-pug": "^0.6.2",
+    "lodash-es": "^4.17.21",
+    "postcss": "^8.4.47",
+    "postcss-html": "^1.7.0",
+    "postcss-scss": "^4.0.9",
     "pug": "^3.0.3",
     "sass": "^1.80.4",
+    "stylelint": "^16.10.0",
+    "stylelint-config-standard-scss": "^13.1.0",
+    "stylelint-config-standard-vue": "^1.0.0",
+    "stylelint-order": "^6.0.4",
     "vite-plugin-pug": "^0.4.1"
   },
   "engines": {
