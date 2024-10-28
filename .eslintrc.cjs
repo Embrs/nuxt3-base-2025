@@ -9,6 +9,7 @@ module.exports = {
     'plugin:vue-pug/vue3-recommended'
   ],
   parserOptions: {
+    parser: '@typescript-eslint/parser',
     ecmaVersion: 13,
     sourceType: 'module'
   },
