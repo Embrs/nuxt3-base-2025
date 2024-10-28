@@ -8,7 +8,6 @@ const aa = ref({
 <template lang="pug">
 .Layout
   p Layout
-  p {{ cc }}
 </template>
 
 <style lang="scss" scoped>
