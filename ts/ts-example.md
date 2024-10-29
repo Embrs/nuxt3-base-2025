@@ -18,6 +18,7 @@ import type { Ref } from "vue";
 export type { Ref }
 
 interface SelectOption {
+  
   label: string;
   value: string;
 }

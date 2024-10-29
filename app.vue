@@ -12,6 +12,7 @@ NuxtLayout
 // 佈局 ----
 .app {
   // TODO
+  width: 1%;
 }
 
 // 組件 ----
