@@ -1,15 +1,15 @@
 <script setup lang="ts">
-// home 請填寫功能描述👈
+// Home 請填寫功能描述👈
 </script>
 
 <template lang="pug">
-.home
-  p home
+.Home
+  p Home
 </template>
 
 <style lang="scss" scoped>
 // 佈局 ----
-.home {
+.Home {
   // TODO
 }
 
