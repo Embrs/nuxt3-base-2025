@@ -21,6 +21,23 @@ export default defineNuxtConfig({
     //   cert: './https/localhost.crt'
     // }
   },
+  // .env setting
+  runtimeConfig: {
+    testMode: '',
+    domainUrl: '',
+    apiBase: '',
+    public: {
+      gtmId: '',
+      clarityCode: ''
+    }
+  },
+  // 全局範圍設定 composables utils 為預設
+  imports: {
+    dirs: [
+      'stores' // pinia
+    ]
+  },
+
   vite: {
     css: {
       preprocessorOptions: {

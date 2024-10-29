@@ -1,22 +1,17 @@
 <script setup lang="ts">
-// Home 請填寫功能描述👈
+// PageStoreDemo 請填寫功能描述👈
 const storeDemo = StoreDemo();
-
 </script>
 
 <template lang="pug">
-.Home
-  p Home
-  NuxtLink(to="/page2") page2
-  PageStoreDemo
-  p storeDemo
-  p {{ storeDemo.count }}
-  p {{ storeDemo.doubleCount }}
+.PageStoreDemo
+  p PageStoreDemo
+  button(@click="storeDemo.Add") Add
 </template>
 
 <style lang="scss" scoped>
 // 佈局 ----
-.Home {
+.PageStoreDemo {
   // TODO
 }
 
