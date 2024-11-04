@@ -30,7 +30,7 @@ export default defineNuxtConfig({
     public: {
       gtmId: '',
       clarityCode: '',
-      ttt: ''
+      test: ''
     }
   },
   // 全局範圍設定 composables utils 為預設
