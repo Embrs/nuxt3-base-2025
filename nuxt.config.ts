@@ -6,6 +6,7 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/stylelint-module', // https://github.com/nuxt-modules/stylelint
     '@pinia/nuxt', // https://pinia.vuejs.org/ssr/nuxt.html
+    '@pinia-plugin-persistedstate/nuxt', // https://nuxt.com/modules/pinia-plugin-persistedstate#pinia-plugin-persistedstate
     '@nuxt/icon' // https://google-fonts.nuxtjs.org/getting-started/setup
     // '@element-plus/nuxt', // https://ithelp.ithome.com.tw/articles/10302381
     // '@nuxtjs/device', // https://github.com/nuxt-modules/stylelint

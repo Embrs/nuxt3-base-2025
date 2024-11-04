@@ -150,8 +150,8 @@
   "useAsnycData": {
     "prefix": "useAsyncData",
 		"body": [
-			"useAsyncData('init', async () => {",
-      "  $1",
+			"useAsyncData('$1-init', async () => {",
+      "  $2",
       "  await Promise.all([fn1(), fn2()]);",
       "  return true;",
       "});"

@@ -1,16 +1,18 @@
 <script setup lang="ts">
-// Home 請填寫功能描述👈
+// PageDemo 請填寫功能描述👈
 </script>
 
 <template lang="pug">
-.Home
-  p Home
-  NuxtLink(to="/demo") Demo page
+.PageDemo
+  p PageDemo
+  NuxtLink(to="/demo/store") store
+  NuxtLink(to="/demo/env") env
+  NuxtPage
 </template>
 
 <style lang="scss" scoped>
 // 佈局 ----
-.Home {
+.PageDemo {
   // TODO
 }
 

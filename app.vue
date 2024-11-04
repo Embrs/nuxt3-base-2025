@@ -1,6 +1,11 @@
 <script setup lang="ts">
 // app 請填寫功能描述👈
-const app = useNuxtApp();
+const storeEnv = StoreEnv();
+
+useAsyncData('init', async () => {
+  await storeEnv.Init();
+  return true;
+});
 
 </script>
 
