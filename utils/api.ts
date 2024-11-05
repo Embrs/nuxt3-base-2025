@@ -1,2 +1,2 @@
-import api from '@/protocal/fetch-api';
+import api from '@/protocol/fetch-api';
 export default api;
