@@ -124,11 +124,11 @@ export default defineNuxtConfig({
     css: {
       preprocessorOptions: {
         scss: {
-          api: 'modern'
+          api: 'modern',
           // quietDeps: true,
-          // additionalData: `
-          //   @use "@/assets/styles/scss/index.scss" as *;
-          // `
+          additionalData: `
+            @use "@/assets/styles/scss/index.scss" as *;
+          `
         }
       }
     }
