@@ -1,0 +1,92 @@
+html {
+  /* 網頁樣式 */
+  min-width: 100vw;
+  max-width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+  
+  /* 字體設定 */
+  font-size: 16px;
+  font-family: "Noto Sans", "Noto Sans TC";
+  text-rendering: optimizelegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html, body, p, pre, menu {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  /* 不可拖曳圖片 */
+  -webkit-user-drag: none;
+
+  /* ios禁用菜單 */
+  -webkit-touch-callout: none;
+  
+  /* 去空白 */
+  display: block;
+}
+
+a {
+  text-decoration: inherit;
+  color: inherit;
+}
+
+b,
+strong {
+  font-weight: bold;
+}
+
+table {
+  text-indent: 0; /* 1 */
+  border-color: inherit; /* 2 */
+  border-collapse: collapse; /* 3 */
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  margin: 0; /* 2 */
+  padding: 0; /* 3 */
+  font-size: 100%; /* 1 */
+  font-family: inherit; /* 1 */
+  font-weight: inherit; /* 1 */
+  color: inherit; /* 1 */
+  font-feature-settings: inherit; /* 1 */
+  font-variation-settings: inherit; /* 1 */
+  line-height: inherit; /* 1 */
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5, 
+h6 {
+  margin: 0; /* 2 */
+  padding: 0; /* 3 */
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+::before,
+::after {
+  --tw-content: '';
+}
+
+*,
+::before,
+::after {
+  border-style: solid; /* 2 */
+  border-width: 0; /* 2 */
+  box-sizing: border-box; /* 1 */
+}

@@ -1,0 +1,216 @@
+@mixin wh($width: 100%, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin center($gap: 0, $direction: row ) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: $direction;
+  gap: $gap;
+}
+
+@mixin row($gap: 0, $align: center) {
+  display: flex;
+  align-items: $align;
+  gap: $gap;
+}
+
+@mixin row-end($gap: 0) {
+  @include row($gap);
+  justify-content: flex-end;
+}
+
+@mixin row-between($gap: 0) {
+  @include row($gap);
+  justify-content: space-between;
+}
+
+@mixin row-around($gap: 0) {
+  @include row($gap);
+  justify-content: space-around;
+}
+
+@mixin row-wrap($gap: 0) {
+  @include row($gap);
+  flex-wrap: wrap;
+}
+
+@mixin col($gap: 0, $align: flex-start) {
+  display: flex;
+  flex-direction: column;
+  align-items: $align;
+  gap: $gap;
+}
+
+@mixin col-between($gap: 0, $align: flex-start) {
+  @include col($gap,$align);
+  justify-content: space-between;
+}
+
+@mixin col-around($gap: 0, $align: flex-start) {
+  @include col($gap, $align);
+  justify-content: space-around;
+}
+
+@mixin col-center($gap: 0, $align: flex-start) {
+  @include col($gap, $align);
+  justify-content: center;
+}
+
+@mixin auto-grid($gap: 0) {
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-auto-flow: column dense; // 稠密
+  gap: $gap;
+}
+
+@mixin text-line {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin text-break {
+  word-break: break-all;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+@mixin text-wrap {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+@mixin text-row($row: 3) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: $row; /* 指定显示的最大行数 */
+}
+
+@mixin btn-click {
+  cursor: pointer;
+  user-select: none;
+  transition: filter 0.2s ease;
+  &:hover {
+    filter: brightness(1.1);
+  }
+  &:active {
+    filter: brightness(.9);
+  }
+}
+
+@mixin select-none {
+  user-select: none;
+}
+
+@mixin img-lock {
+  -webkit-user-drag: none; // 不可拖曳圖片
+  -webkit-touch-callout: none; // ios禁用菜單
+  pointer-events: none; // 防止拖拉圖片
+  display: block;
+}
+
+// 限制最大寬度與保留寬度
+@mixin max-w-padding($min-w: 1000px, $padding: 10px) {
+  max-width: calc($min-w + $padding * 2);
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: $padding;
+  padding-left: $padding;
+}
+
+// 等比區域
+@mixin ratio-wh($width: 300px, $height: 200px, $contrastWidth: 1920px, $useMax: false) {
+  @if $useMax == true {
+    max-width: $width;
+    max-height: $height;
+  }
+  width: w-ratio($width, $contrastWidth);
+  height: w-ratio($height, $contrastWidth);
+}
+
+// 定位 -------------------------------------------------------------------------------------------------
+@mixin absolute($direction: "top-left" ,$a-pos: 0, $b-pos: $a-pos) {
+  position: absolute;
+
+  @if  $direction == "top-left" {
+    top: $a-pos;
+    left: $b-pos;
+  }
+
+  @if  $direction == "top-right" {
+    top: $a-pos;
+    right: $b-pos;
+  }
+
+  @if  $direction == "bottom-left" {
+    bottom: $a-pos;
+    left: $b-pos;
+  }
+
+  @if  $direction == "bottom-right" {
+    bottom: $a-pos;
+    right: $b-pos;
+  }
+
+  @if  $direction == "fill" {
+    inset: $a-pos $b-pos $a-pos $b-pos;
+  }
+}
+
+@mixin fixed($direction: "top-left" ,$a-pos: 0, $b-pos: $a-pos) {
+  position: fixed;
+
+  @if  $direction == "top-left" {
+    top: $a-pos;
+    left: $b-pos;
+  }
+
+  @if  $direction == "top-right" {
+    top: $a-pos;
+    right: $b-pos;
+  }
+
+  @if  $direction == "bottom-left" {
+    bottom: $a-pos;
+    left: $b-pos;
+  }
+
+  @if  $direction == "bottom-right" {
+    bottom: $a-pos;
+    right: $b-pos;
+  }
+
+  @if  $direction == "fill" {
+    inset: $a-pos $b-pos $a-pos $b-pos;
+  }
+}
+
+// 字框 -------------------------------------------------------------------------------------------------
+/// Stroke font-character
+/// @param  {Integer} $stroke - Stroke width
+/// @param  {Color}   $color  - Stroke color
+/// @return {List}            - text-shadow list
+@function stroke($stroke, $color) {
+  $shadow: ();
+  $from: $stroke * -1;
+
+  @for $i from $from through $stroke {
+   @for $j from $from through $stroke {
+      $shadow: append($shadow,$i * 1px $j * 1px 0 $color, comma);
+    }
+  }
+
+  @return $shadow;
+}
+
+/// Stroke font-character
+/// @param  {Integer} $stroke - Stroke width
+/// @param  {Color}   $color  - Stroke color
+/// @return {Style}           - text-shadow
+@mixin stroke($stroke: 1, $color: white) {
+  text-shadow: stroke($stroke, $color);
+}
+

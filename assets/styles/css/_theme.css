@@ -1,0 +1,18 @@
+:root {
+  --primary: #B31A24;
+  --secondary: #D39C43;
+  --tertiary: #F3E0BE;
+  --error: #D90000;
+  --t-dark: #413737;
+  --t-gray: #949494;
+  --bg: #FDF9F2;
+}
+:root.dark {
+  --primary: #B31A24;
+  --secondary: #D39C43;
+  --tertiary: #F3E0BE;
+  --error: #D90000;
+  --t-dark: #413737;
+  --t-gray: #949494;
+  --bg: #FDF9F2;
+}

@@ -1,0 +1,44 @@
+// 預設 font size 16px
+@mixin fs($size: 16px) {
+  $calcSize: 16px;
+  $lineHeight: 1.5em;
+  $letterSpacing: .1em;
+  $font-weight: 400;
+ 
+  @if $size == "h1" { // h1 ~h6
+    $calcSize: rem(48px);
+    $lineHeight: 1.5em;
+    $letterSpacing: .05em;
+    $font-weight: 600;
+  } @else if $size == "h2" {
+    $calcSize: rem(40px);
+    $lineHeight: 1.5em;
+    $letterSpacing: .05em;
+    $font-weight: 600;
+  } @else if $size == "h3" {
+    $calcSize: rem(36px);
+    $letterSpacing: .05em;
+    $font-weight: 600;
+  } @else if $size == "h4" {
+    $calcSize: rem(28px);
+    $lineHeight: 2rem;
+    $letterSpacing: .05em;
+    $font-weight: 600;
+  } @else if $size == "h5" {
+    $calcSize: rem(24px);
+    $lineHeight: 1.75rem;
+    $letterSpacing: .05em;
+    $font-weight: 600;
+  } @else if $size == "h6" {
+    $calcSize: rem(20px);
+    $letterSpacing: .05em;
+    $font-weight: 600;
+  } @else { // Default 
+    $calcSize: rem($size);
+  } 
+  font-size: $calcSize;
+  line-height: $lineHeight;
+  letter-spacing: $letterSpacing;
+  font-weight: $font-weight;
+}
+

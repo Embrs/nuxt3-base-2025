@@ -1,0 +1,12 @@
+// 轉換rem
+@function rem($px: 16px, $defaultVal: 16px) {
+  @return calc($px / $defaultVal) * 1rem;
+}
+
+@function w-ratio($px: 10px, $contrastWidth: 1920px) {
+  @return calc($px / $contrastWidth * 100vw);
+}
+
+@function h-ratio($px: 10px, $contrastWidth: 1080px) {
+  @return calc($px / $contrastWidth * 100vh);
+}

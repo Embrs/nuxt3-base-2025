@@ -1,5 +1,5 @@
 <script setup lang="ts">
-// app 請填寫功能描述👈
+
 const storeEnv = StoreEnv();
 
 useAsyncData('init', async () => {
@@ -10,17 +10,27 @@ useAsyncData('init', async () => {
 </script>
 
 <template lang="pug">
-//- NuxtRouteAnnouncer
-NuxtLayout
-  NuxtPage
+.dev
+  NuxtLayout
+    NuxtPage
+  .row
+    p 1
+    p 2
+  .col
+    p a
+    p b
 </template>
 
 <style lang="scss" scoped>
 // 佈局 ----
-.app {
-  // TODO
-  width: 1%;
+html {
+  // color: $text;
+  // background-color: $bg;
 }
-
-// 組件 ----
+.row {
+  @include row(10px);
+}
+.col {
+  @include col(10px);
+}
 </style>

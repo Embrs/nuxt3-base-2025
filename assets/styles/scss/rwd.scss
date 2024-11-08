@@ -1,0 +1,103 @@
+@mixin rwd-pc-big() {
+  @media (min-width: $pc) {
+    @content;
+  }
+}
+
+// 電腦
+@mixin rwd-pc() {
+  @media (min-width: $mobile ) {
+    @content;
+  }
+}
+
+// 行動裝置
+@mixin rwd-mobile() {
+  @media all and (min-width: 0) and (max-width: calc($mobile - 1px)) {
+    @content;
+  }
+}
+// ---------------
+// 大於等於 觸發
+@mixin rwd-more($more: 1440px) {
+  @media all and (min-width: $more) {
+    @content;
+  }
+}
+
+// 小於等於 觸發
+@mixin rwd-less($less: 768px) {
+  @media all and (max-width: $less) {
+    @content;
+  } 
+}
+ 
+// 兩數之間 觸發
+@mixin rwd-between($min: 768px, $max: 1440px) {
+  @media all and (min-width: $min) and (max-width: $max) {
+    @content;
+  }
+}
+
+// -------------------
+// 寬度限制(需要有RWD輔助)
+@mixin rwd-limit($pc-big-padding: 40px,  $pc-padding: 40px,$mobile-padding: 10px) {
+  width: 100vw;
+  margin: 0 auto;
+  @include rwd-pc-big {
+    @include max-w-padding(calc($pc-big + $pc-big-padding * 2), $pc-big-padding );
+  }
+  @include rwd-pc {
+    @include max-w-padding(calc($pc + $pc-padding * 2), $pc-padding);
+  }
+  @include rwd-mobile {
+    padding: 0 $mobile-padding;
+  }
+}
+
+// 寬度左右留白(需要有RWD輔助)
+@mixin rwd-padding($pc-big-padding: 40px,  $pc-padding: 40px,$mobile-padding: 10px) {
+  @include rwd-pc-big {
+    padding: 0 $pc-big-padding;
+  }
+  @include rwd-pc {
+    padding: 0 $pc-padding;
+  }
+  @include rwd-mobile {
+    padding: 0 $mobile-padding;
+  }
+}
+
+@mixin rwd-article-padding {
+  @include rwd-pc {
+    padding: 60px  w-ratio(314px) 0;
+  }
+  @include rwd-mobile {
+    padding: 20px 20px 0;
+  }
+}
+
+// 自定義RWD
+@mixin xl {
+  @media (max-width: 1536px) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin sm {
+  @media (max-width: 375px) {
+    @content;
+  }
+}

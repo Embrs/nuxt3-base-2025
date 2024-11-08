@@ -1,0 +1,32 @@
+
+.page-enter-active,
+.page-leave-active {
+  transition: all 0.2s ease;
+}
+
+.page-enter-from,
+.page-leave-to {
+  /* transform: translateX(500px); */
+  opacity: 0;
+}
+
+.opacity-enter-active,
+.opacity-leave-active {
+  transition: opacity .4s ease;
+}
+
+.opacity-enter-from,
+.opacity-leave-to {
+  opacity: 0;
+}
+
+.com-enter-active,
+.com-leave-active {
+  position: absolute;
+  transition: opacity .4s ease, transform .4s ease;
+}
+
+.com-enter-from,
+.com-leave-to {
+  transform: scale(0);
+}
