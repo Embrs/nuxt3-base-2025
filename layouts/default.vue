@@ -12,7 +12,6 @@
 // 佈局 ----
 .DefaultLayout {
   // TODO
-  color: #f00;
 }
 
 // 組件 ----

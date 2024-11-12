@@ -1,12 +1,23 @@
 <script setup lang="ts">
 // PageDemo 請填寫功能描述👈
+const pageList = [
+  'store',
+  'env',
+  'icon'
+];
 </script>
 
 <template lang="pug">
 .PageDemo
   p PageDemo
-  NuxtLink(to="/demo/store") store
-  NuxtLink(to="/demo/env") env
+  NuxtLink(to="/demo")
+    button to Home
+  .btn-list
+    NuxtLink(
+      v-for="page of pageList" :key="page"
+      :to="`/demo/${page}`"
+    )
+      button to {{page.replace(/^./, page[0].toUpperCase())}}
   NuxtPage
 </template>
 
@@ -17,4 +28,7 @@
 }
 
 // 組件 ----
+.btn-list {
+  @include row(10px);
+}
 </style>

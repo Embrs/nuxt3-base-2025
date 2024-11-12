@@ -1,5 +1,5 @@
 :root {
-  --primary: #B31A24;
+  --primary: #393939;
   --secondary: #D39C43;
   --tertiary: #F3E0BE;
   --error: #D90000;
@@ -8,7 +8,7 @@
   --bg: #FDF9F2;
 }
 :root.dark {
-  --primary: #B31A24;
+  --primary: #393939;
   --secondary: #D39C43;
   --tertiary: #F3E0BE;
   --error: #D90000;

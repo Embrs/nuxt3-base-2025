@@ -1,10 +1,11 @@
 <script setup lang="ts">
 // PageDemoEnv 請填寫功能描述👈
+const storeEnv = StoreEnv();
 </script>
 
 <template lang="pug">
 .PageDemoEnv
-  p PageDemoEnv
+  pre {{ storeEnv }}
 </template>
 
 <style lang="scss" scoped>

@@ -6,11 +6,9 @@
 <template lang="pug">
 .Home
   p Home
-  Icon(name="my-icon:demo")
-  NuxtLink(to="/demo") Demo page
-  Icon(name="material-symbols:10k-outline-sharp")
-  //- Icon(name="IconDemo")
-  //- IconDemo
+  NuxtLink(to="/demo")
+    button Demo page
+
   //- UiDemoStore
 </template>
 

@@ -62,6 +62,14 @@ export default defineNuxtConfig({
     }
   },
 
+  components: {
+    dirs: [
+      {
+        path: '~/components',
+        global: true
+      }
+    ]
+  },
   // 全局範圍設定 composables utils 為預設
   imports: {
     dirs: [
@@ -103,7 +111,7 @@ export default defineNuxtConfig({
     customCollections: [
       {
         prefix: 'my-icon',
-        dir: 'assets/my-icons'
+        dir: 'assets/icons'
       }
     ]
   },
