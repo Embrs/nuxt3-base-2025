@@ -4,7 +4,8 @@ const pageList = [
   'store',
   'env',
   'icon',
-  'safety'
+  'safety',
+  'i18n'
 ];
 </script>
 

@@ -29,14 +29,16 @@ export default defineNuxtConfig({
 
   // 模塊注入
   modules: [
-    '@nuxtjs/stylelint-module', // https://github.com/nuxt-modules/stylelint
-    '@pinia/nuxt', // https://pinia.vuejs.org/ssr/nuxt.html
-    '@pinia-plugin-persistedstate/nuxt', // https://nuxt.com/modules/pinia-plugin-persistedstate#pinia-plugin-persistedstate
-    '@nuxt/icon' // https://nuxt.com/modules/icon
     // '@element-plus/nuxt', // https://ithelp.ithome.com.tw/articles/10302381
     // '@nuxtjs/device', // https://github.com/nuxt-modules/stylelint
     // '@nuxtjs/color-mode', // https://nuxt.com/modules/icon
     // '@nuxtjs/google-fonts', // https://nuxt.com/modules/unocss
+    '@nuxtjs/stylelint-module', // https://github.com/nuxt-modules/stylelint
+    '@pinia/nuxt', // https://pinia.vuejs.org/ssr/nuxt.html
+    '@pinia-plugin-persistedstate/nuxt', // https://nuxt.com/modules/pinia-plugin-persistedstate#pinia-plugin-persistedstate
+    '@nuxt/icon', // https://nuxt.com/modules/icon
+    '@nuxtjs/i18n' // https://nuxt.com/modules/i18n
+
 
   ],
 
@@ -49,6 +51,13 @@ export default defineNuxtConfig({
     // }
   },
 
+  i18n: {
+    locales: [
+      { code: 'zh', language: 'zh-TW' },
+      { code: 'en', language: 'en-US' }
+    ],
+    defaultLocale: 'zh'
+  },
   // .env setting
   runtimeConfig: {
     apiBase: '',
