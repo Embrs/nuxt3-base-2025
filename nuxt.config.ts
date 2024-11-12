@@ -52,9 +52,12 @@ export default defineNuxtConfig({
   },
 
   i18n: {
+    // 對照表: https://zh.wikipedia.org/wiki/%E5%8C%BA%E5%9F%9F%E8%AE%BE%E7%BD%AE#%E5%88%97%E8%A1%A8
     locales: [
-      { code: 'zh', language: 'zh-TW' },
-      { code: 'en', language: 'en-US' }
+      { code: 'zh', language: 'zh-Hant-TW' },
+      { code: 'cn', language: 'zh-Hans-CN' },
+      { code: 'en', language: 'en-US' },
+      { code: 'ja', language: 'ja' }
     ],
     defaultLocale: 'zh'
   },
