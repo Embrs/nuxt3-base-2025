@@ -2,10 +2,9 @@
 
 const storeEnv = StoreEnv();
 
-useAsyncData('init', async () => {
-  await storeEnv.Init();
-  return true;
-});
+if (import.meta.server) {
+  storeEnv.Init();
+}
 
 </script>
 

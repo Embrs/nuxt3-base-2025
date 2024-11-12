@@ -5,7 +5,7 @@ const storeEnv = StoreEnv();
 
 <template lang="pug">
 .PageDemoEnv
-  pre {{ storeEnv }}
+  pre {{ storeEnv.env }}
 </template>
 
 <style lang="scss" scoped>
