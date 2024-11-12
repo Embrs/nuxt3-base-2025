@@ -1,10 +1,7 @@
 <script setup lang="ts">
-
 const storeEnv = StoreEnv();
 
-if (import.meta.server) {
-  storeEnv.Init();
-}
+storeEnv.Init();
 
 </script>
 

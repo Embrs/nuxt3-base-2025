@@ -17,7 +17,7 @@ const pageList = [
       v-for="page of pageList" :key="page"
       :to="`/demo/${page}`"
     )
-      button to {{page.replace(/^./, page[0].toUpperCase())}}
+      button to {{ tool.FirstUpper(page) }}
   NuxtPage
 </template>
 
