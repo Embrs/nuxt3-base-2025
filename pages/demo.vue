@@ -3,7 +3,8 @@
 const pageList = [
   'store',
   'env',
-  'icon'
+  'icon',
+  'safety'
 ];
 </script>
 

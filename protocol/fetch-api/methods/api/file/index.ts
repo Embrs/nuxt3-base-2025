@@ -1,9 +1,7 @@
 import { methods } from '../../setting';
 import * as mock from './mock';
 const IsMock = () => {
-  // const { public: { testMode } } = useRuntimeConfig();
-  // return testMode === 'T';
-  return false;
+  return true;
 };
 
 // -----------------------------------------------------------------------------------------------
@@ -17,7 +15,6 @@ const router = {
 /** 上傳圖片 */
 export const UploadImage = (params: UploadImageParams): Promise<UploadImageRes> => {
   if (IsMock()) return mock.UPLOAD_IMAGE(); // Mock
-  console.log(params);
   return methods.filePost(router.UPLOAD_IMAGE, params) as Promise<UploadImageRes>;
 };
 

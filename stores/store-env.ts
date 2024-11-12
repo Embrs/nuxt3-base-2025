@@ -1,6 +1,16 @@
+import nuxtConfig from "@/nuxt.config";
+
 // 環境變數
 export const StoreEnv = defineStore('StoreEnv', () => {
-  const env = useState('StoreEnv-env', () => ({}));
+  const env = ref({
+    apiBase: '',
+    aesKey: '',
+    aesIv: '',
+    public: {
+      gtmId: '',
+      clarityCode: ''
+    }
+  });
 
   /** 初始化 */
   const Init = () => {

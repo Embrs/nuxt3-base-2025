@@ -4,7 +4,6 @@ import version from './version';
 
 // ------------------------
 const useVisualizer = false; // 使用打包分析
-
 // ------------------------
 // vite plugin 建置
 const VitePlugins = () => {
@@ -52,13 +51,12 @@ export default defineNuxtConfig({
 
   // .env setting
   runtimeConfig: {
-    testMode: '',
-    domainUrl: '',
     apiBase: '',
+    aesKey: '',
+    aesIv: '',
     public: {
       gtmId: '',
-      clarityCode: '',
-      test: ''
+      clarityCode: ''
     }
   },
 

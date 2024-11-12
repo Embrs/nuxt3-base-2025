@@ -1,5 +1,5 @@
 <script setup lang="ts">
-// PageDemoIcon 請填寫功能描述👈
+// PageDemoIcon 圖標
 </script>
 
 <template lang="pug">
@@ -13,6 +13,7 @@
 <style lang="scss" scoped>
 // 佈局 ----
 .PageDemoIcon {
+  @include col(10px);
   // TODO
 }
 

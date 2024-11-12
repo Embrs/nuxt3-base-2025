@@ -1,5 +1,5 @@
 <script setup lang="ts">
-// PageDemoStore 請填寫功能描述👈
+// PageDemoStore 全域狀態
 const storeDemo = StoreDemo();
 </script>
 

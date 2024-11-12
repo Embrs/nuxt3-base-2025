@@ -1,5 +1,5 @@
 <script setup lang="ts">
-// PageDemoEnv 請填寫功能描述👈
+// PageDemoEnv 環境變數
 const storeEnv = StoreEnv();
 </script>
 
