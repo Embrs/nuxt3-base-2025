@@ -1,6 +1,5 @@
 {
   "name": "nuxt-basic",
-  "version": "0.1.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -31,6 +30,9 @@
     "eslint-plugin-vue-pug": "^0.6.2",
     "lodash-es": "^4.17.21",
     "pinia": "^2.2.4",
+    "postcss": "^8.4.47",
+    "postcss-html": "^1.7.0",
+    "postcss-scss": "^4.0.9",
     "pug": "^3.0.3",
     "sass": "^1.71.0",
     "scss": "^0.2.4",

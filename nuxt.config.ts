@@ -1,7 +1,29 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-// import { visualizer } from 'rollup-plugin-visualizer';
+import { visualizer } from 'rollup-plugin-visualizer';
 import version from './version';
 
+// ------------------------
+const useVisualizer = true; // 使用打包分析
+
+// ------------------------
+// vite plugin 建置
+const VitePlugins = () => {
+  const arr = [];
+  if (useVisualizer) {
+    arr.push(
+      visualizer({ // 打包分析 https://juejin.cn/post/7159410085460983839
+        gzipSize: true,
+        brotliSize: true,
+        emitFile: false,
+        filename: 'test.html', // 析圖產生的檔案名
+        open: true // 如果存在本地服務端口，將在打包後自動展示
+      })
+    );
+  }
+  return arr;
+};
+
+// ===============================================================================
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: false },
@@ -123,24 +145,11 @@ export default defineNuxtConfig({
   vite: {
     css: {
       preprocessorOptions: {
-        scss: {
-          // api: 'modern',
-          // quietDeps: true,
+        scss: { // scss 配置
           additionalData: '@use "@/assets/styles/scss/index.scss" as *;'
         }
       }
-    }
-    // build: {
-    //   chunkSizeWarningLimit: 1500, // 分割檔案
-    //   rollupOptions: {
-    //     output: {
-    //       manualChunks (id: any) {
-    //         if (id.includes('node_modules')) {
-    //           return id.toString().split('node_modules/')[1].split('/')[0].toString();
-    //         }
-    //       }
-    //     }
-    //   }
-    // }
+    },
+    plugins: VitePlugins()
   }
 });

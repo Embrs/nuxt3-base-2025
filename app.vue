@@ -13,12 +13,6 @@ useAsyncData('init', async () => {
 .dev
   NuxtLayout
     NuxtPage
-  .row
-    p 1
-    p 2
-  .col
-    p a
-    p b
 </template>
 
 <style lang="scss" scoped>
@@ -26,11 +20,5 @@ useAsyncData('init', async () => {
 html {
   // color: $text;
   // background-color: $bg;
-}
-.row {
-  @include row(10px);
-}
-.col {
-  @include col(10px);
 }
 </style>

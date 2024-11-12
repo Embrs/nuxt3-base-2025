@@ -6,6 +6,8 @@
 .cache
 dist
 test.html
+.stylelintcache
+test.html
 
 # Node dependencies
 node_modules
