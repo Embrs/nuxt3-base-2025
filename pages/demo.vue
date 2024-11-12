@@ -11,7 +11,7 @@ const pageList = [
 <template lang="pug">
 .PageDemo
   p PageDemo
-  NuxtLink(to="/demo")
+  NuxtLink(to="/")
     button to Home
   .btn-list
     NuxtLink(
