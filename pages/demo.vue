@@ -6,7 +6,9 @@ const pageList = [
   'env',
   'icon',
   'safety',
-  'i18n'
+  'i18n',
+  'color',
+  'font'
 ];
 </script>
 

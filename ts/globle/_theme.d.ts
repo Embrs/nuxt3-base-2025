@@ -1,0 +1,1 @@
+type ThemeType = 'system' | 'dark' | 'light' | 'pink'

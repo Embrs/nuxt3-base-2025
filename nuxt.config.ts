@@ -28,18 +28,15 @@ export default defineNuxtConfig({
 
   // 模塊注入
   modules: [
-    // '@element-plus/nuxt', // https://ithelp.ithome.com.tw/articles/10302381
     // '@nuxtjs/device', // https://github.com/nuxt-modules/stylelint
-    // '@nuxtjs/color-mode', // https://nuxt.com/modules/icon
-    // '@nuxtjs/google-fonts', // https://nuxt.com/modules/unocss
+    // '@nuxtjs/color-mode', // https://nuxt.com/modules/icon  // '@nuxtjs/google-fonts', // https://nuxt.com/modules/unocss
     '@nuxtjs/stylelint-module', // https://github.com/nuxt-modules/stylelint
-    '@pinia/nuxt', // https://pinia.vuejs.org/ssr/nuxt.html
+    '@pinia/nuxt',// https://pinia.vuejs.org/ssr/nuxt.html
     '@pinia-plugin-persistedstate/nuxt', // https://nuxt.com/modules/pinia-plugin-persistedstate#pinia-plugin-persistedstate
     '@nuxt/icon', // https://nuxt.com/modules/icon
-    '@nuxtjs/i18n' // https://nuxt.com/modules/i18n
-
+    '@nuxtjs/i18n', // https://nuxt.com/modules/i18n
+    '@nuxtjs/color-mode' // https://color-mode.nuxtjs.org/?utm_source=nuxt.com&utm_medium=aside-module&utm_campaign=nuxt.com
   ],
-
   devServer: {
     port: Number(process.env.NUXT_PORT || 3001),
     host: process.env.NUXT_HOST || '0.0.0.0'
@@ -49,6 +46,11 @@ export default defineNuxtConfig({
     // }
   },
 
+  // colorMode 主題色 ---------------------------------------------------
+  colorMode: {
+    classSuffix: ''
+  },
+  // 多語系 -------------------------------------------------------------
   i18n: {
     strategy: 'prefix_except_default',
     langDir: 'locales',
@@ -89,7 +91,7 @@ export default defineNuxtConfig({
       }
     ]
   },
-  // .env setting
+  // env 環境變數 -------------------------------------------------------
   runtimeConfig: {
     apiBase: '',
     domainUrl: '',
@@ -100,7 +102,22 @@ export default defineNuxtConfig({
       clarityCode: ''
     }
   },
+  // icon --------------------------------------------------------------
+  ui: {
+    icons: {
+      dynamic: true
+    }
+  },
+  icon: {
+    customCollections: [
+      {
+        prefix: 'my-icon',
+        dir: 'assets/icons'
+      }
+    ]
+  },
 
+  // 組件配置 -----------------------------------------------------------
   components: {
     dirs: [
       {
@@ -109,13 +126,15 @@ export default defineNuxtConfig({
       }
     ]
   },
-  // 全局範圍設定 composables utils 為預設
+
+  // 全局範圍設定 composables utils 為預設 --------------------------------
   imports: {
     dirs: [
       'stores' // pinia
     ]
   },
 
+  // html params -------------------------------------------------------
   app: {
     // baseURL: '/',
     buildAssetsDir: '/static/',
@@ -140,19 +159,6 @@ export default defineNuxtConfig({
         { rel: 'apple-touch-icon', href: '/favicon.svg' }
       ]
     }
-  },
-  ui: {
-    icons: {
-      dynamic: true
-    }
-  },
-  icon: {
-    customCollections: [
-      {
-        prefix: 'my-icon',
-        dir: 'assets/icons'
-      }
-    ]
   },
 
   // style -------------------------------------------------------------
