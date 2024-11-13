@@ -5,8 +5,9 @@
 <template lang="pug">
 .PageDemoIcon
   p PageDemoIcon
-  a(href="https://icones.js.org/" target="_blank") Nuxt Icon Link
+  p 自定義
   Icon(name="my-icon:demo")
+  a(href="https://icones.js.org/" target="_blank") Nuxt Icon Link
   Icon(name="material-symbols:10k-outline-sharp")
 </template>
 

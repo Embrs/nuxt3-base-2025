@@ -1,5 +1,6 @@
 <script setup lang="ts">
 // PageDemo 請填寫功能描述👈
+const localePath = useLocalePath();
 const pageList = [
   'store',
   'env',
@@ -17,7 +18,7 @@ const pageList = [
   .btn-list
     NuxtLink(
       v-for="page of pageList" :key="page"
-      :to="`/demo/${page}`"
+      :to="localePath(`/demo/${page}`)"
     )
       button to {{ tool.FirstUpper(page) }}
   NuxtPage

@@ -1,5 +1,6 @@
 // 宣告 const $demo = UseDemo();
 export const UseDemo = async () => {
+  console.log('hello');
   const route = useRoute();
   const setTitle = useState(`aaa${route.path}`, () => 'aaa');
 
@@ -15,7 +16,7 @@ export const UseDemo = async () => {
     return true;
   });
 
-  setTitle.value = 'bbb';
+  // setTitle.value = 'bbb';
   useHead({
     title: setTitle.value
   });

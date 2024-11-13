@@ -1,5 +1,8 @@
 <script setup lang="ts">
+import { UseInitMeta } from './composables/use-init-meta';
+
 const storeEnv = StoreEnv();
+UseInitMeta();
 
 storeEnv.Init();
 

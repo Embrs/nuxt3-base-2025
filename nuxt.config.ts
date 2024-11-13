@@ -21,7 +21,6 @@ const VitePlugins = () => {
   }
   return arr;
 };
-
 // ===============================================================================
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
@@ -54,10 +53,11 @@ export default defineNuxtConfig({
     strategy: 'prefix_except_default',
     langDir: 'locales',
     defaultLocale: 'zh',
+    baseUrl: `${process.env.NUXT_DOMAIN_URL}`,
     detectBrowserLanguage: {
       useCookie: true,
       cookieKey: 'i18n_redirected',
-      // alwaysRedirect: true,
+      alwaysRedirect: true,
       redirectOn: 'root'
     },
     lazy: true,
@@ -66,32 +66,33 @@ export default defineNuxtConfig({
       {
         code: 'zh',
         language: 'zh-Hant-TW',
-        iso: 'zh-Hant-TW',
-        file: 'zh.js'
+        file: 'zh.js',
+        name: '繁體中文'
       },
       {
         code: 'cn',
         language: 'zh-Hans-CN',
-        iso: 'zh-Hans-CN',
-        file: 'cn.js'
+        file: 'cn.js',
+        name: '简体中文'
       },
       {
         code: 'en',
         language: 'en',
-        iso: 'en',
-        file: 'en.js'
+        file: 'en.js',
+        name: 'English'
       },
       {
         code: 'ja',
         language: 'ja',
-        iso: 'ja',
-        file: 'ja.js'
+        file: 'ja.js',
+        name: '日本語'
       }
     ]
   },
   // .env setting
   runtimeConfig: {
     apiBase: '',
+    domainUrl: '',
     aesKey: '',
     aesIv: '',
     public: {
