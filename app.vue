@@ -9,9 +9,9 @@ storeEnv.Init();
 </script>
 
 <template lang="pug">
-.dev
-  NuxtLayout
-    NuxtPage
+
+NuxtLayout
+  NuxtPage
 </template>
 
 <style lang="scss" scoped>

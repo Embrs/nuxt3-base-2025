@@ -29,13 +29,13 @@ export default defineNuxtConfig({
   // 模塊注入
   modules: [
     // '@nuxtjs/device', // https://github.com/nuxt-modules/stylelint
-    // '@nuxtjs/color-mode', // https://nuxt.com/modules/icon  // '@nuxtjs/google-fonts', // https://nuxt.com/modules/unocss
     '@nuxtjs/stylelint-module', // https://github.com/nuxt-modules/stylelint
-    '@pinia/nuxt',// https://pinia.vuejs.org/ssr/nuxt.html
+    '@pinia/nuxt', // https://pinia.vuejs.org/ssr/nuxt.html
     '@pinia-plugin-persistedstate/nuxt', // https://nuxt.com/modules/pinia-plugin-persistedstate#pinia-plugin-persistedstate
     '@nuxt/icon', // https://nuxt.com/modules/icon
     '@nuxtjs/i18n', // https://nuxt.com/modules/i18n
-    '@nuxtjs/color-mode' // https://color-mode.nuxtjs.org/?utm_source=nuxt.com&utm_medium=aside-module&utm_campaign=nuxt.com
+    '@nuxtjs/color-mode', // https://color-mode.nuxtjs.org/?utm_source=nuxt.com&utm_medium=aside-module&utm_campaign=nuxt.com
+    '@nuxt/fonts' // https://fonts.nuxt.com/get-started/installation
   ],
   devServer: {
     port: Number(process.env.NUXT_PORT || 3001),
@@ -116,7 +116,15 @@ export default defineNuxtConfig({
       }
     ]
   },
-
+  // font --------------------------------------------------------------
+  // https://nuxt.dev.org.tw/modules/fonts
+  fonts: { // 自動會抓不用設定
+    families: [
+      // { name: 'Noto Sans TC', provider: 'google' },
+      // { name: 'Noto Sans', provider: 'google' },
+      // { name: 'Sour Gummy', provider: 'google' }
+    ]
+  },
   // 組件配置 -----------------------------------------------------------
   components: {
     dirs: [
