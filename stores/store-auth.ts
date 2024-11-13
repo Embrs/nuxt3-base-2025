@@ -1,6 +1,6 @@
 // 登入與權限
 const sevenDay = 60 * 60 * 24 * 7;
-export const StoreUser = defineStore('StoreUser', () => {
+export const StoreAuth = defineStore('StoreAuth', () => {
   // token -----------------------------------------------------------------------------------------------
   const token = useCookie('token', { default: () => '', maxAge: sevenDay }); // 登入狀態
 

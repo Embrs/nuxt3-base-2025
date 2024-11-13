@@ -1,5 +1,12 @@
-// import cloneDeep from 'lodash/cloneDeep';
-// import tool from '@/utils/tool';
+let storeAuth: any = null;
+let isNuxtReady = false;
+
+onNuxtReady(() => {
+  isNuxtReady = true;
+  storeAuth = StoreAuth();
+});
+
+// 預設錯誤回傳訊息
 const defErr: DefaultRes = Object.freeze({
   data: null,
   status: {
@@ -9,6 +16,17 @@ const defErr: DefaultRes = Object.freeze({
   }
 });
 
+// 登出
+const SignOut = () => {
+  const $router = useRouter(); // 路由
+  const localePath = useLocalePath(); // 語系路徑
+
+  setTimeout(() => {
+    $router.push((localePath('/sign-in')));
+  }, 1000);
+};
+
+// 取得 api url
 const GetApiUrl = () => {
   if (import.meta.server) {
     // 添加 apiUrl,nuxt3 環境變量要從useRuntimeConfig裡面取
@@ -18,17 +36,18 @@ const GetApiUrl = () => {
   return '';
 };
 
+// 預設請求
 const Fetch = (url: string, option: AnyObject, downloadFile: boolean = false) => {
-  const storeUser = StoreUser();
-  // const router = useRouter();
+  const token = isNuxtReady ? storeAuth.token : '';
+  // 加入 ?t 避免 api 快取
   return $fetch(`${url}?t=${Date.now()}`, {
-    // 合併參數
     ...option,
+
     // 請求攔截器
     onRequest ({ options }) {
       options.baseURL = GetApiUrl();
       options.headers = new Headers(options.headers);
-      options.headers.set('Authorization', `Bearer ${storeUser.token}`);
+      options.headers.set('Authorization', `Bearer ${token}`);
     },
 
     // 響應攔截
@@ -36,7 +55,7 @@ const Fetch = (url: string, option: AnyObject, downloadFile: boolean = false) =>
       let _res: DefaultRes = response._data;
       if (!_res?.status) {
         if (!downloadFile) {
-          _res = defErr;
+          _res = lodash.cloneDeep(defErr);
         }
         if (downloadFile) {
           _res = {
@@ -48,29 +67,23 @@ const Fetch = (url: string, option: AnyObject, downloadFile: boolean = false) =>
           };
         }
       }
+
       _res.status.httpStatus = response.status;
+
+      // TODO 確認登出情境
       if (['未登入'].includes(_res?.status?.message || '')) {
-        setTimeout(() => {
-          // router.push('/sign-in');
-        }, 1000);
+        SignOut();
       }
       return Promise.reject(_res);
     },
 
     // 錯誤處理
     onResponseError ({ response }) {
-      // TODO 異常處理
-      const _res: DefaultRes =
-        response?._data?.status
-          ? response._data
-          : defErr;
+      // 異常處理
+      const _res: DefaultRes = (response?._data?.status) ? response._data : lodash.cloneDeep(defErr);
       _res.status.is_success = false;
       _res.status.httpStatus = response.status;
-      if (['未登入'].includes(_res?.status?.message || '')) {
-        setTimeout(() => {
-          // router.push('/sign-in');
-        }, 1000);
-      }
+      SignOut();
       return Promise.reject(_res);
     }
   });
@@ -78,36 +91,44 @@ const Fetch = (url: string, option: AnyObject, downloadFile: boolean = false) =>
 
 // 自動導出
 export const methods = {
+  // 取得
   get: (url: string, query: AnyObject = {}) => {
     return Fetch(url, { method: 'get', query }).catch((err) => err);
   },
 
+  // 建立
   post: (url: string, body: AnyObject = {}) => {
     return Fetch(url, { method: 'post', body }).catch((err) => err);
   },
 
+  // 單一編輯
   patch: (url: string, body: AnyObject = {}) => {
     return Fetch(url, { method: 'patch', body }).catch((err) => err);
   },
 
+  // 更新
   put: (url: string, body: AnyObject = {}) => {
     return Fetch(url, { method: 'put', body }).catch((err) => err);
   },
 
+  // 刪除
   delete: (url: string, query: AnyObject = {}) => {
     return Fetch(url, { method: 'delete', query }).catch((err) => err);
   },
 
+  // 檔案上傳
   filePost: (url: string, body: AnyObject = {}) => {
     return Fetch(url, { method: 'post', body: tool.ToFormData(body) }).catch((err) => err);
   },
 
+  // 檔案下載
   downloadGet: (url: string, body: AnyObject = {}) => {
     return Fetch(url, { method: 'get', body: tool.ToFormData(body) }, true).catch((err) => err);
   },
-  // 上傳進度
+
+  // 檔案上傳(進度條)
   progressFilePost: (url: string, body: AnyObject = {}, progressObj: FileProgress) => {
-    const storeUser = StoreUser();
+    const token = isNuxtReady ? storeAuth.token : '';
     return new Promise((resolve) => {
       const xhr = new XMLHttpRequest();
       xhr.upload.addEventListener('progress', (e) => {
@@ -118,11 +139,11 @@ export const methods = {
       });
       xhr.addEventListener('loadend', (e: any) => {
         let _res: DefaultRes = JSON.parse(e?.currentTarget?.responseText || '');
-        _res = _res?.status ? _res : defErr;
+        _res = _res?.status ? _res : lodash.cloneDeep(defErr);
         resolve(_res);
       });
       xhr.open('POST', url, true);
-      xhr.setRequestHeader('Authorization', `Bearer ${storeUser.token}`);
+      xhr.setRequestHeader('Authorization', `Bearer ${token}`);
       xhr.send(tool.ToFormData(body));
     });
   }

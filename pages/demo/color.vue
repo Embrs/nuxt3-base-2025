@@ -2,7 +2,6 @@
 // PageDemoColor 主題色
 const colorMode = useColorMode();
 const ChangeTheme = (theme: ThemeType) => {
-  console.log('click', colorMode.preference);
   colorMode.preference = theme;
 };
 </script>
