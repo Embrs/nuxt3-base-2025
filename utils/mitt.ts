@@ -3,6 +3,7 @@ import mitt from 'mitt';
 type ApplicationEvents = {
   'refresh': any, // 刷新數據
   'reload': any, // 重加载
+  'open': OpenData // 開啟彈窗
 };
 
 const emitter = mitt<ApplicationEvents>();

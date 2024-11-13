@@ -1,6 +1,6 @@
 export default defineNuxtRouteMiddleware(async (to, from) => {
   // console.log(to, from);
-  // const storeUser = StoreUser();
+  // const storeAuth = StoreAuth();
   // // 前往登入頁
   // const ToSignInPage = () => {
   //   return navigateTo('/sign-in'); // 導航
@@ -21,7 +21,7 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
   // // 進入需要登入的頁面
   // if (to.path !== '/sign-in') {
   //   // 未登入踢開
-  //   if (!storeUser.isSignIn) {
+  //   if (!storeAuth.isSignIn) {
   //     ElNotification({ title: '尚未登入，請登入', type: 'error' });
   //     return ToSignInPage();
   //   }
