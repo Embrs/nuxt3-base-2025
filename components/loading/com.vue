@@ -1,0 +1,19 @@
+<template lang="pug">
+.LoadingCom
+Transition(name="com" mode="out-in")
+  Suspense
+    slot
+    template(#fallback)
+      .LoadingCom(v-loading="true")
+</template>
+
+<style lang="scss" scoped>
+// 佈局 ----
+.LoadingCom {
+  @include wh;
+  @include center;
+  @include fs(40px);
+}
+// 組件 ----
+
+</style>

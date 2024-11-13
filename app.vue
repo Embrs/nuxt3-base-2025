@@ -9,9 +9,10 @@ storeEnv.Init();
 </script>
 
 <template lang="pug">
-
-NuxtLayout
-  NuxtPage
+div
+  NuxtLoadingIndicator(color="#86D4A187")
+  NuxtLayout
+    NuxtPage
 </template>
 
 <style lang="scss" scoped>

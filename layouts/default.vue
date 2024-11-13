@@ -5,6 +5,7 @@
 
 <template lang="pug">
 .DefaultLayout
+  LoadingPage
   slot
 </template>
 

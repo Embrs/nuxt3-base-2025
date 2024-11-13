@@ -4,6 +4,7 @@
 
 <template lang="pug">
 .NoneLayout
+  LoadingPage
   slot
 </template>
 
