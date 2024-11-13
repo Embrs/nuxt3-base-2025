@@ -39,7 +39,6 @@ export default defineNuxtConfig({
     '@nuxt/icon', // https://nuxt.com/modules/icon
     '@nuxtjs/i18n' // https://nuxt.com/modules/i18n
 
-
   ],
 
   devServer: {
@@ -52,14 +51,43 @@ export default defineNuxtConfig({
   },
 
   i18n: {
-    // 對照表: https://zh.wikipedia.org/wiki/%E5%8C%BA%E5%9F%9F%E8%AE%BE%E7%BD%AE#%E5%88%97%E8%A1%A8
+    strategy: 'prefix_except_default',
+    langDir: 'locales',
+    defaultLocale: 'zh',
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      // alwaysRedirect: true,
+      redirectOn: 'root'
+    },
+    lazy: true,
+    // // 對照表: https://zh.wikipedia.org/wiki/%E5%8C%BA%E5%9F%9F%E8%AE%BE%E7%BD%AE#%E5%88%97%E8%A1%A8
     locales: [
-      { code: 'zh', language: 'zh-Hant-TW' },
-      { code: 'cn', language: 'zh-Hans-CN' },
-      { code: 'en', language: 'en-US' },
-      { code: 'ja', language: 'ja' }
-    ],
-    defaultLocale: 'zh'
+      {
+        code: 'zh',
+        language: 'zh-Hant-TW',
+        iso: 'zh-Hant-TW',
+        file: 'zh.js'
+      },
+      {
+        code: 'cn',
+        language: 'zh-Hans-CN',
+        iso: 'zh-Hans-CN',
+        file: 'cn.js'
+      },
+      {
+        code: 'en',
+        language: 'en',
+        iso: 'en',
+        file: 'en.js'
+      },
+      {
+        code: 'ja',
+        language: 'ja',
+        iso: 'ja',
+        file: 'ja.js'
+      }
+    ]
   },
   // .env setting
   runtimeConfig: {
