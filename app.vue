@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { UseInitMeta } from './composables/use-init-meta';
 
-const storeEnv = StoreEnv();
-UseInitMeta();
+const storeEnv = StoreEnv(); // 快取環境變數
+const useDefer = UseDefer(); // 延遲渲染
+UseInitMeta(); // meta 資訊
 
 storeEnv.Init();
 
@@ -13,6 +14,8 @@ div
   NuxtLoadingIndicator(color="#86D4A187")
   NuxtLayout
     NuxtPage
+  ClientOnly
+    OpenGroup(v-if="useDefer.IsDefer(100)")
 </template>
 
 <style lang="scss" scoped>

@@ -1,38 +1,23 @@
 // Type -----------------------------------------------------------------------------------------------
 type OpenType = 
-  'OpenNone'
-  | 'DrawerDemo' // 測試用
-  | 'DialogDemo' // 測試用
+  'OpenDialogDemo' 
 
 // Params -----------------------------------------------------------------------------------------------
 type OpenParams = 
-  OpenNone
-  | DrawerDemo // 測試用
-
-  | DialogDemo // 測試用
+  OpenNone |
+  OpenDialogDemo
 
 /** 無 */
-interface OpenNone {}
+type OpenNone = {}
 
-/** 測試 Draser */
-interface DrawerDemo {
-  demoText: string
+type OpenDialogDemo = {
+  demo: string
 }
-
-/** 測試 Dialog */
-interface DialogDemo {
-  demoText: string
-}
-
 // -----------------------------------------------------------------------------------------------
-/** 抽屜參數
- * @param {OpenType} type *
- * @param {any} params
-*/
+/** 抽屜參數 */
 interface OpenData {
   type: OpenType;
-  params?: 
-    OpenParams
+  params?: OpenParams
 }
 
-interface OpenItem {uuid: string, type: OpenType ,params:OpenParams}
+interface OpenItem {uuid: string, type: OpenType ,params: OpenParams}

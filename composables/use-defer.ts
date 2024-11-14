@@ -17,7 +17,10 @@ export const UseDefer = (maxFrameCount = 1000) => {
       }
     });
   };
-  refreshFrameCount();
+  if (import.meta.client && !!requestAnimationFrame) {
+    console.log('aa');
+    refreshFrameCount();
+  }
   const IsDefer = (showInFrameCount: number) => {
     // 判斷目前渲染的幀數有沒有大於 n
     return frameCount.value >= showInFrameCount;

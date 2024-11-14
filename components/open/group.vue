@@ -1,16 +1,13 @@
 <script setup lang="ts">
 // OpenGroup
-import { ref, onBeforeUnmount } from 'vue';
-
-// import DrawerDemo from './drawers/drawer-demo/index.vue';
-// import DialogDemo from './dialogs/dialog-demo/index.vue';
+// import { OpenDialogDemo } from '@/.nuxt/components';
 
 // 資料 --------------------------------------------------------------------------------------------
 const openList = ref<OpenItem[]>([]);
 
 // Component ---------------------------------------------------------------------------------------
 const openMap: { [key: string]: any } = {
-  // DrawerDemo,
+  OpenDialogDemo: resolveComponent('OpenDialogDemo') // 測試用
   // DialogDemo
 };
 
@@ -25,9 +22,8 @@ const OnHide = (uuid: string) => {
 // 函式 --------------------------------------------------------------------------------------------
 
 // 開啟
-const Open = (openData: OpenData) => {
+const OpenCom = (openData: OpenData) => {
   const data: OpenItem = {
-    // uuid: tool.CreateUUID(),
     uuid: `open-${useId()}`,
     type: openData.type,
     params: openData?.params || {}
@@ -38,7 +34,7 @@ const Open = (openData: OpenData) => {
 // 生命週期 -----------------------------------------------------------------------------------------
 onMounted(() => {
   mitt.on('open', (openData: OpenData) => {
-    Open(openData);
+    OpenCom(openData);
   });
 });
 

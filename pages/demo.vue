@@ -1,6 +1,7 @@
 <script setup lang="ts">
 // PageDemo 請填寫功能描述👈
 const localePath = useLocalePath();
+
 const pageList = [
   'store',
   'env',
@@ -8,7 +9,8 @@ const pageList = [
   'safety',
   'i18n',
   'color',
-  'font'
+  'font',
+  'open'
 ];
 </script>
 
