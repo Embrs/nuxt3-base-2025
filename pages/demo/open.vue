@@ -10,6 +10,7 @@ const ClickOpenDemo = lodash.debounce(() => {
   openCom('OpenDialogDemo', _params);
 }, 400, { leading: true, trailing: false });
 
+
 const OnRefresh = (val: any) => {
   console.log('refresh', val);
 };
