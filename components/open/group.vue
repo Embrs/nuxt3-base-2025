@@ -14,7 +14,6 @@ const openMap: { [key: string]: any } = {
 // 接收事件 -----------------------------------------------------------------------------------------
 // 關閉銷毀
 const OnClose = (uuid: string) => {
-  console.log('close');
   const findIndex = openList.value.findIndex((item) => item.uuid === uuid);
   if (findIndex === -1) return;
   openList.value.splice(findIndex, 1);
@@ -35,7 +34,6 @@ const OpenCom = (openData: OpenData) => {
 // 生命週期 -----------------------------------------------------------------------------------------
 onMounted(() => {
   mitt.on('open', (openData: OpenData) => {
-    console.log('aa');
     OpenCom(openData);
   });
 });

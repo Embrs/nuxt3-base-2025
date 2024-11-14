@@ -11,7 +11,7 @@ const ClickOpenDemo = lodash.debounce(() => {
 }, 400, { leading: true, trailing: false });
 
 const OnRefresh = (val: any) => {
-  console.log('refresh', val);
+  console.log('demo refresh', val);
 };
 
 onMounted(() => {
