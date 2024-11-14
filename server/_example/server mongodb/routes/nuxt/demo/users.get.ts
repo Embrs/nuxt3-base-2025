@@ -14,9 +14,8 @@ export default defineEventHandler(async (event: any) => {
         status: { is_success: false, message: '找不到資料' }
       };
     }
-    console.log('aa', _userList);
     const userList = _userList.map((item: any) => ({ id: item._id, name: item.name, email: item.email }));
-    console.log('bb', userList);
+
     return {
       data: { list: userList, total },
       status: { is_success: true, message: '' }

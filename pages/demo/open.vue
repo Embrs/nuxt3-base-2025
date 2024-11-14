@@ -1,24 +1,22 @@
 <script setup lang="ts">
 // PageDemoOpen 開啟彈窗
 
-// const ClickOpenDemo = lodash.debounce(() => {
-//   const openParams: OpenDialogDemo = {
-//     demo: 'test'
-//   };
-//   openCom('OpenDialogDemo', openParams);
-// }, 400, { leading: true, trailing: false });
+const $re = UseRe();
 
-// const OnRefresh = (val: any) => {
-//   console.log('refresh', val);
-// };
+const ClickOpenDemo = lodash.debounce(() => {
+  const _params: OpenDialogDemo = {
+    demo: 'test'
+  };
+  openCom('OpenDialogDemo', _params);
+}, 400, { leading: true, trailing: false });
 
-// onMounted(() => {
-//   mitt.on('refresh', OnRefresh);
-// });
+const OnRefresh = (val: any) => {
+  console.log('refresh', val);
+};
 
-// onBeforeUnmount(() => {
-//   mitt.off('refresh', OnRefresh);
-// });
+onMounted(() => {
+  $re.RefreshBind(OnRefresh);
+});
 </script>
 
 <template lang="pug">

@@ -1,4 +1,5 @@
 // 延遲渲染
+// 宣告 const $defer = UseDefer();
 // 用法： v-if="IsDefer(n)"
 import { ref } from 'vue';
 // 函數接收一個參數，表示監測的最大幀數，這裡預設值是 1000
@@ -18,7 +19,6 @@ export const UseDefer = (maxFrameCount = 1000) => {
     });
   };
   if (import.meta.client && !!requestAnimationFrame) {
-    console.log('aa');
     refreshFrameCount();
   }
   const IsDefer = (showInFrameCount: number) => {

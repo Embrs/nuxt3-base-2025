@@ -2,7 +2,7 @@
 import { UseInitMeta } from './composables/use-init-meta';
 
 const storeEnv = StoreEnv(); // 快取環境變數
-const useDefer = UseDefer(); // 延遲渲染
+const $defer = UseDefer(); // 延遲渲染
 UseInitMeta(); // meta 資訊
 
 storeEnv.Init();
@@ -15,7 +15,7 @@ div
   NuxtLayout
     NuxtPage
   ClientOnly
-    OpenGroup(v-if="useDefer.IsDefer(100)")
+    OpenGroup(v-if="$defer.IsDefer(100)")
 </template>
 
 <style lang="scss" scoped>

@@ -13,7 +13,8 @@ const openMap: { [key: string]: any } = {
 
 // 接收事件 -----------------------------------------------------------------------------------------
 // 關閉銷毀
-const OnHide = (uuid: string) => {
+const OnClose = (uuid: string) => {
+  console.log('close');
   const findIndex = openList.value.findIndex((item) => item.uuid === uuid);
   if (findIndex === -1) return;
   openList.value.splice(findIndex, 1);
@@ -34,6 +35,7 @@ const OpenCom = (openData: OpenData) => {
 // 生命週期 -----------------------------------------------------------------------------------------
 onMounted(() => {
   mitt.on('open', (openData: OpenData) => {
+    console.log('aa');
     OpenCom(openData);
   });
 });
@@ -49,7 +51,16 @@ onBeforeUnmount(() => {
     :is="openMap[drawerItem.type]"
     v-for="(drawerItem, index) of openList" :key="drawerItem.uuid"
     :params="drawerItem?.params"
-    :index="index"
-    @on-hide="OnHide(drawerItem.uuid)"
+    :level="index"
+    @on-close="OnClose(drawerItem.uuid)"
   )
 </template>
+
+<style lang="scss" scoped>
+// 佈局 ----
+#OpenGroup {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+</style>
