@@ -54,8 +54,9 @@ const MittRefresh = () => {
       class="close-btn"
       @click="EmitClose"
     )
-    button(@click="ClickOpenDemo") Open Demo
-    button(@click="MittRefresh") Call Refresh
+    .row-item
+      button(@click="ClickOpenDemo") Open Demo
+      button(@click="MittRefresh") Call Refresh
 </template>
 
 <style lang="scss" scoped>
@@ -81,5 +82,8 @@ const MittRefresh = () => {
   @include btn-click;
   @include absolute("top-right", 10px, 10px);
   @include fs(30px);
+}
+.row-item {
+  @include row(10px);
 }
 </style>
