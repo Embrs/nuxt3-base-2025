@@ -147,6 +147,7 @@ export default defineNuxtConfig({
     // baseURL: '/',
     buildAssetsDir: '/static/',
     pageTransition: { name: 'page', mode: 'out-in' },
+    layoutTransition: { name: 'layout', mode: 'out-in' },
     // meta
     head: {
       bodyAttrs: {

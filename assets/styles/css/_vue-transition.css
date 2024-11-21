@@ -1,3 +1,12 @@
+.layout-enter-active,
+.layout-leave-active {
+  transition: all 0.2s;
+}
+.layout-enter-from,
+.layout-leave-to {
+  opacity: 0;
+  /* transform: rotate3d(1, 1, 1, 15deg); */
+}
 
 .page-enter-active,
 .page-leave-active {
