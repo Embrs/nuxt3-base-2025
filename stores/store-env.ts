@@ -1,6 +1,3 @@
-import nuxtConfig from "@/nuxt.config";
-
-// 環境變數
 export const StoreEnv = defineStore('StoreEnv', () => {
   const env = ref({
     apiBase: '',

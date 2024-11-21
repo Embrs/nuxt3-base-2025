@@ -105,8 +105,6 @@ const Zero = (val: string| number, len = 5, _d: 'left' | 'right' = 'left') => {
 
 // 行為 --------------------------------------------------------------------------------------------------
 /**  async await 等待 */
-const Wait = (ms = 1000) => new Promise((resolve) => setTimeout(() => resolve(null), ms));
-
 /**  滾動到頂部 */
 const ScrollTop = (idOrClass: string, isSmooth = true) => {
   if (import.meta.server) return;
