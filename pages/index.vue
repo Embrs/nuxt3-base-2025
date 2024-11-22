@@ -9,7 +9,7 @@
   NuxtLink(to="/demo")
     button Demo page
 
-  //- UiDemoStore
+  //- DemoStore
 </template>
 
 <style lang="scss" scoped>

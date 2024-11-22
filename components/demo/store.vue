@@ -1,11 +1,11 @@
 <script setup lang="ts">
-// UiDemoStore 請填寫功能描述👈
+// DemoStore 請填寫功能描述👈
 const storeDemo = StoreDemo();
 </script>
 
 <template lang="pug">
-.UiDemoStore
-  p UiDemoStore
+.DemoStore
+  p DemoStore
   button(@click="storeDemo.Add") Add
   p {{ storeDemo.count }}
   p {{ storeDemo.doubleCount }}
@@ -13,7 +13,7 @@ const storeDemo = StoreDemo();
 
 <style lang="scss" scoped>
 // 佈局 ----
-.UiDemoStore {
+.DemoStore {
   // TODO
   background-color: #aaa;
 }

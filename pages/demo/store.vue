@@ -8,7 +8,7 @@ const storeDemo = StoreDemo();
   button(@click="storeDemo.Add") Add
   p {{ storeDemo.count }}
   p {{ storeDemo.doubleCount }}
-  UiDemoStore
+  DemoStore
 </template>
 
 <style lang="scss" scoped>
