@@ -15,7 +15,6 @@ const HandleError = () => {
 #Error
   p.title {{ props.error.statusCode }}
   p.msg {{ props.error.statusMessage }}
-  NuxtLin
   p.go-home-btn(
     color="#eee"
     class="border-white rounded border px-4 py-2"

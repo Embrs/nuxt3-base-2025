@@ -6,7 +6,7 @@
 <template lang="pug">
 .Home
   p Home
-  NuxtLink(to="/demo")
+  NuxtLinkLocale(to="/demo")
     button Demo page
 
   //- DemoStore

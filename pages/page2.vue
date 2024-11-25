@@ -6,7 +6,7 @@ const storeDemo = StoreDemo();
 <template lang="pug">
 .Page2
   p Page2
-  NuxtLink(to="/") home page
+  NuxtLinkLocale(to="/") home page
   PageStoreDemo
   p storeDemo2
   p {{ storeDemo.count }}

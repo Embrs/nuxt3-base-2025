@@ -1,23 +1,17 @@
 <script setup lang="ts">
 // PageDemoI18n 請填寫功能描述👈
-const localePath = useLocalePath();
-const { locale, locales } = useI18n();
-const switchLocalePath = useSwitchLocalePath();
-
-const availableLocales = computed(() => {
-  return locales.value.filter((i) => i.code !== locale.value);
-});
+const { locales } = useI18n();
 
 </script>
 
 <template lang="pug">
 .PageDemoI18n
   p PageDemoI18n
-  NuxtLink(:to="localePath('/')")
-    button {{ $t('backHome') }}
+  NuxtLinkLocale(:to="'/'")
+    button {{ $t('common.goHome') }}
   .row-item
-    NuxtLink(
-      v-for="localeItem in availableLocales" :key="localeItem.code" :to="switchLocalePath(localeItem.code)"
+    SwitchLocalePathLink(
+      v-for="localeItem in locales" :key="localeItem.code" :locale="localeItem.code"
     )
       button {{ localeItem.name }}
   .row-item
