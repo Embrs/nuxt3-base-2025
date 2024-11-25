@@ -197,7 +197,7 @@ export default defineNuxtConfig({
     ],
     // 開發模式戶端代理
     devProxy: {
-      '/apidmoain': {
+      '/apiurl': {
         target: `${process.env.NUXT_API_BASE as string}/api`, // 這裡是接口地址
         changeOrigin: true,
         prependPath: true

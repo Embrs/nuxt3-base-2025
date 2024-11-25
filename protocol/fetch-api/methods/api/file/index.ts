@@ -6,7 +6,7 @@ const IsMock = () => {
 
 // -----------------------------------------------------------------------------------------------
 const router = {
-  UPLOAD_IMAGE: '/api/upload/image' // 上傳圖片
+  UPLOAD_IMAGE: '/apiurl/upload/image' // 上傳圖片
 
 };
 
