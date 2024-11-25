@@ -23,6 +23,7 @@ onMounted(() => {
 <template lang="pug">
 div
   NuxtLoadingIndicator(color="#86D4A187")
+  LoadingPage
   NuxtLayout
     NuxtPage
   ClientOnly
