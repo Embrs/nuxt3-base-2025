@@ -8,7 +8,16 @@ UseInitMeta(); // meta 資訊
 UseInitWindow();
 
 storeEnv.Init();
+onMounted(() => {
+  window.addEventListener('error', (event) => {
+    console.error('Global error:', event);
+  });
 
+  window.addEventListener('unhandledrejection', (event) => {
+    console.error('Unhandled promise rejection:', event);
+  });
+}
+);
 </script>
 
 <template lang="pug">

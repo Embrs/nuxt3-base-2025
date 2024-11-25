@@ -110,7 +110,17 @@ export default defineNuxtConfig({
         prefix: 'my-icon',
         dir: 'assets/icons'
       }
-    ]
+    ],
+    // https://github.com/nuxt/icon?tab=readme-ov-file#client-bundle
+    clientBundle: {
+      // 要包含在客戶端包中的圖示列表
+      icons: [
+        // 'material-symbols'
+      ],
+      scan: true, // 掃描項目中的所有組件並包括圖標
+      includeCustomCollections: true, // 將所有自訂集合包含在客戶端捆綁包中
+      sizeLimitKb: 256 // 保護未壓縮的套件大小，如果超過則建置失敗
+    }
   },
   // font --------------------------------------------------------------
   // https://nuxt.dev.org.tw/modules/fonts
@@ -187,7 +197,7 @@ export default defineNuxtConfig({
     ],
     // 開發模式戶端代理
     devProxy: {
-      '/api': {
+      '/apidmoain': {
         target: `${process.env.NUXT_API_BASE as string}/api`, // 這裡是接口地址
         changeOrigin: true,
         prependPath: true

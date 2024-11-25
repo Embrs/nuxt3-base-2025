@@ -13,10 +13,6 @@
     "vue": "latest"
   },
   "dependencies": {
-    "@nuxt/fonts": "^0.10.2",
-    "@nuxt/icon": "^1.7.2",
-    "@nuxtjs/color-mode": "^3.5.2",
-    "@nuxtjs/i18n": "^9.0.0",
     "mitt": "^3.0.1",
     "nuxt": "^3.14.159",
     "vue": "latest",
@@ -24,8 +20,12 @@
   },
   "devDependencies": {
     "@gtm-support/vue-gtm": "^3.1.0",
+    "@nuxt/fonts": "^0.10.2",
+    "@nuxt/icon": "^1.8.2",
+    "@nuxtjs/color-mode": "^3.5.2",
     "@nuxtjs/eslint-config-typescript": "^12.1.0",
     "@nuxtjs/google-fonts": "^3.2.0",
+    "@nuxtjs/i18n": "^9.1.0",
     "@nuxtjs/stylelint-module": "^5.2.0",
     "@pinia-plugin-persistedstate/nuxt": "^1.2.1",
     "@pinia/nuxt": "^0.5.5",
