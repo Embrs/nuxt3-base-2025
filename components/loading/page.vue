@@ -21,7 +21,7 @@ nuxtApp.hooks.hookOnce('app:rendered', (e) => {
 
 <template lang="pug">
 .LoadingPage(v-if="!isFinish" :class="{'is-hide': isHide}")
-  Icon(name="svg-spinners:blocks-wave")
+  NuxtIcon(name="svg-spinners:blocks-wave")
 </template>
 
 <style lang="scss" scoped>

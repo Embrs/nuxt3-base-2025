@@ -49,7 +49,7 @@ const MittRefresh = () => {
   .mask
   .card-box
     p OpenDialogDemo
-    Icon(
+    NuxtIcon(
       name="material-symbols:close-rounded"
       class="close-btn"
       @click="EmitClose"

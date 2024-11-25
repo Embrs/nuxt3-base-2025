@@ -103,12 +103,8 @@ export default defineNuxtConfig({
     }
   },
   // icon --------------------------------------------------------------
-  ui: {
-    icons: {
-      dynamic: true
-    }
-  },
   icon: {
+    componentName: 'NuxtIcon',
     customCollections: [
       {
         prefix: 'my-icon',
