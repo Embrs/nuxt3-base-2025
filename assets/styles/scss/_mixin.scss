@@ -12,7 +12,7 @@
 }
 
 @mixin row($gap: 0, $align: center) {
-  display: flex;
+  display: inline-flex;
   align-items: $align;
   gap: $gap;
 }
@@ -83,10 +83,12 @@
 }
 
 @mixin text-row($row: 3) {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  -webkit-line-clamp: $row; /* 指定显示的最大行数 */
+  & {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    -webkit-line-clamp: $row; /* 指定显示的最大行数 */
+  }
 }
 
 @mixin btn-click {

@@ -1,3 +1,5 @@
+@use './config' as *;
+
 @mixin rwd-pc-big() {
   @media (min-width: $pc) {
     @content;

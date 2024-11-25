@@ -105,6 +105,8 @@ const Zero = (val: string| number, len = 5, _d: 'left' | 'right' = 'left') => {
 
 // 行為 --------------------------------------------------------------------------------------------------
 /**  async await 等待 */
+const Wait = (ms = 1000) => new Promise((resolve) => setTimeout(() => resolve(null), ms));
+
 /**  滾動到頂部 */
 const ScrollTop = (idOrClass: string, isSmooth = true) => {
   if (import.meta.server) return;
@@ -183,7 +185,27 @@ const HiddenScrollbar = (canHide: boolean) => {
   }
 };
 
+/* 取得基本路徑 */
+const GetBasePath = (name: string, path: string): string => {
+  const arr = name.split('___');
+  const lang = arr?.[1] || 'zh';
+  const basePath = path.replace(`/${lang}`, '') || '/';
+  return basePath;
+};
+
+/* 轉換成時間戳 */
+const ToTimestamps = (formatDate: string) => new Date(formatDate).valueOf() || 0;
+
+/* 縮放後臺 */
+const ZoomBGM = (zoomNum: number, item:string = '.BgmLayout') => {
+  const el = document.querySelector(item) as HTMLElement;
+  if (!el) return;
+  el.style.zoom = `${zoomNum}`;
+};
+
+/* 首字母大寫 */
 const FirstUpper = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
+
 export default {
   HasKey,
   IsArray,
@@ -206,5 +228,8 @@ export default {
   CopyText, // 複製文字
   ShareUrl, // 分享網址
   HiddenScrollbar, // 隱藏滾動
+  GetBasePath, // 取得基本路徑
+  ToTimestamps, // 轉換成時間戳
+  ZoomBGM, // 縮放後臺
   FirstUpper // 首字母大寫
 };

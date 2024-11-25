@@ -223,7 +223,16 @@ export default defineNuxtConfig({
     css: {
       preprocessorOptions: {
         scss: { // scss 配置
-          additionalData: '@use "@/assets/styles/scss/index.scss" as *;'
+          silenceDeprecations: ['legacy-js-api'],
+          additionalData: `
+            @use '@/assets/styles/scss/config.scss' as *;
+            @use '@/assets/styles/scss/colors.scss' as *;
+            @use '@/assets/styles/scss/fn.scss' as *;
+            @use '@/assets/styles/scss/mixin.scss' as *;
+            @use '@/assets/styles/scss/font-size.scss' as *;
+            @use '@/assets/styles/scss/rwd.scss' as *;
+          `,
+          quietDeps: true // 關閉警告
         }
       }
     },

@@ -1,3 +1,7 @@
+@use './fn' as *;
+@function rem($px: 16px, $defaultVal: 16px) {
+  @return calc($px / $defaultVal) * 1rem;
+}
 // 預設 font size 16px
 @mixin fs($size: 16px, $font-weight: 400) {
   $calcSize: 16px;
@@ -38,7 +42,6 @@
   // } 
   $calcSize: rem($size);
   font-size: $calcSize;
-  // font-family: "Noto Sans TC";
   font-weight: $font-weight;
   line-height: $lineHeight;
   letter-spacing: $letterSpacing;
