@@ -1,13 +1,13 @@
 // mitt 刷新 & 重加載
 // 宣告 const $re = UseRe();
-type Fn = (event: any) => void
+type Fn = (val: any) => void
 export const UseRe = () => {
   // const canBind = ref(false);
   const refreshFnList = ref<Fn[]>([]);
   const reloadFnList = ref<Fn[]>([]);
 
   /* 刷新 fn 綁定，必須在 onMounted 綁定 */
-  const RefreshBind = (fn: Fn) => {
+  const RefreshBind = (fn:Fn) => {
     refreshFnList.value.push(fn);
     mitt.on('refresh', fn);
   };

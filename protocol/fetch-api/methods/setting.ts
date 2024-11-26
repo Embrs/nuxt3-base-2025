@@ -1,4 +1,4 @@
-let storeAuth: any = null;
+let storeAuth: ReturnType<typeof StoreAuth> | null = null;
 let isNuxtReady = false;
 
 onNuxtReady(() => {
