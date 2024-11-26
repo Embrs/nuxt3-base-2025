@@ -6,6 +6,8 @@ onNuxtReady(() => {
   storeAuth = StoreAuth();
 });
 
+const token = computed(() => isNuxtReady ? storeAuth?.token || '' : '');
+
 // 預設錯誤回傳訊息
 const defErr: DefaultRes = Object.freeze({
   data: null,
@@ -38,7 +40,6 @@ const GetApiUrl = () => {
 
 // 預設請求
 const Fetch = (url: string, option: AnyObject, downloadFile: boolean = false) => {
-  const token = isNuxtReady ? storeAuth.token : '';
   // 加入 ?t 避免 api 快取
   return $fetch(`${url}?t=${Date.now()}`, {
     ...option,
@@ -47,7 +48,7 @@ const Fetch = (url: string, option: AnyObject, downloadFile: boolean = false) =>
     onRequest ({ options }) {
       options.baseURL = GetApiUrl();
       options.headers = new Headers(options.headers);
-      options.headers.set('Authorization', `Bearer ${token}`);
+      options.headers.set('Authorization', `Bearer ${token.value}`);
     },
 
     // 響應攔截
@@ -128,7 +129,6 @@ export const methods = {
 
   // 檔案上傳(進度條)
   progressFilePost: (url: string, body: AnyObject = {}, progressObj: FileProgress) => {
-    const token = isNuxtReady ? storeAuth.token : '';
     return new Promise((resolve) => {
       const xhr = new XMLHttpRequest();
       xhr.upload.addEventListener('progress', (e) => {
@@ -143,7 +143,7 @@ export const methods = {
         resolve(_res);
       });
       xhr.open('POST', url, true);
-      xhr.setRequestHeader('Authorization', `Bearer ${token}`);
+      xhr.setRequestHeader('Authorization', `Bearer ${token.value}`);
       xhr.send(tool.ToFormData(body));
     });
   }
