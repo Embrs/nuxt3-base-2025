@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "mitt": "^3.0.1",
-    "nuxt": "^3.14.159",
+    "nuxt": "^3.15.4",
     "vue": "latest",
     "vue-router": "latest"
   },
@@ -50,7 +50,6 @@
     "vite-plugin-pug": "^0.4.1"
   },
   "engines": {
-    "node": "= 20.18.0",
-    "npm": ">= 10.8.2"
+    "node": ">= 22.13.1"
   }
 }
