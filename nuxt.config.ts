@@ -31,7 +31,7 @@ export default defineNuxtConfig({
     // '@nuxtjs/device', // https://github.com/nuxt-modules/stylelint
     '@nuxtjs/stylelint-module', // https://github.com/nuxt-modules/stylelint
     '@pinia/nuxt', // https://pinia.vuejs.org/ssr/nuxt.html
-    '@pinia-plugin-persistedstate/nuxt', // https://nuxt.com/modules/pinia-plugin-persistedstate#pinia-plugin-persistedstate
+    'pinia-plugin-persistedstate/nuxt', // https://nuxt.com/modules/pinia-plugin-persistedstate#pinia-plugin-persistedstate
     '@nuxt/icon', // https://nuxt.com/modules/icon
     '@nuxtjs/i18n', // https://nuxt.com/modules/i18n
     '@nuxtjs/color-mode', // https://color-mode.nuxtjs.org/?utm_source=nuxt.com&utm_medium=aside-module&utm_campaign=nuxt.com
