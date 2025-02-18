@@ -1,3 +1,12 @@
+// -----------------------------------------------------------------------------------------------
+/** 抽屜參數 */
+interface OpenData {
+  uuid: string
+  type: OpenType
+  params: OpenParams
+  resolve
+}
+
 // Type -----------------------------------------------------------------------------------------------
 type OpenType = 
   'OpenDialogDemo' 
@@ -15,14 +24,4 @@ type OpenNoneRes = {
 
 type OpenDialogDemo = {
   demo: string
-}
-
-
-// -----------------------------------------------------------------------------------------------
-/** 抽屜參數 */
-interface OpenData {
-  uuid: string
-  type: OpenType
-  params: OpenParams
-  resolve
 }
