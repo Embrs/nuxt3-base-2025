@@ -3,11 +3,12 @@
 
 const $re = UseRe();
 
-const ClickOpenDemo = lodash.debounce(() => {
+const ClickOpenDemo = lodash.debounce(async () => {
   const _params: OpenDialogDemo = {
     demo: 'test'
   };
-  openCom('OpenDialogDemo', _params);
+  const res = await openCom('OpenDialogDemo', _params);
+  console.log('demo page', res);
 }, 400, { leading: true, trailing: false });
 
 const OnRefresh = (val: any) => {

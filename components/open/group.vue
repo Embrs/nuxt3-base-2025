@@ -3,7 +3,7 @@
 // import { OpenDialogDemo } from '@/.nuxt/components';
 
 // 資料 --------------------------------------------------------------------------------------------
-const openList = ref<OpenItem[]>([]);
+const openList = ref<OpenData[]>([]);
 
 // Component ---------------------------------------------------------------------------------------
 const openMap: { [key: string]: any } = {
@@ -19,22 +19,10 @@ const OnClose = (uuid: string) => {
   openList.value.splice(findIndex, 1);
 };
 
-// 函式 --------------------------------------------------------------------------------------------
-
-// 開啟
-const OpenCom = (openData: OpenData) => {
-  const data: OpenItem = {
-    uuid: `open-${useId()}`,
-    type: openData.type,
-    params: openData?.params || {}
-  };
-  openList.value.push(data);
-};
-
 // 生命週期 -----------------------------------------------------------------------------------------
 onMounted(() => {
   mitt.on('open', (openData: OpenData) => {
-    OpenCom(openData);
+    openList.value.push(openData);
   });
 });
 
@@ -48,7 +36,8 @@ onBeforeUnmount(() => {
   component(
     :is="openMap[drawerItem.type]"
     v-for="(drawerItem, index) of openList" :key="drawerItem.uuid"
-    :params="drawerItem?.params"
+    :params="drawerItem.params"
+    :resolve="drawerItem.resolve"
     :level="index"
     @on-close="OnClose(drawerItem.uuid)"
   )

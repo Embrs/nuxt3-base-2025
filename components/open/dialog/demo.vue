@@ -2,30 +2,25 @@
 // OpenDialogDemo 彈窗測試
 const $re = UseRe();
 // 資料 --------------------------------------------------------------------------------------------
-const props = defineProps({
-  params: {
-    type: Object as () => OpenDialogDemo,
-    required: true
-  },
-  level: {
-    type: Number,
-    default: 0
-  }
-});
-
+const props = defineProps<{
+  params: OpenDialogDemo
+  resolve:(value: OpenNoneRes | PromiseLike<OpenNoneRes>) => void
+  level: number
+}>();
 // 接收事件 -----------------------------------------------------------------------------------------
-const ClickOpenDemo = lodash.debounce(() => {
+const ClickOpenDemo = lodash.debounce(async () => {
   const openParams: OpenDialogDemo = {
     demo: 'test123'
   };
-  openCom('OpenDialogDemo', openParams);
+  const res = await openCom<string>('OpenDialogDemo', openParams);
+  console.log('dialog', res);
 }, 400, { leading: true, trailing: false });
 
 // 生命週期 -----------------------------------------------------------------------------------------
-
 const TestOnRefresh = () => {
   console.log('level', props.level, 123);
 };
+
 onMounted(() => {
   console.log('params', props.params);
   $re.RefreshBind(TestOnRefresh);
@@ -34,12 +29,14 @@ onMounted(() => {
 // 對外事件 -----------------------------------------------------------------------------------------
 const emit = defineEmits(['on-close']);
 const EmitClose = () => {
+  props.resolve({ isComplete: true });
   emit('on-close');
 };
 
 const MittRefresh = () => {
   mitt.emit('refresh', { abc: 'test456' });
 };
+
 // Ref 輸出 ----------------------------------------------------------------------------------------
 // defineExpose({ ... })
 </script>

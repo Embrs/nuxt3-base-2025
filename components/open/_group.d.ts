@@ -9,15 +9,20 @@ type OpenParams =
 
 /** 無 */
 type OpenNone = {}
+type OpenNoneRes = {
+  isComplete: boolean
+}
 
 type OpenDialogDemo = {
   demo: string
 }
+
+
 // -----------------------------------------------------------------------------------------------
 /** 抽屜參數 */
 interface OpenData {
-  type: OpenType;
-  params?: OpenParams
+  uuid: string
+  type: OpenType
+  params: OpenParams
+  resolve
 }
-
-interface OpenItem {uuid: string, type: OpenType ,params: OpenParams}
