@@ -29,7 +29,7 @@ onMounted(() => {
 // 對外事件 -----------------------------------------------------------------------------------------
 const emit = defineEmits(['on-close']);
 const EmitClose = () => {
-  props.resolve({ isComplete: true });
+  props.resolve(true);
   emit('on-close');
 };
 

@@ -18,7 +18,7 @@ type OpenParams =
 
 /** 無 */
 type OpenNone = {}
-type OpenNoneRes = null
+type OpenNoneRes = boolean
 
 type OpenDialogDemo = {
   demo: string
