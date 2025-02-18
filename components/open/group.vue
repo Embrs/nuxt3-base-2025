@@ -1,16 +1,8 @@
 <script setup lang="ts">
 // OpenGroup
-// import { OpenDialogDemo } from '@/.nuxt/components';
-
 // 資料 --------------------------------------------------------------------------------------------
 const $mitt = UseMitt();
 const openList = ref<OpenData[]>([]);
-
-// Component ---------------------------------------------------------------------------------------
-const openMap: { [key: string]: any } = {
-  OpenDialogDemo: resolveComponent('OpenDialogDemo') // 測試用
-  // DialogDemo
-};
 
 // 接收事件 -----------------------------------------------------------------------------------------
 // 關閉銷毀
@@ -25,6 +17,10 @@ onMounted(() => {
   $mitt.OnDialogOpen((openData: OpenData) => {
     openList.value.push(openData);
   });
+
+  $mitt.OnDialogCloseAll(() => {
+    openList.value = [];
+  });
 });
 
 </script>
@@ -32,10 +28,10 @@ onMounted(() => {
 <template lang="pug">
 #OpenGroup(v-if="openList.length > 0")
   component(
-    :is="openMap[drawerItem.type]"
-    v-for="(drawerItem, index) of openList" :key="drawerItem.uuid"
-    :params="drawerItem.params"
-    :resolve="drawerItem.resolve"
+    :is="drawerItem.type"
+    v-for="(drawerItem, index) of openList"
+    :key="drawerItem.uuid"
+    :params="drawerItem?.params"
     :level="index"
     @on-close="OnClose(drawerItem.uuid)"
   )
