@@ -8,12 +8,12 @@ export const UseMitt = () => {
   // 接收，開始監聽
   const On = (event: MittKeys, fn: Fn) => {
     onFnList.value.push({ event, fn });
-    mitt.on(`${event}`, fn);
+    emitter.on(`${event}`, fn);
   };
 
   // 送出，呼叫
   const Emit = (event: MittKeys, val: any) => {
-    mitt.emit(`${event}`, val);
+    emitter.emit(`${event}`, val);
   };
 
   // ----------------------------------------------------------------
@@ -26,7 +26,7 @@ export const UseMitt = () => {
   const EmitReload = <T>(val: T) => Emit('reload', val);
 
   const EmitDialogOpen = <T>(type: OpenType, params: OpenParams = {}):Promise<T> =>
-    new Promise((resolve) => mitt.emit(
+    new Promise((resolve) => emitter.emit(
       'dialog-open', {
         uuid: `open-${tool.CreateUUID()}`,
         resolve,
@@ -39,7 +39,7 @@ export const UseMitt = () => {
   // -----------------------------------------------------------------------------------------------
   // 卸載事件
   onBeforeUnmount(() => {
-    onFnList.value.forEach(({ event, fn }) => mitt.off(event, fn));
+    onFnList.value.forEach(({ event, fn }) => emitter.off(event, fn));
   });
 
   return {
