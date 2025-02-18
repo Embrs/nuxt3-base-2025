@@ -1,22 +1,22 @@
 <script setup lang="ts">
 // PageDemoOpen 開啟彈窗
 
-const $re = UseRe();
+const $mitt = UseMitt();
 
 const ClickOpenDemo = lodash.debounce(async () => {
   const _params: OpenDialogDemo = {
     demo: 'test'
   };
-  const res = await openCom('OpenDialogDemo', _params);
-  console.log('demo page', res);
+  await $mitt.EmitDialogOpen('OpenDialogDemo', _params);
+  console.log('demo page');
 }, 400, { leading: true, trailing: false });
 
 const OnRefresh = (val: any) => {
-  console.log('demo refresh', val);
+  console.log('demo refresh page', val);
 };
 
 onMounted(() => {
-  $re.RefreshBind(OnRefresh);
+  $mitt.OnRefresh(OnRefresh);
 });
 </script>
 

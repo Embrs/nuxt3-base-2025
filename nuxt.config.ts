@@ -144,7 +144,9 @@ export default defineNuxtConfig({
   // 全局範圍設定 composables utils 為預設 --------------------------------
   imports: {
     dirs: [
-      'stores' // pinia
+      'stores', // pinia
+      'composables/**', // composables
+      'utils/*/index.{ts,js,mjs,mts}' // utils
     ]
   },
 

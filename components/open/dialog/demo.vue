@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // OpenDialogDemo 彈窗測試
-const $re = UseRe();
+const $mitt = UseMitt();
 // 資料 --------------------------------------------------------------------------------------------
 const props = defineProps<{
   params: OpenDialogDemo
@@ -12,18 +12,18 @@ const ClickOpenDemo = lodash.debounce(async () => {
   const openParams: OpenDialogDemo = {
     demo: 'test123'
   };
-  const res = await openCom<string>('OpenDialogDemo', openParams);
-  console.log('dialog', res);
+  await $mitt.EmitDialogOpen('OpenDialogDemo', openParams);
+  console.log('dialog');
 }, 400, { leading: true, trailing: false });
 
 // 生命週期 -----------------------------------------------------------------------------------------
 const TestOnRefresh = () => {
-  console.log('level', props.level, 123);
+  console.log('demo refresh level', props.level, 123);
 };
 
 onMounted(() => {
   console.log('params', props.params);
-  $re.RefreshBind(TestOnRefresh);
+  $mitt.OnRefresh(TestOnRefresh);
 });
 
 // 對外事件 -----------------------------------------------------------------------------------------
@@ -34,7 +34,7 @@ const EmitClose = () => {
 };
 
 const MittRefresh = () => {
-  mitt.emit('refresh', { abc: 'test456' });
+  $mitt.EmitRefresh({ abc: 'test456' });
 };
 
 // Ref 輸出 ----------------------------------------------------------------------------------------

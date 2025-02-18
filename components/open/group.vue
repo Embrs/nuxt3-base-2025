@@ -3,6 +3,7 @@
 // import { OpenDialogDemo } from '@/.nuxt/components';
 
 // 資料 --------------------------------------------------------------------------------------------
+const $mitt = UseMitt();
 const openList = ref<OpenData[]>([]);
 
 // Component ---------------------------------------------------------------------------------------
@@ -21,14 +22,11 @@ const OnClose = (uuid: string) => {
 
 // 生命週期 -----------------------------------------------------------------------------------------
 onMounted(() => {
-  mitt.on('open', (openData: OpenData) => {
+  $mitt.OnDialogOpen((openData: OpenData) => {
     openList.value.push(openData);
   });
 });
 
-onBeforeUnmount(() => {
-  mitt.off('open');
-});
 </script>
 
 <template lang="pug">
