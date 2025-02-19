@@ -9,9 +9,8 @@ const openList = ref<OpenData[]>([]);
 const OnClose = (uuid: string) => {
   const findIndex = openList.value.findIndex((item) => item.uuid === uuid);
   if (findIndex === -1) return;
-  if (openList.value[findIndex].resolve) {
-    openList.value[findIndex].resolve();
-  }
+  const item = openList.value[findIndex];
+  item?.resolve(); // 釋放
   openList.value.splice(findIndex, 1);
 };
 
@@ -23,9 +22,7 @@ onMounted(() => {
 
   $mitt.OnDialogCloseAll(() => {
     for (const item of openList.value) {
-      if (item.resolve) {
-        item.resolve();
-      }
+      item?.resolve(); // 釋放
     }
     openList.value = [];
   });
