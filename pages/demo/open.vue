@@ -7,8 +7,8 @@ const ClickOpenDemo = lodash.debounce(async () => {
   const _params: OpenDialogDemo = {
     demo: 'test'
   };
-  await $mitt.EmitDialogOpen('OpenDialogDemo', _params);
-  console.log('demo page');
+  const res = await $mitt.EmitDialogOpen('OpenDialogDemo', _params);
+  console.log('demo page', res);
 }, 400, { leading: true, trailing: false });
 
 const OnRefresh = (val: any) => {
