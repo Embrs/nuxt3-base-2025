@@ -75,7 +75,7 @@
       "",
       "<template lang=\"pug\">",
       ".$1",
-      "  p $1",
+      "  LyTodo",
       "</template>",
       "",
       "<style lang=\"scss\" scoped>",
@@ -113,8 +113,10 @@
 		"prefix": "mClassify",
 		"body": [
       "// 資料 --------------------------------------------------------------------------------------------",
-			"// const props = defineProps<{}>(); definePageMeta({});",
-			"",
+      "// interface Props {}",
+			"// const props = withDefaults(defineProps<Props>(),{});",
+			"// watch(()=>,()=>{},{deep: true, immediate: true})",
+      "",
 			"// 接收事件 -----------------------------------------------------------------------------------------",
 			"",
 			"// 流程 --------------------------------------------------------------------------------------------",
@@ -127,10 +129,11 @@
 			"// onMounted(()=>{});",
 			"",
       "// 對外事件 -----------------------------------------------------------------------------------------", 
-			"// const emit = defineEmits(['update:modelValue','on-change']);",
+      "// interface Emit {'on-change': [id,number, value: any]}",
+			"// const emit = defineEmits<Emit>();",
 			"",
 			"// Ref 輸出 ----------------------------------------------------------------------------------------",
-			"// defineExpose({ ... })",
+			"// defineExpose({ ... });",
 		]
 	},
   "apibase": {
@@ -188,5 +191,79 @@
       "  }",
       "};"
     ]
-  }
+  },
+  "ElInput": {
+    "prefix": "input",
+    "body": [
+      "ElFormItem(:label=\"$$t('form.$1')\" prop=\"//TODO\")",
+      "  ElInput(",
+      "    :placeholder=\"$$t('form.enter')\"",
+      "    maxlength=\"200\"",
+      "    @change=\"EmitChange\"",
+      "  )"
+    ]
+  },
+  "ElTextarea": {
+    "prefix": "memo",
+    "body": [
+      "ElFormItem(:label=\"$$t('form.memo')\")",
+      "  ElInput(",
+      "    :placeholder=\"$$t('form.enter')\"",
+      "    type=\"textarea\"",
+      "    maxlength=\"2000\"",
+      "    :autosize=\"{minRows: 4, maxRows: 4 }\"",
+      "    @change=\"EmitChange\"",
+      "  )",
+    ]
+  },
+  "ElSelect": {
+    "prefix": "select",
+    "body": [
+      "ElFormItem(:label=\"$$t('form.$1')\" prop=\"//TODO\")",
+      "  ElSelect(",
+      "    :placeholder=\"$$t('form.select')\"",
+      "    clearable",
+      "    @change=\"EmitChange\"",
+      "  )",
+      "    ElOption(",
+      "      v-for=\"item of [{value: 1, label: 'Demo'}]\"",
+      "      :key=\"item.value\"",
+      "      :label=\"item.label\"",
+      "      :value=\"item.value\"",
+      "    )",
+    ]
+  },
+  "ElDatePicker": {
+    "prefix": "datepicker",
+    "body": [
+      "ElFormItem(:label=\"$$t('form.$1')\" prop=\"//TODO\")",
+      "  ElDatePicker(",
+      "    type=\"date\"",
+      "    format=\"YYYY-MM-DD\"",
+      "    value-format=\"YYYY-MM-DD\"",
+      "    :placeholder=\"$$t('form.select')\"",
+      "    style=\"width: 100%\"",
+      "    value-on-clear=\"\"",
+      "    :editable=\"false\"",
+      "    @change=\"EmitChange\"",
+      "  )",
+    ]
+  },
+  "ElRadio": {
+    "prefix": "radio",
+    "body": [
+      "ElFormItem(:label=\"$$t('form.$1')\")",
+      "  ElRadioGroup",
+      "    ElRadio(value=\"1\") {{ $$t('form.no') }}",
+      "    ElRadio(value=\"2\") {{ $$t('form.yes') }}",
+    ]
+  },
+  "ElCheckbox": {
+    "prefix": "checkbox",
+    "body": [
+      "ElFormItem(:label=\"$$t('form.$t')\")",
+      "  ElCheckboxGroup(v-model=\"params.roleTypeList\")",
+      "    ElCheckbox(v-for=\" roleItem of roleTypeList\" :key=\"roleItem.value\" :label=\"roleItem.label\" :value=\"roleItem.value\")",
+    ]
+  },
 }
