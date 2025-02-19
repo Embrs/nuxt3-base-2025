@@ -1,13 +1,17 @@
 <script setup lang="ts">
 // OpenDialogDemo 彈窗測試
+// -- 引入 --------------------------------------------------------------------------------------------
 const $mitt = UseMitt();
-// 資料 --------------------------------------------------------------------------------------------
-const props = defineProps<{
+
+// -- 資料 --------------------------------------------------------------------------------------------
+type Props = {
   params: OpenDialogDemo
   resolve:(value: OpenNoneRes | PromiseLike<OpenNoneRes>) => void
   level: number
-}>();
-// 接收事件 -----------------------------------------------------------------------------------------
+}
+const props = defineProps<Props>();
+
+// -- 接收事件 -----------------------------------------------------------------------------------------
 const ClickOpenDemo = lodash.debounce(async () => {
   const openParams: OpenDialogDemo = {
     demo: 'test123'
@@ -16,7 +20,7 @@ const ClickOpenDemo = lodash.debounce(async () => {
   console.log('dialog');
 }, 400, { leading: true, trailing: false });
 
-// 生命週期 -----------------------------------------------------------------------------------------
+// -- 生命週期 -----------------------------------------------------------------------------------------
 const TestOnRefresh = () => {
   console.log('demo refresh level', props.level, 123);
 };
@@ -26,8 +30,10 @@ onMounted(() => {
   $mitt.OnRefresh(TestOnRefresh);
 });
 
-// 對外事件 -----------------------------------------------------------------------------------------
-const emit = defineEmits(['on-close']);
+// -- 發送事件 -----------------------------------------------------------------------------------------
+type Emit = {'on-close': []}
+const emit = defineEmits<Emit>();
+
 const EmitClose = () => {
   // props.resolve(true);
   emit('on-close');
@@ -37,8 +43,6 @@ const MittRefresh = () => {
   $mitt.EmitRefresh({ abc: 'test456' });
 };
 
-// Ref 輸出 ----------------------------------------------------------------------------------------
-// defineExpose({ ... })
 </script>
 
 <template lang="pug">

@@ -1,17 +1,18 @@
 // meta 初始化
 export const UseInitMeta = () => {
+  // -- 引入 --------------------------------------------------------------------------------------------
   const route = useRoute();
   const i18nHead = useLocaleHead();
 
-  // 資料 --------------------------------------------------------------------------------------------
+  // -- 資料 --------------------------------------------------------------------------------------------
   const author = useState('author', () => 'Athenaads');
   const seoTitle = useState('seoTitle', () => '網站名稱');
   const seoDesc = useState('seoDesc', () => '網站描述');
   const seoKeywords = useState('seoKeywords', () => 'aa,bb,cc');
 
   const lang = computed(() => i18nHead.value?.htmlAttrs?.lang || 'zh-Hant-TW');
-  // 生命週期 -----------------------------------------------------------------------------------------
 
+  // -- 生命週期 -----------------------------------------------------------------------------------------
   useHead({
     htmlAttrs: () => ({ lang: lang.value }),
     title: () => seoTitle.value,

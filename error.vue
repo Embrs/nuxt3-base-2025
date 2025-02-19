@@ -1,8 +1,9 @@
 <script setup lang="ts">
 // Error 請填寫功能描述👈
-const props = defineProps<{
+type Props = {
   error: { statusCode: Number, statusMessage: string }
-}>();
+}
+const props = defineProps<Props>();
 const HandleError = () => {
   clearError({ redirect: '/' });
 };

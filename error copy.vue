@@ -1,7 +1,9 @@
 <script setup lang="ts">
-const props = defineProps<{
+
+type Props = {
   error: { statusCode: Number, statusMessage: string }
-}>();
+}
+const props = defineProps<Props>();
 const HandleError = () => {
   clearError({ redirect: '/' });
 };
