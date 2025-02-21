@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  nuxt-app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - '3000:3000'
+    volumes:
+      - .:/app  # 把當前目錄掛載到容器內
+      - /app/node_modules  # 避免 node_modules 來自本機，導致相依性錯誤
+    environment:
+      - NODE_ENV=development
+    command: npm run dev

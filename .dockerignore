@@ -1,4 +1,5 @@
 **/node_modules
 .nuxt
 .output
+dist
 test.html

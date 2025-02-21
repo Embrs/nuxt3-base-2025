@@ -38,8 +38,8 @@ export default defineNuxtConfig({
     '@nuxt/fonts' // https://fonts.nuxt.com/get-started/installation
   ],
   devServer: {
-    port: Number(process.env.NUXT_PORT || 3001),
-    host: process.env.NUXT_HOST || '0.0.0.0'
+    // port: Number(process.env.NUXT_PORT || 3001),
+    // host: process.env.NUXT_HOST || '0.0.0.0'
     // https: { // Nuxt3Https 模式
     //   key: './https/localhost.key',
     //   cert: './https/localhost.crt'

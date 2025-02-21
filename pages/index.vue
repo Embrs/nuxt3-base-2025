@@ -5,9 +5,9 @@
 
 <template lang="pug">
 .Home
-  p Home
+  p Home ss
   NuxtLinkLocale(to="/demo")
-    button Demo page
+    button Demo pagebb
 
   //- DemoStore
 </template>
