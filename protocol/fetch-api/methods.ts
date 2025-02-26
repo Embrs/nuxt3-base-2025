@@ -77,35 +77,35 @@ const Fetch = (url: string, option: AnyObject) => {
 // 自動導出
 export default {
   /** 取得  */
-  get: (url: string, query: AnyObject) =>
-    Fetch(url, { method: 'get', query }).catch((err) => err),
+  get: <T>(url: string, query: AnyObject = {}) =>
+    Fetch(url, { method: 'get', query }).catch((err) => err) as Promise<ApiRes<T>>,
 
   /** 建立 */
-  post: (url: string, body: AnyObject) =>
-    Fetch(url, { method: 'post', body }).catch((err) => err),
+  post: <T>(url: string, body: AnyObject = {}) =>
+    Fetch(url, { method: 'post', body }).catch((err) => err) as Promise<ApiRes<T>>,
 
   /** 單一編輯 */
-  patch: (url: string, body: AnyObject) =>
-    Fetch(url, { method: 'patch', body }).catch((err) => err),
+  patch: <T>(url: string, body: AnyObject = {}) =>
+    Fetch(url, { method: 'patch', body }).catch((err) => err) as Promise<ApiRes<T>>,
 
   /** 更新 */
-  put: (url: string, body: AnyObject) =>
-    Fetch(url, { method: 'put', body }).catch((err) => err),
+  put: <T>(url: string, body: AnyObject = {}) =>
+    Fetch(url, { method: 'put', body }).catch((err) => err) as Promise<ApiRes<T>>,
 
   /** 刪除 */
-  delete: (url: string, query: AnyObject) =>
-    Fetch(url, { method: 'delete', query }).catch((err) => err),
+  delete: <T>(url: string, query: AnyObject = {}) =>
+    Fetch(url, { method: 'delete', query }).catch((err) => err) as Promise<ApiRes<T>>,
 
   /** 檔案上傳 */
-  fileUpload: (url: string, body: AnyObject) =>
-    Fetch(url, { method: 'post', body: tool.ToFormData(body) }).catch((err) => err),
+  fileUpload: <T>(url: string, body: AnyObject = {}) =>
+    Fetch(url, { method: 'post', body: tool.ToFormData(body) }).catch((err) => err) as Promise<ApiRes<T>>,
 
   /** 檔案下載 */
-  fileDownload: (url: string, body: AnyObject) =>
-    Fetch(url, { method: 'get', body: tool.ToFormData(body) }).catch((err) => err),
+  fileDownload: <T>(url: string, body: AnyObject = {}) =>
+    Fetch(url, { method: 'get', body: tool.ToFormData(body) }).catch((err) => err) as Promise<ApiRes<T>>,
 
   /** 檔案上傳(進度條) */
-  xhrFileUpload: (url: string, body: AnyObject, progressObj: FileProgress) => {
+  xhrFileUpload: <T>(url: string, body: AnyObject = {}, progressObj: FileProgress): Promise<ApiRes<T>> => {
     return new Promise((resolve) => {
       const xhr = new XMLHttpRequest();
       xhr.upload.addEventListener('progress', (e) => {
@@ -115,7 +115,7 @@ export default {
         if (e.lengthComputable && e.total > 0) progressObj['download'] = Math.floor((e.loaded / e.total) * 100);
       });
       xhr.addEventListener('loadend', (e: any) => {
-        let _res: ApiRes = JSON.parse(e?.currentTarget?.responseText || '') || {};
+        let _res: ApiRes<T> = JSON.parse(e?.currentTarget?.responseText || '') || {};
         _res = FilterRes({ _data: _res }, 9996);
         resolve(_res);
       });

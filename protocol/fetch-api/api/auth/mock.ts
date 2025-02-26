@@ -1,15 +1,16 @@
 // mock 回傳調整
-const CreateRes = <T>(data: AnyObject = {}) => (
-  { data, status: { code: 0, message: { zh_tw: '', en: '', ja: '' } } } as T
-);
+const CreateRes = <T>(data: T) => new Promise<ApiRes<T>>((resolve) => {
+  const res = { data, status: { code: 0, message: { zh_tw: '', en: '', ja: '' } } } as ApiRes<T>;
+  setTimeout(() => { resolve(res); }, 100);
+});
 
-export const Default = (): Promise<ApiRes> => new Promise((resolve) => setTimeout(() => { resolve(CreateRes()); }, 100));
-
+// 預設回傳 -------------------------------------------------------------------------------------------------
+export const Default = () => CreateRes({});
 // -------------------------------------------------------------------------------------------------
 // 登入
-export const SignIn = (): Promise<ApiRes<SignInRes>> => new Promise((resolve) => {
-  const data = {
-    token: ''
+export const SignIn = () => {
+  const data: SignInRes = {
+    token: 'abc123'
   };
-  setTimeout(() => { resolve(CreateRes(data)); }, 100);
-});
+  return CreateRes(data);
+};
