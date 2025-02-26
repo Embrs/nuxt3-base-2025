@@ -12,7 +12,7 @@ const router = {
 };
 // -----------------------------------------------------------------------------------------------
 /** Test */
-export const Test = (params: any): Promise<any> => {
-  if (IsMock()) return mock.DEFAULT(); // Mock
+export const Test = (params: any) => {
+  if (IsMock()) return mock.Default(); // Mock
   return methods.post(router.TEST, params) as Promise<any>;
 };
