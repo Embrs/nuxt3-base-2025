@@ -1,11 +1,10 @@
 import * as mock from './mock';
 import methods from '@/protocol/fetch-api/methods';
-const IsMock = () => {
-  // const { public: { testMode } } = useRuntimeConfig();
-  // return testMode === 'T';
-  return true;
-};
-
+let isMock = false;
+onNuxtReady(() => {
+  const { public: { testMode } } = useRuntimeConfig();
+  isMock = testMode === 'T';
+});
 // -----------------------------------------------------------------------------------------------
 const router = {
   TEST: '/apiurl/user/login' // Test
@@ -13,6 +12,6 @@ const router = {
 // -----------------------------------------------------------------------------------------------
 /** Test */
 export const Test = (params: any) => {
-  if (IsMock()) return mock.Default(); // Mock
+  if (isMock) return mock.Default(); // Mock
   return methods.post(router.TEST, params) as Promise<any>;
 };
