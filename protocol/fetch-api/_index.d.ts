@@ -1,10 +1,8 @@
-
-interface TObject<T=any> {
-  [key: string]: T;
-}
+/** 通用物件 */
+type AnyObject = Record<string, any>
 
 /** API 回傳格式 */
-interface ApiRes<T={}> {
+interface ApiRes<T = AnyObject> {  // 修正預設類型
   data: T
   status: {
     code: number // 0 為正常

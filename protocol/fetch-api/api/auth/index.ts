@@ -8,12 +8,12 @@ const IsMock = () => {
 
 // -----------------------------------------------------------------------------------------------
 const router = {
-  SIGN_IN: '/apiurl/user/signin' // Test
+  SIGN_IN: '/apiurl/sign-in' // 登入
 };
 
 // -----------------------------------------------------------------------------------------------
 /** 登入 */
-export const SignIn = (params: SignInParams): Promise<SignInRes> => {
-  if (IsMock()) return mock.SIGN_IN(); // Mock
-  return methods.post(router.SIGN_IN, params) as Promise<SignInRes>;
+export const SignIn = (params: SignInParams) => {
+  if (IsMock()) return mock.SignIn(); // Mock
+  return methods.post(router.SIGN_IN, params) as Promise<ApiRes<SignInRes>>;
 };

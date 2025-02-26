@@ -37,7 +37,7 @@ const FilterRes = (response: any, errCode = 9999) => {
 };
 
 // 預設請求
-const Fetch = (url: string, option: TObject) => {
+const Fetch = (url: string, option: AnyObject) => {
   try {
     return $fetch(
       `${url}?t=${Date.now()}`, // 加入 [?t] 避免 api 快取
@@ -77,35 +77,35 @@ const Fetch = (url: string, option: TObject) => {
 // 自動導出
 export default {
   /** 取得  */
-  get: (url: string, query: TObject<any>) =>
+  get: (url: string, query: AnyObject) =>
     Fetch(url, { method: 'get', query }).catch((err) => err),
 
   /** 建立 */
-  post: (url: string, body: TObject<any>) =>
+  post: (url: string, body: AnyObject) =>
     Fetch(url, { method: 'post', body }).catch((err) => err),
 
   /** 單一編輯 */
-  patch: (url: string, body: TObject<any>) =>
+  patch: (url: string, body: AnyObject) =>
     Fetch(url, { method: 'patch', body }).catch((err) => err),
 
   /** 更新 */
-  put: (url: string, body: TObject<any>) =>
+  put: (url: string, body: AnyObject) =>
     Fetch(url, { method: 'put', body }).catch((err) => err),
 
   /** 刪除 */
-  delete: (url: string, query: TObject<any>) =>
+  delete: (url: string, query: AnyObject) =>
     Fetch(url, { method: 'delete', query }).catch((err) => err),
 
   /** 檔案上傳 */
-  fileUpload: (url: string, body: TObject<any>) =>
+  fileUpload: (url: string, body: AnyObject) =>
     Fetch(url, { method: 'post', body: tool.ToFormData(body) }).catch((err) => err),
 
   /** 檔案下載 */
-  fileDownload: (url: string, body: TObject<any>) =>
+  fileDownload: (url: string, body: AnyObject) =>
     Fetch(url, { method: 'get', body: tool.ToFormData(body) }).catch((err) => err),
 
   /** 檔案上傳(進度條) */
-  xhrFileUpload: (url: string, body: TObject<any>, progressObj: FileProgress) => {
+  xhrFileUpload: (url: string, body: AnyObject, progressObj: FileProgress) => {
     return new Promise((resolve) => {
       const xhr = new XMLHttpRequest();
       xhr.upload.addEventListener('progress', (e) => {
