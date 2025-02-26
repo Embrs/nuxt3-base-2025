@@ -1,5 +1,5 @@
-import { methods } from '../../setting';
 import * as mock from './mock';
+import methods from '@/protocol/fetch-api/methods';
 const IsMock = () => {
   return true;
 };
@@ -13,14 +13,13 @@ const router = {
 // -----------------------------------------------------------------------------------------------
 
 /** 上傳圖片 */
-export const UploadImage = (params: UploadImageParams): Promise<UploadImageRes> => {
+export const UploadImage = (params: UploadImageParams) => {
   if (IsMock()) return mock.UPLOAD_IMAGE(); // Mock
-  return methods.filePost(router.UPLOAD_IMAGE, params) as Promise<UploadImageRes>;
+  return methods.fileUpload(router.UPLOAD_IMAGE, params) as Promise<UploadImageRes>;
 };
 
 /** 上傳圖片(進度條版) */
-export const UploadImageProgress = (params: UploadImageParams, progressObj: FileProgress): Promise<UploadImageRes> => {
+export const UploadImageProgress = (params: UploadImageParams, progressObj: FileProgress) => {
   if (IsMock()) return mock.UPLOAD_IMAGE(); // Mock
-  console.log(params);
-  return methods.progressFilePost(router.UPLOAD_IMAGE, params, progressObj) as Promise<UploadImageRes>;
+  return methods.xhrFileUpload(router.UPLOAD_IMAGE, params, progressObj) as Promise<UploadImageRes>;
 };

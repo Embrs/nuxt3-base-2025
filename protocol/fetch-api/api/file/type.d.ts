@@ -3,8 +3,6 @@
 interface UploadImageParams {
   image: File
 }
-interface UploadImageRes extends DefaultRes{
-  data: {
-    image_url: strinng
-  }
+interface UploadImageRes {
+  image_url: string
 }

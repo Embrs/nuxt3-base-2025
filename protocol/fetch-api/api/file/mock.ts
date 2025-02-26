@@ -11,9 +11,9 @@ const basic: any = {
 };
 
 // 預設回傳 -------------------------------------------------------------------------------------------------
-export const DEFAULT = (): Promise<DefaultRes> => {
+export const DEFAULT = (): Promise<ApiRes> => {
   return new Promise((resolve) => {
-    const res: DefaultRes = cloneDeep(basic);
+    const res: ApiRes = cloneDeep(basic);
     setTimeout(() => { resolve(res); }, 100);
   });
 };
