@@ -47,16 +47,26 @@ const InitKeyIv = () => {
   iv = CryptoJS.enc.Utf8.parse(_iv);// 自訂 iv
 };
 
-const AES256Encode = (str: string) => {
-  if (!key || !iv) InitKeyIv();
-  const encrypted = CryptoJS.AES.encrypt(str, key, { iv });
-  return encrypted.toString();
+const AES256Encode = (any: any): string => {
+  try {
+    if (!key || !iv) InitKeyIv();
+    const str = JSON.stringify(any);
+    const encode = CryptoJS.AES.encrypt(str, key, { iv }).toString();
+    return encode;
+  } catch (error) {
+    return '';
+  }
 };
 
-const AES256Decode = (str: string) => {
-  if (!key || !iv) InitKeyIv();
-  const decrypted = CryptoJS.AES.decrypt(str, key, { iv });
-  return decrypted.toString(CryptoJS.enc.Utf8);
+const AES256Decode = (encode: string): any => {
+  try {
+    if (!key || !iv) InitKeyIv();
+    const str = CryptoJS.AES.decrypt(encode, key, { iv }).toString(CryptoJS.enc.Utf8);
+    const decode = JSON?.parse(str);
+    return decode;
+  } catch (error) {
+    return '';
+  }
 };
 // =========================================================================================
 export default {
