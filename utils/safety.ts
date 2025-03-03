@@ -31,9 +31,10 @@ const Base64Decode = (str: string) => {
 };
 
 // -----------------------------------------------------------------------------------------
-onNuxtReady(() => {
-  InitKeyIv();
-});
+const CreateKeyIV = (length: number = 16) => {
+  const randomWords = CryptoJS.lib.WordArray.random(length);
+  return CryptoJS.enc.Hex.stringify(randomWords);
+};
 
 let key: any = '';
 let iv: any = '';
@@ -46,17 +47,14 @@ const InitKeyIv = () => {
   iv = CryptoJS.enc.Utf8.parse(_iv);// 自訂 iv
 };
 
-const CreateKeyIV = (length: number = 16) => {
-  const randomWords = CryptoJS.lib.WordArray.random(length);
-  return CryptoJS.enc.Hex.stringify(randomWords);
-};
-
 const AES256Encode = (str: string) => {
+  if (!key || !iv) InitKeyIv();
   const encrypted = CryptoJS.AES.encrypt(str, key, { iv });
   return encrypted.toString();
 };
 
 const AES256Decode = (str: string) => {
+  if (!key || !iv) InitKeyIv();
   const decrypted = CryptoJS.AES.decrypt(str, key, { iv });
   return decrypted.toString(CryptoJS.enc.Utf8);
 };
