@@ -7,7 +7,7 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
   // };
   // /**  確認登入狀態 API */
   // const ApiCheckSignIn = async (): Promise<boolean> => {
-  //   const res = await api.CheckSignIn();
+  //   const res = await $api.CheckSignIn();
   //   if (res?.status?.is_success) {
   //     if (!res.data.is_login) {
   //       ElNotification({ title: '登入過期，請重新登入', type: 'error' });

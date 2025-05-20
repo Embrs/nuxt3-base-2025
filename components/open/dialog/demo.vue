@@ -12,11 +12,11 @@ type Props = {
 const props = defineProps<Props>();
 
 // -- 接收事件 -----------------------------------------------------------------------------------------
-const ClickOpenDemo = lodash.debounce(async () => {
+const ClickOpenDemo = $lodash.debounce(async () => {
   const openParams: OpenDialogDemo = {
     demo: 'test123'
   };
-  await $mitt.EmitDialogOpen('OpenDialogDemo', openParams);
+  await $dialog.OpenDialogDemo(openParams);
   console.log('dialog');
 }, 400, { leading: true, trailing: false });
 

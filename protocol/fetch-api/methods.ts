@@ -81,11 +81,11 @@ export default {
 
   /** 檔案上傳 */
   fileUpload: <T>(url: string, body: AnyObject = {}) =>
-    Fetch(url, { method: 'post', body: tool.ToFormData(body) }).catch((err) => err) as Promise<ApiRes<T>>,
+    Fetch(url, { method: 'post', body: $tool.ToFormData(body) }).catch((err) => err) as Promise<ApiRes<T>>,
 
   /** 檔案下載 */
   fileDownload: <T>(url: string, body: AnyObject = {}) =>
-    Fetch(url, { method: 'get', body: tool.ToFormData(body) }).catch((err) => err) as Promise<ApiRes<T>>,
+    Fetch(url, { method: 'get', body: $tool.ToFormData(body) }).catch((err) => err) as Promise<ApiRes<T>>,
 
   /** 檔案上傳(進度條) */
   xhrFileUpload: <T>(url: string, body: AnyObject = {}, progressObj: FileProgress): Promise<ApiRes<T>> => {
@@ -106,7 +106,7 @@ export default {
         });
         xhr.open('POST', url, true);
         xhr.setRequestHeader('Authorization', `Bearer ${storeAuth.token}`);
-        xhr.send(tool.ToFormData(body));
+        xhr.send($tool.ToFormData(body));
       });
     } catch (_err) {
       const _res = FilterRes({}, 9999);

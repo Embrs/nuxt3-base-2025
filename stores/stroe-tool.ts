@@ -46,7 +46,7 @@ export const StoreTool = defineStore('StoreTool', () => {
   };
 
   // 畫面滾動
-  const SetWindowScroll = lodash.throttle(() => {
+  const SetWindowScroll = $lodash.throttle(() => {
     const _scrollTop = document.querySelector('html')?.scrollTop || 0;
     scrollTopVal.value = _scrollTop;
     // 滾動方向
@@ -56,7 +56,7 @@ export const StoreTool = defineStore('StoreTool', () => {
   }, 200);
 
   // 恢復方向
-  const RecoverScrollUpDown = lodash.debounce(() => {
+  const RecoverScrollUpDown = $lodash.debounce(() => {
     scrollUpDown.value = 0;
   }, 300);
 

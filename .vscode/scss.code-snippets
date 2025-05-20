@@ -122,7 +122,7 @@
 			"// -- 函式 --------------------------------------------------------------------------------------------",
       "// -- Api ---------------------------------------------------------------------------------------------",
       "// -- 生命週期 -----------------------------------------------------------------------------------------",
-			"// onMounted(()=>{});",
+			"// onMounted(() => {});",
       "// -- 發送事件 -----------------------------------------------------------------------------------------", 
       "// type Emit = { 'on-change': [id: number, value: any] }",
 			"// const emit = defineEmits<Emit>();",
@@ -133,17 +133,39 @@
   "apibase": {
     "prefix": "api",
     "body": [
-      "/**  說明 API */",
-      "const Api$1 = async (): Promise<boolean> => {",
-      "  const res = await api.$1();",
-      "  if (res?.status?.is_success) {",
+      "/** 說明API */",
+      "const Api$1 = async () => {",
+      "  const { data, status } = await \\$api.$1();",
+      "  if (status.code === 0) {",
+      "    // TODO",
       "    return true;",
       "  }",
-      "  if (res?.status?.message) ElMessage({ message: res?.status?.message, type: 'error' });",
       "  return false;",
       "};",
     ]
   },
+  "api 資料型別": {
+    "prefix": "api-type",
+    "body": [
+      "// $1 -----------------------------------------------------------------------------------------------",
+      "/** $1 參數 */",
+      "type $2Params = {",
+      "",
+      "}",
+      "",
+      "/** $1 回傳 */",
+      "type $2Res = {",
+      "",  
+      "}",
+      "type $2Res = Omit<",
+      "  對象,",
+      "  | '排除節點1'",
+      "  | '排除節點2'",
+      ">",
+      ""
+    ]
+  },
+
   "useAsnycData": {
     "prefix": "useAsyncData",
 		"body": [
@@ -157,9 +179,9 @@
   "debounce 基礎": {
 		"prefix": "debounce",
 		"body": [
-			"lodash.debounce(() => {",
+			"\\$lodash.debounce(() => {",
 			"  // ",
-			"}, 400, { leading: true, trailing: false });"
+			"}, 1000, { leading: true, trailing: false });"
 		]
 	},
   "ts 單行關閉檢測": {
@@ -191,7 +213,7 @@
     "body": [
       "ElFormItem(:label=\"$$t('form.$1')\" prop=\"//TODO\")",
       "  ElInput(",
-      "    :placeholder=\"$$t('form.enter')\"",
+      "    :placeholder=\"$$t('ph.enter')\"",
       "    maxlength=\"200\"",
       "    @change=\"EmitChange\"",
       "  )"
@@ -200,9 +222,9 @@
   "ElTextarea": {
     "prefix": "memo",
     "body": [
-      "ElFormItem(:label=\"$$t('form.memo')\")",
+      "ElFormItem(:label=\"$$t('label.memo')\")",
       "  ElInput(",
-      "    :placeholder=\"$$t('form.enter')\"",
+      "    :placeholder=\"$$t('ph.enter')\"",
       "    type=\"textarea\"",
       "    maxlength=\"2000\"",
       "    :autosize=\"{minRows: 4, maxRows: 4 }\"",
@@ -215,7 +237,7 @@
     "body": [
       "ElFormItem(:label=\"$$t('form.$1')\" prop=\"//TODO\")",
       "  ElSelect(",
-      "    :placeholder=\"$$t('form.select')\"",
+      "    :placeholder=\"$$t('ph.select')\"",
       "    clearable",
       "    @change=\"EmitChange\"",
       "  )",
@@ -235,7 +257,7 @@
       "    type=\"date\"",
       "    format=\"YYYY-MM-DD\"",
       "    value-format=\"YYYY-MM-DD\"",
-      "    :placeholder=\"$$t('form.select')\"",
+      "    :placeholder=\"$$t('ph.select')\"",
       "    style=\"width: 100%\"",
       "    value-on-clear=\"\"",
       "    :editable=\"false\"",
@@ -248,8 +270,8 @@
     "body": [
       "ElFormItem(:label=\"$$t('form.$1')\")",
       "  ElRadioGroup",
-      "    ElRadio(value=\"1\") {{ $$t('form.no') }}",
-      "    ElRadio(value=\"2\") {{ $$t('form.yes') }}",
+      "    ElRadio(value=\"1\") {{ $$t('label.no') }}",
+      "    ElRadio(value=\"2\") {{ $$t('label.yes') }}",
     ]
   },
   "ElCheckbox": {

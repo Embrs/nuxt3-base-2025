@@ -23,7 +23,7 @@ const pageList = [
       v-for="page of pageList" :key="page"
       :to="`/demo/${page}`"
     )
-      button to {{ tool.FirstUpper(page) }}
+      button to {{ $tool.FirstUpper(page) }}
   NuxtPage
 </template>
 

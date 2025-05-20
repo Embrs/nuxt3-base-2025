@@ -6,17 +6,17 @@ const valObj = ref({
 });
 
 const Base64Encode = () => {
-  valObj.value.base64.encode = safety.base64.Encode(valObj.value.base64.val);
+  valObj.value.base64.encode = $safety.base64.Encode(valObj.value.base64.val);
 };
 const Base64Decode = () => {
-  valObj.value.base64.decode = safety.base64.Decode(valObj.value.base64.encode);
+  valObj.value.base64.decode = $safety.base64.Decode(valObj.value.base64.encode);
 };
 
 const AES256Encode = () => {
-  valObj.value.aes256.encode = safety.aes256.Encode(valObj.value.aes256.val);
+  valObj.value.aes256.encode = $safety.aes256.Encode(valObj.value.aes256.val);
 };
 const AES256Decode = () => {
-  valObj.value.aes256.decode = safety.aes256.Decode(valObj.value.aes256.encode);
+  valObj.value.aes256.decode = $safety.aes256.Decode(valObj.value.aes256.encode);
 };
 
 const AES256KeyIv = () => {
