@@ -7,7 +7,7 @@ pinia
 
 
 ## Setup
-Node version: v22.14.0
+Node version: v22.15.1
 
 安裝
 ```bash
