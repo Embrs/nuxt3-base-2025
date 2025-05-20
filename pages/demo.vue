@@ -9,7 +9,8 @@ const pageList = [
   'i18n',
   'color',
   'font',
-  'open'
+  'open',
+  'storage'
 ];
 </script>
 
