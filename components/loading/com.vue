@@ -1,6 +1,6 @@
 <template lang="pug">
 .LoadingCom
-Transition(name="com" mode="out-in")
+Transition(name="com")
   Suspense
     slot
     template(#fallback)

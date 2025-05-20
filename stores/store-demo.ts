@@ -2,7 +2,7 @@
 // 宣告 const storeDemo = StoreDemo();
 export const StoreDemo = defineStore('StoreDemo', () => {
   const count = ref(0);
-  const count2 = useState('count2', () => 0);
+  // const count2 = useState('count2', () => 0);
   const doubleCount = computed(() => count.value * 2);
   const Add = () => { count.value++; };
   return { count, doubleCount, Add };
