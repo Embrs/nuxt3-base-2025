@@ -1,21 +1,23 @@
 /* 要記得去scss/_colors.scss 添加 */
 :root {
+  --demo: #0baf2c;
   --primary: #007C36;
   --secondary: #8FC31F;
   --tertiary: #6E461A;
   --gray: #757575;
-  --error: #EE5151;
-  --t-dark: #413737;
+  --err: #EE5151;
+  --font: #454545;
   --bg: #FDF9F2;
-  --demo: #0baf2c;
+  --white: #fff;
 }
 :root.dark {
+  --demo: #810b0b;
   --primary: #007C36;
   --secondary: #8FC31F;
   --tertiary: #6E461A;
   --gray: #757575;
-  --error: #EE5151;
-  --t-dark: #413737;
+  --err: #EE5151;
+  --font: #454545;
   --bg: #FDF9F2;
-  --demo: #810b0b;
+  --white: #fff;
 }
