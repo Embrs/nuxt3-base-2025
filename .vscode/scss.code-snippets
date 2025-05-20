@@ -75,7 +75,7 @@
       "",
       "<template lang=\"pug\">",
       ".$1",
-      "  LyTodo",
+      "  p $1",
       "</template>",
       "",
       "<style lang=\"scss\" scoped>",
