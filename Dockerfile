@@ -1,16 +1,14 @@
-FROM node:22.13-alpine as builder
-LABEL stage=builder
-
-# Create app directory
-
+# ======== Builder Stage ========
+FROM node:22.14-alpine as builder
 WORKDIR /app
-COPY . /app/
-# COPY package*.json /app/ 
-RUN npm ci
+COPY . .
+ENV NODE_OPTIONS="--max-old-space-size=8192"
+RUN npm cache clean --force
+RUN npm i
 RUN npm run build
 
-FROM node:22.13-alpine
-WORKDIR /app
+# ======== Production Stage ========
+FROM node:22.14-alpine
 COPY --from=builder /app/.output .
 COPY --from=builder /app/version.ts .
 

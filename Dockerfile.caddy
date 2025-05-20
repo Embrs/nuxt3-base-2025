@@ -1,0 +1,19 @@
+# ======== Builder Stage ========
+FROM node:22.14-alpine AS builder
+WORKDIR /app
+COPY . .
+ENV NODE_OPTIONS="--max-old-space-size=8192"
+RUN npm cache clean --force
+RUN npm i 
+RUN npm run generate
+
+# ======== Production Stage with Caddy ========
+FROM caddy:2.7.6-alpine
+
+# 複製 Nuxt 靜態輸出
+COPY --from=builder /app/dist /usr/share/caddy
+
+# 複製 Caddy 設定檔
+COPY Caddyfile /etc/caddy/Caddyfile
+
+EXPOSE 80

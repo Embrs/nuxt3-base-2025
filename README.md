@@ -7,7 +7,7 @@ pinia
 
 
 ## Setup
-Node version: v22.13.1
+Node version: v22.14.0
 
 安裝
 ```bash
@@ -29,5 +29,14 @@ npm run dev
 docker compose -f docker-compose.dev.yml up --build
 ```
 
+## docker 靜態網站打包
+```bash
+docker build -f Dockerfile.caddy -t nuxt3-caddy .
+```
+
+## docker 動態網站打包
+```bash
+docker build -t nuxt3 .
+```
 
 

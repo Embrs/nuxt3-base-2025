@@ -22,6 +22,7 @@ onMounted(() => {
 
 <template lang="pug">
 div
+  p 133
   NuxtLoadingIndicator(color="#86D4A187")
   LoadingPage
   NuxtLayout

@@ -1,0 +1,7 @@
+:80
+
+root * /usr/share/caddy
+file_server
+
+# 適用於 SPA fallback，例如 /about 會 fallback 到 index.html
+try_files {path} /index.html
