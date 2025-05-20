@@ -10,7 +10,8 @@ const pageList = [
   'color',
   'font',
   'open',
-  'storage'
+  'storage',
+  'editor'
 ];
 </script>
 
@@ -19,6 +20,7 @@ const pageList = [
   p PageDemo
   NuxtLinkLocale(to="/")
     button to Home
+  p __
   .btn-list
     NuxtLinkLocale(
       v-for="page of pageList" :key="page"

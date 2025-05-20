@@ -28,6 +28,7 @@
     "@nuxtjs/i18n": "^9.1.0",
     "@nuxtjs/stylelint-module": "^5.2.0",
     "@pinia/nuxt": "^0.10.1",
+    "@tinymce/tinymce-vue": "^5.1.1",
     "@types/crypto-js": "^4.2.2",
     "@types/lodash-es": "^4.17.12",
     "@vue/language-plugin-pug": "^2.1.6",
@@ -47,6 +48,8 @@
     "stylelint-config-standard-scss": "^13.1.0",
     "stylelint-config-standard-vue": "^1.0.0",
     "stylelint-order": "^6.0.4",
+    "tinymce": "^6.8.2",
+    "tinymce-i18n": "^24.1.15",
     "vite-plugin-pug": "^0.4.1"
   },
   "engines": {
