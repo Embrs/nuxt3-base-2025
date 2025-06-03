@@ -29,13 +29,18 @@ export default defineNuxtConfig({
   // 模塊注入
   modules: [
     // '@nuxtjs/device',
-    // '@nuxtjs/stylelint-module', // https://github.com/nuxt-modules/stylelint
-    '@pinia/nuxt', // https://pinia.vuejs.org/ssr/nuxt.html
-    'pinia-plugin-persistedstate/nuxt', // https://nuxt.com/modules/pinia-plugin-persistedstate#pinia-plugin-persistedstate
-    '@nuxt/icon', // https://nuxt.com/modules/icon
-    '@nuxtjs/i18n', // https://nuxt.com/modules/i18n
-    '@nuxtjs/color-mode', // https://color-mode.nuxtjs.org/?utm_source=nuxt.com&utm_medium=aside-module&utm_campaign=nuxt.com
-    '@nuxt/fonts' // https://fonts.nuxt.com/get-started/installation
+    // https://pinia.vuejs.org/ssr/nuxt.html
+    '@pinia/nuxt',
+    // https://nuxt.com/modules/pinia-plugin-persistedstate#pinia-plugin-persistedstate
+    'pinia-plugin-persistedstate/nuxt',
+    // https://nuxt.com/modules/icon
+    '@nuxt/icon',
+    // https://nuxt.com/modules/i18n
+    '@nuxtjs/i18n',
+    // https://color-mode.nuxtjs.org/?utm_source=nuxt.com&utm_medium=aside-module&utm_campaign=nuxt.com
+    '@nuxtjs/color-mode',
+    // https://fonts.nuxt.com/get-started/installation
+    '@nuxt/fonts'
   ],
   devServer: {
     // port: Number(process.env.NUXT_PORT || 3001),
@@ -184,10 +189,6 @@ export default defineNuxtConfig({
 
   // style -------------------------------------------------------------
   css: ['@/assets/styles/css/index.css'],
-  // stylelint: {
-  //   lintOnStart: false, // 專案啟動時不自動檢查所有相關檔案
-  //   chokidar: true // 監聽文件異動進行檢核（文件未列出此選項）
-  // },
 
   // Nitro server ------------------------------------------------------
   nitro: {

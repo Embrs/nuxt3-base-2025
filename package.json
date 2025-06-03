@@ -26,7 +26,6 @@
     "@nuxtjs/eslint-config-typescript": "^12.1.0",
     "@nuxtjs/google-fonts": "^3.2.0",
     "@nuxtjs/i18n": "^9.5.5",
-    "@nuxtjs/stylelint-module": "^5.2.0",
     "@pinia/nuxt": "^0.10.1",
     "@tinymce/tinymce-vue": "^5.1.1",
     "@types/crypto-js": "^4.2.2",
