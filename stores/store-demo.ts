@@ -8,6 +8,6 @@ export const StoreDemo = defineStore('StoreDemo', () => {
   return { count, doubleCount, Add };
 },
 {
-  persist: true // 啟用持久化 store
+  // persist: true // 啟用持久化 store
 }
 );

@@ -3,7 +3,7 @@
 const storeDemo = StoreDemo();
 </script>
 
-<template lang="pug">w
+<template lang="pug">
 .DemoStore
   p DemoStore
   button(@click="storeDemo.Add") Add
