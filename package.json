@@ -26,6 +26,7 @@
     "@nuxtjs/eslint-config-typescript": "^12.1.0",
     "@nuxtjs/google-fonts": "^3.2.0",
     "@nuxtjs/i18n": "^9.5.5",
+    "@nuxtjs/stylelint-module": "5.2.0",
     "@pinia/nuxt": "^0.10.1",
     "@tinymce/tinymce-vue": "^5.1.1",
     "@types/crypto-js": "^4.2.2",
@@ -43,6 +44,10 @@
     "pug": "^3.0.3",
     "sass": "^1.81.0",
     "scss": "^0.2.4",
+    "stylelint": "16.10.0",
+    "stylelint-config-standard-scss": "13.1.0",
+    "stylelint-config-standard-vue": "1.0.0",
+    "stylelint-order": "6.0.4",
     "tinymce": "^6.8.2",
     "tinymce-i18n": "^24.1.15",
     "vite-plugin-pug": "^0.4.1"

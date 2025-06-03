@@ -29,6 +29,8 @@ export default defineNuxtConfig({
   // 模塊注入
   modules: [
     // '@nuxtjs/device',
+    // https://github.com/nuxt-modules/stylelint
+    '@nuxtjs/stylelint-module',
     // https://pinia.vuejs.org/ssr/nuxt.html
     '@pinia/nuxt',
     // https://nuxt.com/modules/pinia-plugin-persistedstate#pinia-plugin-persistedstate
@@ -189,6 +191,10 @@ export default defineNuxtConfig({
 
   // style -------------------------------------------------------------
   css: ['@/assets/styles/css/index.css'],
+  stylelint: {
+    lintOnStart: false, // 專案啟動時不自動檢查所有相關檔案
+    chokidar: true // 監聽文件異動進行檢核（文件未列出此選項）
+  },
 
   // Nitro server ------------------------------------------------------
   nitro: {
