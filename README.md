@@ -8,6 +8,7 @@ pinia
 
 ## Setup
 Node version: v22.15.1
+Nuxt version: v3.17.4
 
 安裝
 ```bash
