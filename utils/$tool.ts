@@ -349,7 +349,7 @@ const CreateRandomImg = (width = 600, height = 400) => {
 
 /** 下載圖片 */
 const DownloadLinkFile = async (url: string, filename: string): Promise<boolean> => {
-  const storeTool = StoreTool();
+  // const storeTool = StoreTool();
   try {
     // ElMessage.success(storeTool.t('ph.start', [storeTool.t('ph.download')]));
     const response = await fetch(url);
@@ -366,11 +366,11 @@ const DownloadLinkFile = async (url: string, filename: string): Promise<boolean>
     document.body.removeChild(link);
 
     URL.revokeObjectURL(blobUrl);
-    ElMessage.success(`【${filename}】${storeTool.t('ph.download', [storeTool.t('ph.success')])}`);
+    // ElMessage.success(`【${filename}】${storeTool.t('ph.download', [storeTool.t('ph.success')])}`);
     return true;
   } catch (error) {
     console.error('Download failed:', error);
-    ElMessage.error(`【${filename}】${storeTool.t('ph.download', [storeTool.t('ph.failure')])}`);
+    // ElMessage.error(`【${filename}】${storeTool.t('ph.download', [storeTool.t('ph.failure')])}`);
     return false;
   }
 };

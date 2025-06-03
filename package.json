@@ -44,10 +44,6 @@
     "pug": "^3.0.3",
     "sass": "^1.81.0",
     "scss": "^0.2.4",
-    "stylelint": "^16.10.0",
-    "stylelint-config-standard-scss": "^13.1.0",
-    "stylelint-config-standard-vue": "^1.0.0",
-    "stylelint-order": "^6.0.4",
     "tinymce": "^6.8.2",
     "tinymce-i18n": "^24.1.15",
     "vite-plugin-pug": "^0.4.1"

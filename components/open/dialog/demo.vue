@@ -17,16 +17,16 @@ const ClickOpenDemo = $lodash.debounce(async () => {
     demo: 'test123'
   };
   await $dialog.OpenDialogDemo(openParams);
-  console.log('dialog');
+  // console.log('dialog');
 }, 400, { leading: true, trailing: false });
 
 // -- 生命週期 -----------------------------------------------------------------------------------------
 const TestOnRefresh = () => {
-  console.log('demo refresh level', props.level, 123);
+  // console.log('demo refresh level', props.level, 123);
 };
 
 onMounted(() => {
-  console.log('params', props.params);
+  // console.log('params', props.params);
   $mitt.OnRefresh(TestOnRefresh);
 });
 
@@ -40,7 +40,7 @@ const EmitClose = () => {
 };
 
 const MittRefresh = () => {
-  $mitt.EmitRefresh({ abc: 'test456' });
+  $mitt.EmitRefresh(false, { abc: 'test456' });
 };
 
 </script>

@@ -28,8 +28,8 @@ export default defineNuxtConfig({
 
   // 模塊注入
   modules: [
-    // '@nuxtjs/device', // https://github.com/nuxt-modules/stylelint
-    '@nuxtjs/stylelint-module', // https://github.com/nuxt-modules/stylelint
+    // '@nuxtjs/device',
+    // '@nuxtjs/stylelint-module', // https://github.com/nuxt-modules/stylelint
     '@pinia/nuxt', // https://pinia.vuejs.org/ssr/nuxt.html
     'pinia-plugin-persistedstate/nuxt', // https://nuxt.com/modules/pinia-plugin-persistedstate#pinia-plugin-persistedstate
     '@nuxt/icon', // https://nuxt.com/modules/icon
@@ -183,10 +183,10 @@ export default defineNuxtConfig({
 
   // style -------------------------------------------------------------
   css: ['@/assets/styles/css/index.css'],
-  stylelint: {
-    lintOnStart: false, // 專案啟動時不自動檢查所有相關檔案
-    chokidar: true // 監聽文件異動進行檢核（文件未列出此選項）
-  },
+  // stylelint: {
+  //   lintOnStart: false, // 專案啟動時不自動檢查所有相關檔案
+  //   chokidar: true // 監聽文件異動進行檢核（文件未列出此選項）
+  // },
 
   // Nitro server ------------------------------------------------------
   nitro: {
@@ -197,9 +197,9 @@ export default defineNuxtConfig({
       gzip: true
       // brotli: true
     },
-    plugins: [
-      '@/server/index'
-    ],
+    // plugins: [
+    //   '@/server/index'
+    // ],
     // 開發模式戶端代理
     devProxy: {
       '/apiurl': {

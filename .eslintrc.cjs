@@ -27,6 +27,7 @@ module.exports = {
     'no-alert': 'off', // alert、confirm 和 prompt 禁止使用
     'arrow-parens': ['error', 'always'], // ()=>箭頭
     curly: 'off', // 可用return 簡寫
+
     'vue/no-mutating-props': 'off', // change props
     'vue/multi-word-component-names': 'off', // 多單字的名字
     // 'import/namespace': 'recommended',
