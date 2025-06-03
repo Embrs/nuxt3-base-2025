@@ -139,7 +139,8 @@ export default defineNuxtConfig({
     dirs: [
       {
         path: '~/components',
-        global: true
+        global: true,
+        ignore: ['**/*.{md,ts,js,mjs,mts}']
       }
     ]
   },
