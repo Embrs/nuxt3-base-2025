@@ -1,6 +1,7 @@
 // https://stylelint.io/
 // https://clairechang.tw/2023/08/04/nuxt3/nuxt-v3-stylelint/
 module.exports = {
+  ignoreFiles: ['.stylelintcache'],
   extends: [
     'stylelint-config-standard-scss',
     'stylelint-config-standard-vue/scss'

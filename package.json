@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "mitt": "^3.0.1",
-    "nuxt": "^3.15.4",
+    "nuxt": "^3.17.4",
     "vue": "latest",
     "vue-router": "latest"
   },
@@ -25,7 +25,7 @@
     "@nuxtjs/color-mode": "^3.5.2",
     "@nuxtjs/eslint-config-typescript": "^12.1.0",
     "@nuxtjs/google-fonts": "^3.2.0",
-    "@nuxtjs/i18n": "^9.1.0",
+    "@nuxtjs/i18n": "^9.5.5",
     "@nuxtjs/stylelint-module": "^5.2.0",
     "@pinia/nuxt": "^0.10.1",
     "@tinymce/tinymce-vue": "^5.1.1",
