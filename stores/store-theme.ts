@@ -2,7 +2,7 @@
 export interface ColorMap {
   [key: string]: string;
 }
-export const StoreTheme = pinia.defineStore('StoreTheme', () => {
+export const StoreTheme = defineStore('StoreTheme', () => {
   const colorMode = useColorMode();
   const ChangeTheme = (theme: ThemeType) => {
     colorMode.preference = theme;
