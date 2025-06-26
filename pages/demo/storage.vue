@@ -9,7 +9,7 @@ const token = UseStorage<string>('Demo_Token', '');
 <template>
 <div>
   <p>Storage 存儲</p>
-  <input v-model="token" />
+  <v-text-field v-model="token" :style="{maxWidth: '200px'}" />
   <p>{{ token }}</p>
 </div>
 </template>

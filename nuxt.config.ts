@@ -21,7 +21,9 @@ export default defineNuxtConfig({
     // https://color-mode.nuxtjs.org/?utm_source=nuxt.com&utm_medium=aside-module&utm_campaign=nuxt.com
     '@nuxtjs/color-mode',
     // https://fonts.nuxt.com/get-started/installation
-    '@nuxt/fonts'
+    '@nuxt/fonts',
+    // https://nuxt.com/modules/vuetify-nuxt-module
+    'vuetify-nuxt-module'
   ],
   devServer: {
     // port: Number(process.env.NUXT_PORT || 3001),

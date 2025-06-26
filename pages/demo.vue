@@ -14,7 +14,7 @@ const pageList = [
 <div class="PageDemo">
   <p>PageDemo</p>
   <NuxtLinkLocale to="/">
-    <button>to Home</button>
+    <v-btn>to Home</v-btn>
   </NuxtLinkLocale>
   <p>__</p>
   <div class="btn-list">
@@ -22,7 +22,7 @@ const pageList = [
       v-for="page of pageList" :key="page"
       :to="`/demo/${page}`"
     >
-      <button>to {{ $tool.FirstUpper(page) }}</button>
+      <VBtn>to {{ $tool.FirstUpper(page) }}</VBtn>
     </NuxtLinkLocale>
   </div>
   <NuxtPage />

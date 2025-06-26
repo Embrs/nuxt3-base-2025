@@ -6,7 +6,7 @@ const storeDemo = StoreDemo();
 <template>
 <div>
   <p>Pinia store</p>
-  <button @click="storeDemo.Add"> Add </button>
+  <VBtn @click="storeDemo.Add"> Add </VBtn>
   <p> {{ storeDemo.count }} </p>
   <p> {{ storeDemo.doubleCount }} </p>
   <DemoStore />

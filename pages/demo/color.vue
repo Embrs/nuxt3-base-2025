@@ -10,9 +10,9 @@ const ChangeTheme = (theme: ThemeType) => {
 <div>
   <p>主題色</p>
   <div>
-    <button @click="ChangeTheme('light')">light</button>
-    <button @click="ChangeTheme('dark')">dark</button>
-    <button @click="ChangeTheme('system')">system</button>
+    <VBtn @click="ChangeTheme('light')">light</VBtn>
+    <VBtn @click="ChangeTheme('dark')">dark</VBtn>
+    <VBtn @click="ChangeTheme('system')">system</VBtn>
   </div>
   <div class="color-box"></div>
 </div>

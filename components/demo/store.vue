@@ -6,7 +6,7 @@ const storeDemo = StoreDemo();
 <template>
 <div class="DemoStore">
   <p>DemoStore</p>
-  <button @click="storeDemo.Add">Add</button>
+  <VBtn @click="storeDemo.Add">Add</VBtn>
   <p>{{ storeDemo.count }}</p>
   <p>{{ storeDemo.doubleCount }}</p>
 </div>

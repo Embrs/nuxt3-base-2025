@@ -8,13 +8,13 @@ const { locales } = useI18n();
 <div>
   <p>PageDemoI18n</p>
   <NuxtLinkLocale :to="'/'">
-    <button> {{ $t('common.goHome') }} </button>
+    <VBtn> {{ $t('common.goHome') }} </VBtn>
   </NuxtLinkLocale>
   <div class="row-item">
     <SwitchLocalePathLink
       v-for="localeItem in locales" :key="localeItem.code" :locale="localeItem.code"
     >
-      <button> {{ localeItem.name }} </button>
+      <VBtn> {{ localeItem.name }} </VBtn>
     </SwitchLocalePathLink>
   </div>
   <p> {{ $t('about.title') }} </p>

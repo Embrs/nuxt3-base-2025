@@ -15,7 +15,8 @@
   "dependencies": {
     "nuxt": "^3.17.4",
     "vue": "latest",
-    "vue-router": "latest"
+    "vue-router": "latest",
+    "vuetify-nuxt-module": "^0.18.7"
   },
   "devDependencies": {
     "@nuxt/fonts": "^0.10.2",

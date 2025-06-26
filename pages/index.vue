@@ -7,7 +7,13 @@
 <div>
   <p>首頁</p>
   <NuxtLinkLocale to="/demo">
-    <button> Demo 頁面</button>
+    <v-btn> Demo 頁面</v-btn>
   </NuxtLinkLocale>
+  <nuxt-link to="/page1">
+    <v-btn>page1</v-btn>
+  </nuxt-link>
+  <nuxt-link to="/page2">
+    <v-btn>page2</v-btn>
+  </nuxt-link>
 </div>
 </template>
