@@ -6,29 +6,22 @@ const ChangeTheme = (theme: ThemeType) => {
 };
 </script>
 
-<template lang="pug">
-.PageDemoColor
-  p PageDemoColor
-  .row-item
-    button(@click="ChangeTheme('light')") light
-    button(@click="ChangeTheme('dark')") dark
-    button(@click="ChangeTheme('system')") system
-  .color-box
+<template>
+<div>
+  <p>主題色</p>
+  <div>
+    <button @click="ChangeTheme('light')">light</button>
+    <button @click="ChangeTheme('dark')">dark</button>
+    <button @click="ChangeTheme('system')">system</button>
+  </div>
+  <div class="color-box"></div>
+</div>
 </template>
 
 <style lang="scss" scoped>
-// 佈局 ----
-.PageDemoColor {
-  // TODO
-}
-
-// 組件 ----
-.row-item {
-  @include row(10px);
-}
-
 .color-box {
-  @include wh(100px);
+  width: 100px;
+  height: 100px;
   background-color: $demo;
 }
 </style>

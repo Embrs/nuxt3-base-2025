@@ -5,7 +5,7 @@ export const UseInitMeta = () => {
   const i18nHead = useLocaleHead();
 
   // -- 資料 --------------------------------------------------------------------------------------------
-  const author = useState('author', () => 'Athenaads');
+  const author = useState('author', () => 'XXXX');
   const seoTitle = useState('seoTitle', () => '網站名稱');
   const seoDesc = useState('seoDesc', () => '網站描述');
   const seoKeywords = useState('seoKeywords', () => 'aa,bb,cc');
@@ -14,6 +14,7 @@ export const UseInitMeta = () => {
 
   // -- 生命週期 -----------------------------------------------------------------------------------------
   useHead({
+    // @ts-ignore
     htmlAttrs: () => ({ lang: lang.value }),
     title: () => seoTitle.value,
     meta: () => [

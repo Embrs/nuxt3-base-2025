@@ -19,8 +19,6 @@ module.exports = {
     }
   ],
   rules: {
-    // 'unit-allowed-list': [ 'em', 'rem', 'deg', 'px', 's', 'vh', 'vw', '%'], // 可使用的單位
-    // // "css.lint.unknownAtRules": "ignore",
     'declaration-property-value-no-unknown': null,
     'selector-id-pattern': null,
     'rule-empty-line-before': null,
@@ -70,7 +68,6 @@ module.exports = {
       'padding-right',
       'padding-bottom',
       'padding-left',
-
       'font-size',
       'font-family',
       'font-weight',

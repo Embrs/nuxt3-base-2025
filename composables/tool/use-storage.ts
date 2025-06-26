@@ -27,11 +27,6 @@ export const UseStorage = <T>(
     $storage.Set(key, val, useHash);
   };
 
-  // const Remove = () => {
-  //   if (isServer) return;
-  //   $storage.Remove(key, useHash);
-  // };
-
   Init();
 
   return data;

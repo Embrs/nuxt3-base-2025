@@ -1,43 +1,38 @@
 <script setup lang="ts">
 // PageDemo 請填寫功能描述👈
-
 const pageList = [
-  'store',
-  'env',
-  'icon',
-  'safety',
-  'i18n',
   'color',
-  'font',
-  'open',
+  'env',
+  'i18n',
+  'icon',
   'storage',
-  'editor'
+  'store'
 ];
 </script>
 
-<template lang="pug">
-.PageDemo
-  p PageDemo
-  NuxtLinkLocale(to="/")
-    button to Home
-  p __
-  .btn-list
-    NuxtLinkLocale(
+<template>
+<div class="PageDemo">
+  <p>PageDemo</p>
+  <NuxtLinkLocale to="/">
+    <button>to Home</button>
+  </NuxtLinkLocale>
+  <p>__</p>
+  <div class="btn-list">
+    <NuxtLinkLocale
       v-for="page of pageList" :key="page"
       :to="`/demo/${page}`"
-    )
-      button to {{ $tool.FirstUpper(page) }}
-  NuxtPage
+    >
+      <button>to {{ $tool.FirstUpper(page) }}</button>
+    </NuxtLinkLocale>
+  </div>
+  <NuxtPage />
+</div>
 </template>
 
 <style lang="scss" scoped>
-// 佈局 ----
-.PageDemo {
-  // TODO
-}
-
-// 組件 ----
 .btn-list {
-  @include row(10px);
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 </style>

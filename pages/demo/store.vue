@@ -3,19 +3,12 @@
 const storeDemo = StoreDemo();
 </script>
 
-<template lang="pug">
-.PageDemoStore
-  button(@click="storeDemo.Add") Add
-  p {{ storeDemo.count }}
-  p {{ storeDemo.doubleCount }}
-  DemoStore
+<template>
+<div>
+  <p>Pinia store</p>
+  <button @click="storeDemo.Add"> Add </button>
+  <p> {{ storeDemo.count }} </p>
+  <p> {{ storeDemo.doubleCount }} </p>
+  <DemoStore />
+</div>
 </template>
-
-<style lang="scss" scoped>
-// 佈局 ----
-.PageDemoStore {
-  // TODO
-}
-
-// 組件 ----
-</style>

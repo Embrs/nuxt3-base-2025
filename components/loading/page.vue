@@ -19,19 +19,26 @@ nuxtApp.hooks.hookOnce('app:rendered', (e) => {
 });
 </script>
 
-<template lang="pug">
-.LoadingPage(v-if="!isFinish" :class="{'is-hide': isHide}")
-  NuxtIcon(name="svg-spinners:blocks-wave")
+<template>
+<div
+  v-if="!isFinish"
+  :class="{'is-hide': isHide}"
+  class="LoadingPage"
+>
+  <NuxtIcon name="svg-spinners:blocks-wave" />
+</div>
 </template>
 
 <style lang="scss" scoped>
 
 .LoadingPage {
-  @include fs(50px);
-  @include wh(100vw, 100vh);
-  @include center;
+  width: 100vw;
+  height: 100vh;
   position: fixed;
-  color: $primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 50px;
   background-color: white;
   opacity: 1;
   z-index: 9999;

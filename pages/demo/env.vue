@@ -3,16 +3,9 @@
 const storeEnv = StoreEnv();
 </script>
 
-<template lang="pug">
-.PageDemoEnv
-  pre {{ storeEnv.env }}
+<template>
+<div>
+  <p>環境變數</p>
+  <pre>{{ storeEnv.env }}</pre>
+</div>
 </template>
-
-<style lang="scss" scoped>
-// 佈局 ----
-.PageDemoEnv {
-  // TODO
-}
-
-// 組件 ----
-</style>

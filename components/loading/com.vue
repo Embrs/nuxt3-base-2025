@@ -1,18 +1,25 @@
-<template lang="pug">
-.LoadingCom
-Transition(name="com")
-  Suspense
-    slot
-    template(#fallback)
-      .LoadingCom(v-loading="true")
+<template>
+<div class="LoadingCom">
+  <Transition name="page">
+    <Suspense>
+      <slot />
+      <template #fallback>
+        <div class="LoadingCom">v-loading="true")</div>
+      </template>
+    </Suspense>
+  </Transition>
+</div>
 </template>
 
 <style lang="scss" scoped>
 // 佈局 ----
 .LoadingCom {
-  @include wh;
-  @include center;
-  @include fs(40px);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
 }
 // 組件 ----
 

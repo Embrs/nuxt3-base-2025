@@ -9,37 +9,37 @@ const HandleError = () => {
 };
 </script>
 
-<template lang="pug">
-#Error
-  p.title {{ props.error.statusCode }}
-  p.msg {{ props.error.statusMessage }}
-  p.go-home-btn(
-    color="#eee"
-    class="border-white rounded border px-4 py-2"
-    @click="HandleError"
-  ) 回到首頁
+<template>
+<div id="Error">
+  <p class="title">{{ props.error.statusCode }}</p>
+  <p class="msg">{{ props.error.statusMessage }}</p>
+  <p class="go-home-btn " @click="HandleError">回到首頁</p>
+</div>
 </template>
 
 <style lang="scss" scoped>
 // 佈局 ----
 #Error {
-  @include wh(100vw, 100vh);
-  @include center(10px, column);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
   color: white;
-  background-color: $primary;
-  // TODO
 }
 
 // 組件 ----
 .title {
-  @include fs(100px);
+  font-size: 100px;
   font-weight: 900;
 }
 .msg {
-  @include fs(30px);
+  font-size: 30px;
 }
 .go-home-btn {
   cursor: pointer;
-  @include fs(20px);
+  font-size: 20px;
 }
 </style>

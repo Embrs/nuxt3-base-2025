@@ -1,22 +1,20 @@
 <script setup lang="ts">
-// DemoStore 請填寫功能描述👈
+// DemoStore pinia store測試
 const storeDemo = StoreDemo();
 </script>
 
-<template lang="pug">
-.DemoStore
-  p DemoStore
-  button(@click="storeDemo.Add") Add
-  p {{ storeDemo.count }}
-  p {{ storeDemo.doubleCount }}
+<template>
+<div class="DemoStore">
+  <p>DemoStore</p>
+  <button @click="storeDemo.Add">Add</button>
+  <p>{{ storeDemo.count }}</p>
+  <p>{{ storeDemo.doubleCount }}</p>
+</div>
 </template>
 
 <style lang="scss" scoped>
-// 佈局 ----
 .DemoStore {
-  // TODO
   background-color: #aaa;
 }
 
-// 組件 ----
 </style>

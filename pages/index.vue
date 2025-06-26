@@ -3,20 +3,11 @@
 
 </script>
 
-<template lang="pug">
-.Home
-  p Home
-  NuxtLinkLocale(to="/demo")
-    button Demo page
-
-  //- DemoStore
+<template>
+<div>
+  <p>首頁</p>
+  <NuxtLinkLocale to="/demo">
+    <button> Demo 頁面</button>
+  </NuxtLinkLocale>
+</div>
 </template>
-
-<style lang="scss" scoped>
-// 佈局 ----
-.Home {
-  // TODO
-}
-
-// 組件 ----
-</style>

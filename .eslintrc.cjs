@@ -30,7 +30,6 @@ module.exports = {
 
     'vue/no-mutating-props': 'off', // change props
     'vue/multi-word-component-names': 'off', // 多單字的名字
-    // 'import/namespace': 'recommended',
     'vue/max-attributes-per-line': // 最大參數量
       ['error', {
         singleline: { max: 5 },
@@ -40,6 +39,5 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': 'warn', // 未使用參數
     'vue/attribute-hyphenation': 'off', // html 參數用 [-]
     'vue/no-deprecated-v-on-native-modifier': 'off'
-    // 'vue/mustache-interpolation-spacing': ['error', 'never'] // 強制 Html {{ }} 左右空白
   }
 };

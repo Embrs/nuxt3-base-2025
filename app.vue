@@ -8,13 +8,12 @@ storeEnv.Init();
 
 </script>
 
-<template lang="pug">
-//- ElConfigProvider(:locale="$elementI18n.elLocale.value")
-div
-  NuxtLoadingIndicator(color="#86D4A187")
-  LoadingPage
-  NuxtLayout
-    NuxtPage
-  .group-area
-    OpenGroup
+<template>
+<div>
+  <NuxtLoadingIndicator :color="'#86D4A187'" />
+  <LoadingPage />
+  <NuxtLayout>
+    <NuxtPage />
+  </NuxtLayout>
+</div>
 </template>

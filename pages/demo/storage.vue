@@ -6,20 +6,18 @@ definePageMeta({
 const token = UseStorage<string>('Demo_Token', '');
 </script>
 
-<template lang="pug">
-.PageDemoStorage
-  p PageDemoStorage
-  input(v-model="token")
-  p {{ token }}
+<template>
+<div>
+  <p>Storage 存儲</p>
+  <input v-model="token" />
+  <p>{{ token }}</p>
+</div>
 </template>
 
 <style lang="scss" scoped>
-// 佈局 ----
 .PageDemoStorage {
   input {
     border: 1px solid var(--primary);
   }
 }
-
-// 組件 ----
 </style>
