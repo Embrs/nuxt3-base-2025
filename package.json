@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "mitt": "^3.0.1",
-    "nuxt": "^3.17.4",
+    "nuxt": "^3.17.5",
     "vue": "latest",
     "vue-router": "latest"
   },
