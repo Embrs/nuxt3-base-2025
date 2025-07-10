@@ -209,13 +209,13 @@ export default defineNuxtConfig({
     //   '@/server/index'
     // ],
     // 開發模式戶端代理
-    devProxy: {
-      '/apiurl': {
-        target: `${process.env.NUXT_API_BASE as string}/api`, // 這裡是接口地址
-        changeOrigin: true,
-        prependPath: true
-      }
-    },
+    // devProxy: {
+    //   '/apiurl': {
+    //     target: `${process.env.NUXT_API_BASE as string}/api`, // 這裡是接口地址
+    //     changeOrigin: true,
+    //     prependPath: true
+    //   }
+    // },
     // Nuxt route 路由設定 ------------
     // https://nuxt.com/docs/guide/concepts/rendering#route-rules
     routeRules: {
