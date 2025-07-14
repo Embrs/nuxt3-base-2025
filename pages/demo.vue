@@ -10,8 +10,7 @@ const pageList = [
   'color',
   'font',
   'open',
-  'storage',
-  'editor'
+  'storage'
 ];
 </script>
 
