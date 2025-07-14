@@ -232,6 +232,7 @@ export default defineNuxtConfig({
   // Vite ------------------------------------------------------------------
   vite: {
     css: {
+      preprocessorMaxWorkers: true, // CPU 核心数减 1
       preprocessorOptions: {
         scss: { // scss 配置
           silenceDeprecations: ['legacy-js-api'],
