@@ -136,9 +136,7 @@ export default defineNuxtConfig({
   // https://nuxt.dev.org.tw/modules/fonts
   fonts: { // 自動會抓不用設定
     families: [
-      // { name: 'Noto Sans TC', provider: 'google' },
-      // { name: 'Noto Sans', provider: 'google' },
-      // { name: 'Sour Gummy', provider: 'google' }
+      // { name: 'Noto Sans TC', provider: 'google' }
     ]
   },
   // 組件配置 -----------------------------------------------------------
@@ -198,16 +196,10 @@ export default defineNuxtConfig({
 
   // Nitro server ------------------------------------------------------
   nitro: {
-    // experimental: {
-    //   websocket: true
-    // },
     compressPublicAssets: {
       gzip: true
       // brotli: true
     },
-    // plugins: [
-    //   '@/server/index'
-    // ],
     // 開發模式戶端代理
     // devProxy: {
     //   '/api': {

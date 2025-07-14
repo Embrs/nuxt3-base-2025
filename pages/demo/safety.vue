@@ -12,17 +12,6 @@ const Base64Decode = () => {
   valObj.value.base64.decode = $safety.base64.Decode(valObj.value.base64.encode);
 };
 
-const AES256Encode = () => {
-  valObj.value.aes256.encode = $safety.aes256.Encode(valObj.value.aes256.val);
-};
-const AES256Decode = () => {
-  valObj.value.aes256.decode = $safety.aes256.Decode(valObj.value.aes256.encode);
-};
-
-const AES256KeyIv = () => {
-  valObj.value.aes256.createKeyIv = safety.aes256.CreateKeyIV();
-};
-
 </script>
 
 <template lang="pug">
@@ -33,13 +22,6 @@ const AES256KeyIv = () => {
     input(v-model="valObj.base64.val")
     button(@click="Base64Encode") Encode
     button(@click="Base64Decode") Decode
-
-  .row-item
-    p aes256
-    input(v-model="valObj.aes256.val")
-    button(@click="AES256Encode") Encode
-    button(@click="AES256Decode") Decode
-    button(@click="AES256KeyIv") Create Key Iv
   pre {{ valObj }}
 </template>
 
