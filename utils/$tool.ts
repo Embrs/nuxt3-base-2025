@@ -111,16 +111,6 @@ const PickObjectA2B = (fromObj: any, toObj: any) => {
   }
 };
 
-// const ToFormData = (params: AnyObject) => {
-//   const data = new FormData();
-//   Object.keys(params).forEach((key) => {
-//     if (IsArray(params[key])) {
-//       if (params[key].length !== 0) { params[key].forEach((v:any) => data.append(`${key}[]`, v)); }
-//     } else data.append(key, params[key]);
-//   });
-//   return data;
-// };
-
 /**
  * 轉換為FormData格式
  * @param { Object } json
