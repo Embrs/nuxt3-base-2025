@@ -16,11 +16,11 @@ const FilterRes = (response: any, errCode = 9999) => {
 };
 
 // 預設請求
-const Fetch = (url: string, option: AnyObject) => {
+const Fetch = <T>(url: string, option: AnyObject): Promise<ApiRes<T>> => {
   try {
     const storeAuth = StoreAuth();
-    const { apiBase } = useRuntimeConfig();
-    const baseURL = import.meta.server ? apiBase : '';
+    // const { apiBase } = useRuntimeConfig();
+    // const baseURL = import.meta.server ? apiBase : '';
     return $fetch(
       `${url}?t=${Date.now()}`, // 加入 [?t] 避免 api 快取
       {
@@ -29,7 +29,7 @@ const Fetch = (url: string, option: AnyObject) => {
 
         // 請求攔截器
         onRequest ({ options }) {
-          options.baseURL = baseURL;
+          // options.baseURL = baseURL;
           options.headers = new Headers(options.headers);
           options.headers.set('Authorization', `Bearer ${storeAuth.token}`);
         },
@@ -61,31 +61,31 @@ const Fetch = (url: string, option: AnyObject) => {
 export default {
   /** 取得  */
   get: <T>(url: string, query: AnyObject = {}) =>
-    Fetch(url, { method: 'get', query }).catch((err) => err) as Promise<ApiRes<T>>,
+    Fetch<T>(url, { method: 'get', query }).catch((err) => err),
 
   /** 建立 */
   post: <T>(url: string, body: AnyObject = {}) =>
-    Fetch(url, { method: 'post', body }).catch((err) => err) as Promise<ApiRes<T>>,
+    Fetch<T>(url, { method: 'post', body }).catch((err) => err),
 
   /** 單一編輯 */
   patch: <T>(url: string, body: AnyObject = {}) =>
-    Fetch(url, { method: 'patch', body }).catch((err) => err) as Promise<ApiRes<T>>,
+    Fetch<T>(url, { method: 'patch', body }).catch((err) => err),
 
   /** 更新 */
   put: <T>(url: string, body: AnyObject = {}) =>
-    Fetch(url, { method: 'put', body }).catch((err) => err) as Promise<ApiRes<T>>,
+    Fetch<T>(url, { method: 'put', body }).catch((err) => err),
 
   /** 刪除 */
   delete: <T>(url: string, query: AnyObject = {}) =>
-    Fetch(url, { method: 'delete', query }).catch((err) => err) as Promise<ApiRes<T>>,
+    Fetch<T>(url, { method: 'delete', query }).catch((err) => err),
 
   /** 檔案上傳 */
   fileUpload: <T>(url: string, body: AnyObject = {}) =>
-    Fetch(url, { method: 'post', body: $tool.ToFormData(body) }).catch((err) => err) as Promise<ApiRes<T>>,
+    Fetch<T>(url, { method: 'post', body: $tool.JsonToFormData(body) }).catch((err) => err),
 
   /** 檔案下載 */
   fileDownload: <T>(url: string, body: AnyObject = {}) =>
-    Fetch(url, { method: 'get', body: $tool.ToFormData(body) }).catch((err) => err) as Promise<ApiRes<T>>,
+    Fetch<T>(url, { method: 'get', body: $tool.JsonToFormData(body) }).catch((err) => err),
 
   /** 檔案上傳(進度條) */
   xhrFileUpload: <T>(url: string, body: AnyObject = {}, progressObj: FileProgress): Promise<ApiRes<T>> => {
@@ -106,7 +106,7 @@ export default {
         });
         xhr.open('POST', url, true);
         xhr.setRequestHeader('Authorization', `Bearer ${storeAuth.token}`);
-        xhr.send($tool.ToFormData(body));
+        xhr.send($tool.JsonToFormData(body));
       });
     } catch (_err) {
       const _res = FilterRes({}, 9999);
