@@ -63,6 +63,9 @@ export default defineNuxtConfig({
     langDir: 'locales',
     defaultLocale: 'zh',
     baseUrl: `${process.env.NUXT_DOMAIN_URL}`,
+    bundle: {
+      optimizeTranslationDirective: false
+    },
     detectBrowserLanguage: {
       useCookie: true,
       cookieKey: 'i18n_redirected',

@@ -1,4 +1,6 @@
 // https://cn.vuejs.org/guide/reusability/custom-directives.html#directive-hooks
+// 進場動畫
+// <div v-from="[100, 0, 300]"></div>
 export default defineNuxtPlugin((nuxtApp) => {
   // 從哪進入
   nuxtApp.vueApp.directive('from', {
@@ -60,6 +62,10 @@ export default defineNuxtPlugin((nuxtApp) => {
       });
 
       observer.observe(el);
+      el._observer = observer;
+    },
+    unmounted (el) {
+      el._observer?.unobserve(el);
     }
   });
   // -----------------------------------------------------------------------------------------------

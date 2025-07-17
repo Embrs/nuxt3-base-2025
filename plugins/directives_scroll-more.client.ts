@@ -1,11 +1,13 @@
 // https://cn.vuejs.org/guide/reusability/custom-directives.html#directive-hooks
+// 未滾到底部，出現 [M O R E] 的提示
+// <div v-scroll-more></div>
+// <div v-scroll-more="{ lisent: 'parent', show: 'content' }"></div>
+// lisent: 監聽滾動 el 下哪個 class
+// show: 顯示在 el 下哪個 class
 export default defineNuxtPlugin((nuxtApp) => {
   // 從哪進入
-  // resizeObserver = new ResizeObserver(OnSize);
-  // resizeObserver.observe(elBox.value);
-  // resizeObserver?.unobserve(elBox.value);
   nuxtApp.vueApp.directive('scroll-more', {
-    mounted (el, binding, vnode) {
+    mounted (el, binding) {
       const lisentClass = binding.value?.lisent || ''; // 監聽滾動
       const showClass = binding.value?.show || ''; // 顯示
       // true 會取 parent
@@ -84,7 +86,7 @@ export default defineNuxtPlugin((nuxtApp) => {
       }, 400);
     },
     // 綁定元素的父元件卸載前調用
-    beforeUnmount (el, binding, vnode) {
+    beforeUnmount (el, binding) {
       const lisentClass = binding.value?.lisent || ''; // 監聽滾動
       const showClass = binding.value?.show || ''; // 顯示
       // true 會取 parent
