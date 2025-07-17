@@ -8,7 +8,7 @@ export default defineEventHandler(async (event) => {
   if (!url.pathname.startsWith('/api/')) return;
 
   const config = useRuntimeConfig();
-  const target = `${config.apiBase}${url.pathname}`;
+  const target = `${config.apiBase}${url.pathname}${url.search ?? ''}`;
   try {
     // 注意：查詢字串會自動包含在 proxyRequest 中
     return await proxyRequest(event, target, { fetch });
