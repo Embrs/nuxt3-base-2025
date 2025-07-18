@@ -99,10 +99,7 @@ export default defineNuxtConfig({
         file: 'ja.js',
         name: '日本語'
       }
-    ],
-    bundle: {
-      optimizeTranslationDirective: false
-    }
+    ]
   },
   // env 環境變數 -------------------------------------------------------
   runtimeConfig: {
