@@ -29,8 +29,6 @@ export default defineNuxtConfig({
   // 模塊注入
   modules: [
     // '@nuxtjs/device',
-    // https://github.com/nuxt-modules/stylelint
-    '@nuxtjs/stylelint-module',
     // https://pinia.vuejs.org/ssr/nuxt.html
     '@pinia/nuxt',
     // https://nuxt.com/modules/pinia-plugin-persistedstate#pinia-plugin-persistedstate
@@ -75,30 +73,10 @@ export default defineNuxtConfig({
     lazy: true,
     // // 對照表: https://zh.wikipedia.org/wiki/%E5%8C%BA%E5%9F%9F%E8%AE%BE%E7%BD%AE#%E5%88%97%E8%A1%A8
     locales: [
-      {
-        code: 'zh',
-        language: 'zh-Hant-TW',
-        file: 'zh.js',
-        name: '繁體中文'
-      },
-      {
-        code: 'cn',
-        language: 'zh-Hans-CN',
-        file: 'cn.js',
-        name: '简体中文'
-      },
-      {
-        code: 'en',
-        language: 'en',
-        file: 'en.js',
-        name: 'English'
-      },
-      {
-        code: 'ja',
-        language: 'ja',
-        file: 'ja.js',
-        name: '日本語'
-      }
+      { code: 'zh', language: 'zh-Hant-TW', file: 'zh.js', name: '繁體中文' },
+      { code: 'cn', language: 'zh-Hans-CN', file: 'cn.js', name: '简体中文' },
+      { code: 'en', language: 'en', file: 'en.js', name: 'English' },
+      { code: 'ja', language: 'ja', file: 'ja.js', name: '日本語' }
     ]
   },
   // env 環境變數 -------------------------------------------------------
@@ -191,10 +169,6 @@ export default defineNuxtConfig({
 
   // style -------------------------------------------------------------
   css: ['@/assets/styles/css/index.css'],
-  stylelint: {
-    lintOnStart: false, // 專案啟動時不自動檢查所有相關檔案
-    chokidar: true // 監聽文件異動進行檢核（文件未列出此選項）
-  },
 
   // Nitro server ------------------------------------------------------
   nitro: {
