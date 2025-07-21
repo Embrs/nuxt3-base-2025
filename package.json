@@ -19,6 +19,7 @@
     "vue-router": "latest"
   },
   "devDependencies": {
+    "@element-plus/nuxt": "^1.1.4",
     "@nuxt/fonts": "^0.10.2",
     "@nuxt/icon": "^1.8.2",
     "@nuxtjs/color-mode": "^3.5.2",
@@ -30,6 +31,7 @@
     "@types/lodash-es": "^4.17.12",
     "@vue/language-plugin-pug": "^2.1.6",
     "dayjs": "^1.11.13",
+    "element-plus": "^2.10.4",
     "eslint": "^8.57.1",
     "eslint-plugin-vue-pug": "^0.6.2",
     "lodash-es": "^4.17.21",
