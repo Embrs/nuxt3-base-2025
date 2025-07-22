@@ -1,0 +1,29 @@
+@forward 'element-plus/theme-chalk/src/common/var.scss' with (
+  $colors: (
+    'primary': (
+      'base': #2E85B7,
+    ),
+    'success': (
+      'base': #00ADA9,
+    ),
+    'warning': (
+      'base': #EB8B2D,
+    ),
+    'danger': (
+      'base': #EE5151,
+    ),
+    'error': (
+      'base': #EE5151,
+    ),
+    'info': (
+      'base': #4E4F50,
+    ),
+  ),
+  $table: (
+    'header-text-color': #0165A3,
+    'header-bg-color': #EBF8FF,
+    'border-color': #E6E7E7
+  )
+);
+// @use './dark' as *;
+

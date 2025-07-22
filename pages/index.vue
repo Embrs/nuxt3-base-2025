@@ -1,20 +1,16 @@
 <script setup lang="ts">
-// Home 請填寫功能描述👈
-
+// None 請填寫功能描述👈
+definePageMeta({ layout: 'sign-in' }); // 預設跳轉至登入頁，不寫會報警告
 </script>
 
 <template lang="pug">
-.Home
-  p Home
-  NuxtLinkLocale(to="/demo")
-    button Demo page
-
-  //- DemoStore
+#None
+  p None
 </template>
 
 <style lang="scss" scoped>
 // 佈局 ----
-.Home {
+#None {
   // TODO
 }
 

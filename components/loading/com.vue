@@ -1,5 +1,4 @@
 <template lang="pug">
-.LoadingCom
 Transition(name="com")
   Suspense
     slot

@@ -1,6 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import { visualizer } from 'rollup-plugin-visualizer';
 import version from './version';
+import $i18n from './i18n';
 
 // ------------------------
 const useVisualizer = false; // 使用打包分析
@@ -74,12 +75,7 @@ export default defineNuxtConfig({
     },
     lazy: true,
     // // 對照表: https://zh.wikipedia.org/wiki/%E5%8C%BA%E5%9F%9F%E8%AE%BE%E7%BD%AE#%E5%88%97%E8%A1%A8
-    locales: [
-      { code: 'zh', language: 'zh-Hant-TW', file: 'zh.js', name: '繁體中文' },
-      { code: 'cn', language: 'zh-Hans-CN', file: 'cn.js', name: '简体中文' },
-      { code: 'en', language: 'en', file: 'en.js', name: 'English' },
-      { code: 'ja', language: 'ja', file: 'ja.js', name: '日本語' }
-    ]
+    locales: $i18n.localesSetting
   },
   // env 環境變數 -------------------------------------------------------
   runtimeConfig: {
@@ -126,7 +122,7 @@ export default defineNuxtConfig({
     importStyle: 'scss'
     // themes: ['dark'] //暗黑模式
   },
-  
+
   // 組件配置 -----------------------------------------------------------
   components: {
     dirs: [
@@ -229,6 +225,7 @@ export default defineNuxtConfig({
             @use '@/assets/styles/scss/mixin.scss' as *;
             @use '@/assets/styles/scss/font-size.scss' as *;
             @use '@/assets/styles/scss/rwd.scss' as *;
+            @use "@/assets/styles/scss/element-plus/index.scss" as *;
           `,
           quietDeps: true // 關閉警告
         }

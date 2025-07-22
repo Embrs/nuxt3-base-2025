@@ -1,9 +1,9 @@
 /* 要記得去scss/_colors.scss 添加 */
 :root {
   --demo: #0baf2c;
-  --primary: #007C36;
-  --secondary: #8FC31F;
-  --tertiary: #6E461A;
+  --primary: #393a4c;
+  --secondary: #3ec1bc;
+  --tertiary: #3e86c1;
   --gray: #757575;
   --err: #EE5151;
   --font: #454545;
@@ -12,9 +12,9 @@
 }
 :root.dark {
   --demo: #810b0b;
-  --primary: #007C36;
-  --secondary: #8FC31F;
-  --tertiary: #6E461A;
+  --primary: #393a4c;
+  --secondary: #3ec1bc;
+  --tertiary: #3e86c1;
   --gray: #757575;
   --err: #EE5151;
   --font: #454545;

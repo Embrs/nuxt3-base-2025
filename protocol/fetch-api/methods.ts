@@ -1,8 +1,8 @@
 // 登出
 const SignOut = () => {
-  const localePath = useLocalePath(); // 語系路徑
+  const storeSelf = StoreSelf();
   setTimeout(() => {
-    navigateTo(localePath('/sign-in'));
+    storeSelf.NavigateToSignIn();
   }, 1000);
 };
 
@@ -18,7 +18,7 @@ const FilterRes = (response: any, errCode = 9999) => {
 // 預設請求
 const Fetch = <T>(url: string, option: AnyObject): Promise<ApiRes<T>> => {
   try {
-    const storeAuth = StoreAuth();
+    const storeSelf = StoreSelf();
     // const { apiBase } = useRuntimeConfig();
     // const baseURL = import.meta.server ? apiBase : '';
     return $fetch(
@@ -31,7 +31,7 @@ const Fetch = <T>(url: string, option: AnyObject): Promise<ApiRes<T>> => {
         onRequest ({ options }) {
           // options.baseURL = baseURL;
           options.headers = new Headers(options.headers);
-          options.headers.set('Authorization', `Bearer ${storeAuth.token}`);
+          options.headers.set('Authorization', `Bearer ${storeSelf.token}`);
         },
 
         // 響應攔截
@@ -90,7 +90,7 @@ export default {
   /** 檔案上傳(進度條) */
   xhrFileUpload: <T>(url: string, body: AnyObject = {}, progressObj: FileProgress): Promise<ApiRes<T>> => {
     try {
-      const storeAuth = StoreAuth();
+      const storeSelf = StoreSelf();
       return new Promise((resolve) => {
         const xhr = new XMLHttpRequest();
         xhr.upload.addEventListener('progress', (e) => {
@@ -105,7 +105,7 @@ export default {
           resolve(_res);
         });
         xhr.open('POST', url, true);
-        xhr.setRequestHeader('Authorization', `Bearer ${storeAuth.token}`);
+        xhr.setRequestHeader('Authorization', `Bearer ${storeSelf.token}`);
         xhr.send($tool.JsonToFormData(body));
       });
     } catch (_err) {
