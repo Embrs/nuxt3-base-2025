@@ -80,13 +80,7 @@ export default defineNuxtConfig({
   // env 環境變數 -------------------------------------------------------
   runtimeConfig: {
     apiBase: '',
-    domainUrl: '',
-    aesKey: '',
-    aesIv: '',
-    public: {
-      gtmId: '',
-      clarityCode: ''
-    }
+    public: {}
   },
   // icon --------------------------------------------------------------
   icon: {

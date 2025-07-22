@@ -14,3 +14,18 @@ export const SignIn = () => {
   };
   return CreateRes(data);
 };
+
+// 登出
+export const SignOut = () => {
+  return CreateRes({});
+};
+
+// 取得個人資料
+export const GetSelfInfo = () => {
+  const data: SelfInfoRes = {
+    id: '1',
+    role: 1,
+    name: 'XXX'
+  };
+  return CreateRes(data);
+};

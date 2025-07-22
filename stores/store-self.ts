@@ -9,6 +9,13 @@ export const StoreSelf = defineStore('StoreSelf', () => {
   // 權限列表，用於儲存
   const rules = UseStorage<string[]>('StoreSelf_rules', []);
 
+  // 權限列表，用於儲存
+  const selfInfo = UseStorage<SelfInfoRes>('StoreSelf_selfInfo', {
+    id: '',
+    role: 1,
+    name: ''
+  });
+
   /** 是否登入 */
   const isSignIn = computed(() => !!token.value);
 
@@ -31,6 +38,11 @@ export const StoreSelf = defineStore('StoreSelf', () => {
     SelfClear();
     return navigateTo(localePath('/sign-in'));
   };
+
+  /** 設定個人資料 */
+  const SetSelfInfo = (_selfInfo: SelfInfoRes) => {
+    selfInfo.value = _selfInfo;
+  };
   // -----------------------------------------------------------------------------------------------
   return {
     /** 是否登入 */
@@ -42,6 +54,8 @@ export const StoreSelf = defineStore('StoreSelf', () => {
     /** 個人資料清除 */
     SelfClear,
     /** 跳轉至登入頁 */
-    NavigateToSignIn
+    NavigateToSignIn,
+    /** 設定個人資料 */
+    SetSelfInfo
   };
 });

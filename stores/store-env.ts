@@ -1,12 +1,6 @@
 export const StoreEnv = defineStore('StoreEnv', () => {
   const env = ref({
-    apiBase: '',
-    aesKey: '',
-    aesIv: '',
-    public: {
-      gtmId: '',
-      clarityCode: ''
-    }
+    apiBase: ''
   });
 
   /** 初始化 */

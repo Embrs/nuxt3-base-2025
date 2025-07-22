@@ -1,0 +1,187 @@
+
+/* dialog --------------- */
+.el-overlay-dialog {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.el-dialog {
+  max-height: 95%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  overflow: hidden;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.el-dialog.is-fullscreen {
+  width: 95% !important;
+  height: unset !important;
+}
+
+.el-dialog__header {
+  border-bottom: 1px solid var(--gray);
+  padding: 10px 20px !important;
+  font-weight: 700;
+} 
+
+.el-dialog__body {
+  position: relative;
+  overflow: auto;
+  /* padding: 20px 30px; */
+}
+
+.el-dialog__footer {
+  min-height: 54px;
+  border-top: 1px solid var(--gray);
+  padding: 10px 20px !important;
+}
+
+.el-dialog__headerbtn {
+  font-size: var(--el-font-size-large) !important;
+}
+
+/* dialog tyep info --------------- */
+[type="info"] .el-dialog__header {
+  background-color: #fff;
+}
+[type="info"] .el-dialog__header .el-dialog__title {
+  color: var(--primary) !important;
+}
+[type="info"]  .el-dialog__header .el-dialog__headerbtn i {
+  color: var(--primary) !important;
+}
+/* dialog tyep edit --------------- */
+[type="edit"] .el-dialog__header {
+  background-color: var(--primary);
+}
+[type="edit"] .el-dialog__header .el-dialog__title {
+  color: #fff !important;
+}
+[type="edit"]  .el-dialog__header .el-dialog__headerbtn i {
+  color: #fff !important;
+}
+
+/* date time picker --------------- */
+.el-date-picker__header {
+  .el-date-picker__header-label {
+    line-height: 30px !important;
+  }
+  span {
+    transform: scale(1.4);
+  }
+}
+
+.el-picker-panel__content {
+  width: 100% !important;
+  margin: unset !important;
+  padding: 10px;
+  th {
+    transform: scale(1.2);
+  }
+  .el-date-table-cell {
+    transform: scale(1.2);
+  }
+}
+/* input --------------- */
+
+.el-input .el-input__clear, .el-input .el-input__password, .el-input--large {
+  font-size: var(--el-font-size-base) !important;
+}
+
+/* select --------------- */
+.el-select__wrapper {
+  font-size: var(--el-font-size-base) !important;
+}
+.el-select__caret {
+  font-size: var(--el-font-size-base) !important;
+}
+
+/* button --------------- */
+.el-button--large {
+  font-size: var(--el-font-size-large) !important;
+}
+/* checkbox --------------- */
+.el-checkbox__inner {
+  transform: scale(1.6);
+  margin: 0 2px 0 4px;
+}
+.el-checkbox__label {
+  font-size: 16px !important;
+  font-weight: 400;
+}
+
+/* radio --------------- */
+.el-radio.el-radio--large {
+  min-width: 80px;
+}
+.el-radio__inner {
+  transform: scale(1.6);
+  margin: 0 2px 0 4px;
+}
+.el-radio__label {
+  font-size: 16px !important;
+  font-weight: 400;
+}
+/* form --------------- */
+.el-form-item {
+  position: relative;
+}
+.el-form-item__label {
+  font-size: var(--el-font-size-small) !important;
+  color: var(--gray-300) !important;
+}
+.el-form-item--label-top .el-form-item__label {
+  margin-bottom: 0 !important;
+  /* line-height: 16px !important; */
+}
+.el-form-item__content {
+  font-size: 18px!important;
+  line-height: 30px !important;
+}
+/* 必填* */
+.el-form-item__label::after {
+  line-height: 0;
+  font-size: 20px !important;
+}
+/* tooltip --------------- */
+.el-tooltip__trigger {
+  outline: none !important;
+}
+
+/* table --------------- */
+.el-table .even-row {
+  --el-table-tr-bg-color: var(--gray);
+}
+
+/* dropdown --------------- */
+.el-dropdown-menu__item {
+  line-height: 1.6em !important;
+}
+/* divider__text --------------- */
+.el-divider--horizontal {
+  margin: 16px 0 !important;
+}
+.el-divider__text {
+  line-height: 30px;
+}
+.el-divider__text.is-left {
+  left: 0 !important;
+  padding: 0 10px 0 0 !important;
+  font-size: 16px !important;
+  color: #6cb2bb !important;
+}
+
+/* message box --------------- */
+.el-message-box__message {
+  padding-right: 16px;
+}
+.el-message {
+  z-index: 90000 !important;
+}
+
+/* ----- 自定義按鈕 ----- */
+/* .el-button--aa {
+  background-color: var(--tertiary-600) !important;
+} */

@@ -3,3 +3,5 @@
 @import './_init.css';
 @import './_theme.css';
 @import './_vue-transition.css';
+@import './element-plus';
+

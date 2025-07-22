@@ -16,10 +16,10 @@ html {
 
 body, #__nuxt { min-height: 100vh;}
 
-/* html, body, p, pre, menu {
+html, body, p, pre, menu {
   margin: 0;
   padding: 0;
-} */
+}
 img {
   /* 不可拖曳圖片 */
   -webkit-user-drag: none;

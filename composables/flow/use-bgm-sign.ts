@@ -25,9 +25,6 @@ export const UseBgmSign = () => {
     // 4. 取得個人資料
     if (!await ApiGetSelfInfo()) return false;
 
-    // 5. 取得公司資訊
-    if (!await ApiGetCompanyInfo()) return false;
-
     // 5. 跳轉
     navigateTo(localePath('/bgm/'));
 
@@ -70,20 +67,7 @@ export const UseBgmSign = () => {
     const { data, status } = await $api.GetSelfInfo();
     if (status.code === 0) {
       // 設定個人資料
-      storeSelf.SetSelfData(data);
-      return true;
-    }
-    return false;
-  };
-
-  /** 公司詳情 */
-  const ApiGetCompanyInfo = async () => {
-    if (!storeSelf.currentCompany?.id) return false;
-    const { data, status } = await $api.GetCompanyInfo(storeSelf.currentCompany.id);
-    if (status.code === 0) {
-      // 設定所在公司資料
-      storeSelf.SetCompanyCtInfo(data);
-      // TODO
+      storeSelf.SetSelfInfo(data);
       return true;
     }
     return false;
