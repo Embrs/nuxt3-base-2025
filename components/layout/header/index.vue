@@ -38,7 +38,7 @@ const ClickMenuCtrl = () => {
         :to="crumbsItem.path"
       )
         NuxtIcon(v-if="crumbsItem.icon" :name="crumbsItem.icon")
-        p {{ $t(`page.${crumbsItem.key}`) }}
+        p {{ crumbsItem.name }}
   .right-area
     LayoutUserCtrl.web-hidden
 </template>
