@@ -74,7 +74,7 @@ onMounted(() => {
   display: grid;
   grid-template-rows: auto 1fr auto;
   overflow: hidden;
-  background-color: $primary;
+  background-color: #27618f;
   z-index: 1;
   transition: width .4s ease;
   border-right: 1px solid $primary;

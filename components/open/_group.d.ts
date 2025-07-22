@@ -9,7 +9,10 @@ interface OpenData {
 
 // Type -----------------------------------------------------------------------------------------------
 type OpenType = 
-  'OpenDialogDemo' 
+  'OpenDialogDemo'
+  | 'OpenDialogExInfo'
+  | 'OpenDialogExEdit'
+  | 'OpenDialogExCreate'
 
 // Params -----------------------------------------------------------------------------------------------
 type OpenParams = 

@@ -21,7 +21,7 @@ onBeforeUnmount(() => {
         LayoutMenu(v-if="storeTool.isPc")
     .bgm-right-area
       .bgm-top-area
-        p {{ $t('common.bgm') }}
+        p 後台管理系統
         LayoutUserCtrl
       .bgm-header-area
         LayoutHeader
@@ -81,7 +81,7 @@ onBeforeUnmount(() => {
       'page'
       'footer';
     overflow: hidden;
-    background-color: $gray;
+    background-color: #888;
 
     @include rwd-pc {
       padding: 0 16px 16px;
@@ -94,6 +94,7 @@ onBeforeUnmount(() => {
     .bgm-top-area {
       @include fs(24px, 500);
       @include row-between;
+      color: #fff;
       grid-area: top;
       padding: 16px 0;
       @include rwd-mobile {
@@ -102,7 +103,7 @@ onBeforeUnmount(() => {
     }
     .bgm-header-area {
       grid-area: header;
-      background-color: $gray;
+      background-color: #eee;
       border-radius: 5px 5px 0 0;
     }
     .bgm-page-area  {

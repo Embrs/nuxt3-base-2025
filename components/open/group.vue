@@ -19,6 +19,19 @@ const OnClose = (uuid: string) => {
 // -- 生命週期 -----------------------------------------------------------------------------------------
 onMounted(() => {
   $mitt.OnDialogOpen((openData: OpenData) => {
+    // 重複彈窗
+    // const currentDialogs = openList.value.map((item) => item.type);
+    // if (currentDialogs.includes(openData.type)) {
+    //   ElMessage.warning('有出現相同的彈窗');
+    //   openData?.resolve();
+    //   return;
+    // }
+    // 開窗數量限制
+    if (openList.value.length >= 6) {
+      ElMessage.warning('彈窗數量已達上限');
+      openData?.resolve();
+      return;
+    }
     openList.value.push(openData);
   });
 
@@ -30,16 +43,22 @@ onMounted(() => {
   });
 });
 
+onBeforeUnmount(() => {
+  for (const item of openList.value) {
+    item?.resolve(); // 釋放
+  }
+  openList.value = [];
+});
+
 </script>
 
 <template lang="pug">
 #OpenGroup(v-if="openList.length > 0")
   component(
     :is="drawerItem.type"
-    v-for="(drawerItem, index) of openList"
+    v-for="(drawerItem) of openList"
     :key="drawerItem.uuid"
     :params="drawerItem?.params"
-    :level="index"
     :resolve="drawerItem.resolve"
     @on-close="OnClose(drawerItem.uuid)"
   )

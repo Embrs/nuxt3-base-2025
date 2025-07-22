@@ -50,7 +50,7 @@ const ClickMenuCtrl = () => {
   width: 100%;
   height: 50px;
   padding: 0 10px;
-  border-bottom: 1px solid $primary;
+  border-bottom: 1px solid #eee;
   @include fs(18px);
   .left-area {
     @include row(10px);

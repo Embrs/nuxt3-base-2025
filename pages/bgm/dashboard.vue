@@ -9,8 +9,10 @@ const storeSelf = StoreSelf();
   p BgmDashboard
   NuxtLink(to="/bgm/customer") Customer
   NuxtLink(to="/bgm/staff") Staff
-  pre {{  storeSelf.myRules }}
-  pre {{  storeMenu.menuList }}
+
+  ElButton(@click="$dialog.OpenDialogExCreate") OpenDialogExCreate
+  ElButton(@click="$dialog.OpenDialogExInfo") OpenDialogExInfo
+  ElButton(@click="$dialog.OpenDialogExEdit") OpenDialogExEdit
 </template>
 
 <style lang="scss" scoped>

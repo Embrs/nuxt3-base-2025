@@ -25,7 +25,7 @@ export const GetSelfInfo = () => {
   const data: SelfInfoRes = {
     id: '1',
     role: 1,
-    name: 'XXX'
+    name: '王小明'
   };
   return CreateRes(data);
 };

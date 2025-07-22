@@ -12,3 +12,18 @@ const EmitDialogOpen = <Res>(type: OpenType, params = {}):Promise<Res | undefine
 export const OpenDialogDemo = (_params: OpenDialogDemo): Promise<void> => {
   return EmitDialogOpen('OpenDialogDemo', _params);
 };
+
+/** Ex Info */
+export const OpenDialogExInfo = (): Promise<void> => {
+  return EmitDialogOpen('OpenDialogExInfo');
+};
+
+/** Ex Edit */
+export const OpenDialogExEdit = (): Promise<void> => {
+  return EmitDialogOpen('OpenDialogExEdit', {});
+};
+
+/** Ex Create */
+export const OpenDialogExCreate = (): Promise<void> => {
+  return EmitDialogOpen('OpenDialogExCreate', {});
+};
