@@ -71,7 +71,11 @@ export const StoreSelf = defineStore('StoreSelf', () => {
     NavigateToSignIn,
     /** 設定個人資料 */
     SetSelfInfo,
+    /** 擁有權限 */
     HasRule,
-    myRules
+    /** 權限列表 */
+    myRules,
+    /** 個人資料 */
+    selfInfo
   };
 });
