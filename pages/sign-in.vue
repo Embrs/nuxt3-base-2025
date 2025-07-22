@@ -145,7 +145,6 @@ onMounted(() => {
 }
 
 .form-sign-in {
-  // $secondary-300: #237c9a;
   $signin-error: #d88aa5;
   .btn-gap {
     padding-top: 20px;

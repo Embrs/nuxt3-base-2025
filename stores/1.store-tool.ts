@@ -17,6 +17,12 @@ export const StoreTool = defineStore('StoreTool', () => {
   const isMidPc = computed(() => windowWidth.value >= pcSize && windowWidth.value <= pcMidMax);
   /* < 1024px */
   const isMobile = computed(() => windowWidth.value < pcSize);
+  /** menu 開關 */
+  const isMenuOpen = ref(false);
+  /** 背景尺寸 */
+  const bgmLayoutZoom = ref(1);
+  const bgmLayoutWidth = ref(0);
+  const bgmLayoutHeight = ref(0);
   /* 滾動方向(px) */
   const scrollUpDown = ref<-1 | 0 | 1>(0); // -1 up, 0:no scroll, 1: down // 滾動方向(px)
 
@@ -60,6 +66,16 @@ export const StoreTool = defineStore('StoreTool', () => {
     scrollUpDown.value = 0;
   }, 300);
 
+  /* 設定後臺尺寸 */
+  const SetBgmSize = () => {
+    console.log('SetBgmSize');
+    isMenuOpen.value = false;
+    if (import.meta.server) return;
+    const elLayout = document.querySelector('.LayoutBgm');
+    if (!elLayout) return;
+    bgmLayoutWidth.value = elLayout?.clientWidth || 0;
+    bgmLayoutHeight.value = elLayout?.clientHeight || 0;
+  };
   return {
     isPc,
     isMidPc,
@@ -67,11 +83,17 @@ export const StoreTool = defineStore('StoreTool', () => {
     isMobileDevice,
     isLineBrowserDevice,
     windowWidth,
+    /** menu 開關 */
+    isMenuOpen,
+    bgmLayoutZoom,
+    bgmLayoutWidth,
+    bgmLayoutHeight,
     scrollTopVal,
     currentUrl,
     scrollUpDown,
     SetDevice,
     SetWindowWidth,
-    SetWindowScroll
+    SetWindowScroll,
+    SetBgmSize
   };
 });

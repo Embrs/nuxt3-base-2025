@@ -1,13 +1,14 @@
 // 登入與權限
 // const sevenDay = 60 * 60 * 24 * 7;
+import type { RuleValue } from '@/utils/$rbac';
 export const StoreSelf = defineStore('StoreSelf', () => {
   const localePath = useLocalePath();
   // token -----------------------------------------------------------------------------------------------
   // Token
   const token = UseStorage<string>('StoreSelf_token', '');
 
-  // 權限列表，用於儲存
-  const rules = UseStorage<string[]>('StoreSelf_rules', []);
+  // // 權限列表，用於儲存
+  // const roles = UseStorage<string[]>('StoreSelf_rules', []);
 
   // 權限列表，用於儲存
   const selfInfo = UseStorage<SelfInfoRes>('StoreSelf_selfInfo', {
@@ -27,7 +28,11 @@ export const StoreSelf = defineStore('StoreSelf', () => {
   /* 個人資料清除 */
   const SelfClear = () => {
     // 清除權限
-    rules.value = [];
+    selfInfo.value = {
+      id: '',
+      role: 1,
+      name: ''
+    };
 
     // 清除 token
     SetToken('');
@@ -43,6 +48,15 @@ export const StoreSelf = defineStore('StoreSelf', () => {
   const SetSelfInfo = (_selfInfo: SelfInfoRes) => {
     selfInfo.value = _selfInfo;
   };
+
+  // 個人權限
+  const myRules = computed<RuleValue[]>(() => {
+    return $rbac?.roleRules?.[selfInfo.value.role as RoleType] || [];
+  });
+
+  /* 擁有權限 */
+  const HasRule = (ruleVal: RuleValue): boolean => myRules.value.includes(ruleVal);
+
   // -----------------------------------------------------------------------------------------------
   return {
     /** 是否登入 */
@@ -56,6 +70,8 @@ export const StoreSelf = defineStore('StoreSelf', () => {
     /** 跳轉至登入頁 */
     NavigateToSignIn,
     /** 設定個人資料 */
-    SetSelfInfo
+    SetSelfInfo,
+    HasRule,
+    myRules
   };
 });
