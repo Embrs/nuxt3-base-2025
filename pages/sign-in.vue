@@ -54,7 +54,8 @@ onMounted(() => {
 <template lang="pug">
 .SignIn
   .bg-img
-    ElImagePlus(:src="signinBg")
+    //- ElImagePlus(:src="signinBg")
+    SvgSignin
   .card-box
     .logo-area
       //- ElImage.logo-img(:src="logo" lazy)
@@ -113,6 +114,12 @@ onMounted(() => {
     position: fixed;
     top: 0;
     left: 0;
+    :deep(.gradient-start) {
+      stop-color: #213492 !important;
+    }
+    :deep(.gradient-end) {
+      stop-color: #aaa !important;
+    }
   }
   .card-box {
     @include col(20px, center);

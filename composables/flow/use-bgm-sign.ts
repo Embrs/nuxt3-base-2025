@@ -73,7 +73,7 @@ export const UseBgmSign = () => {
     return false;
   };
 
-  // 登出
+  // 登出#aaaaaa
   const ApiSignOut = async () => {
     const { status } = await $api.SignOut();
     return status.code === 0;
