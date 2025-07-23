@@ -2,22 +2,30 @@
 :root {
   --demo: #0baf2c;
   --primary: #354d7b;
-  --secondary: #3ec1bc;
+  --secondary: #3fe9e3;
   --tertiary: #3e86c1;
   --gray: #757575;
   --err: #EE5151;
   --font: #454545;
   --bg: #FDF9F2;
   --white: #fff;
+
+  --signin-bg-1: #688bcd;
+  --signin-bg-2: #0b0d13;
+
+  --bgm-layout-bg: #d4d8da;
+
+  --menu-bg: #354d7b;
+  --menu-text: #fff;
+
+  --menu-hover-bg: #3966a0;
+  --menu-hover-text: #fff;
+
+  --menu-active-bg: #3966a0;
+  --menu-active-text: #fff;
+
 }
 :root.dark {
   --demo: #810b0b;
-  --primary: #393a4c;
-  --secondary: #3ec1bc;
-  --tertiary: #3e86c1;
-  --gray: #757575;
-  --err: #EE5151;
-  --font: #454545;
-  --bg: #FDF9F2;
-  --white: #fff;
+  /* TODO */
 }

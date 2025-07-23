@@ -40,7 +40,7 @@ const ClickMenuCtrl = () => {
         NuxtIcon(v-if="crumbsItem.icon" :name="crumbsItem.icon")
         p {{ crumbsItem.name }}
   .right-area
-    LayoutUserCtrl.web-hidden
+    LayoutUserCtrl
 </template>
 
 <style lang="scss" scoped>
@@ -51,6 +51,7 @@ const ClickMenuCtrl = () => {
   height: 50px;
   padding: 0 10px;
   border-bottom: 1px solid #eee;
+  background-color: #f5f6f6;
   @include fs(18px);
   .left-area {
     @include row(10px);
@@ -92,6 +93,11 @@ const ClickMenuCtrl = () => {
 .bread-crumb-item {
   @include row;
   line-height: 1em;
+  .iconify {
+    transform: translateY(1px);
+    @include fs(20px);
+    margin-right: 4px;
+  }
 }
 .web-hidden {
   @include rwd-pc {

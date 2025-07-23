@@ -1,8 +1,6 @@
 <script setup lang="ts">
 // SignIn 登入頁
 // -- 引入 --------------------------------------------------------------------------------------------
-import signinBg from '@/assets/img/signin.svg';
-
 const $bgmSign = UseBgmSign();
 const storeSelf = StoreSelf();
 
@@ -54,10 +52,10 @@ onMounted(() => {
 <template lang="pug">
 .SignIn
   .bg-img
-    //- ElImagePlus(:src="signinBg")
     SvgSignin
   .card-box
     .logo-area
+      p //TODO Logo img
       //- ElImage.logo-img(:src="logo" lazy)
     .title {{ '後台管理系統' }}
     .form-area
@@ -108,18 +106,11 @@ onMounted(() => {
   position: relative;
   overflow: hidden;
   padding: 20px;
-  // background-color: $secondary;
   .bg-img {
     @include wh;
     position: fixed;
     top: 0;
     left: 0;
-    :deep(.gradient-start) {
-      stop-color: #213492 !important;
-    }
-    :deep(.gradient-end) {
-      stop-color: #aaa !important;
-    }
   }
   .card-box {
     @include col(20px, center);
@@ -129,6 +120,10 @@ onMounted(() => {
     .form-area {
       width: 100%;
     }
+  }
+  .logo-area {
+    background-color: #00000022;
+    color: #fff
   }
 }
 

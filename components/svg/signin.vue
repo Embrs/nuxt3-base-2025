@@ -63,13 +63,17 @@
 <style lang="scss" scoped>
 // 佈局 ----
 .SvgSignin {
-  @include wh;
-  @include absolute;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
   overflow: hidden;
   z-index: -1;
 }
 .svg-style {
-  @include wh;
+  height: 100%;
+  width: 100%;
   object-fit: cover;
   position: absolute;
   top: 50%;
@@ -80,9 +84,9 @@
 }
 // 組件 ----
 :deep(.stop-color-start) {
-  stop-color: #119795FF;
+  stop-color: $signin-bg-1;
 }
 :deep(.stop-color-end) {
-  stop-color: #132D69FF;
+  stop-color: $signin-bg-2;
 }
 </style>

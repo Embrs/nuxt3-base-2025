@@ -45,6 +45,7 @@ onMounted(() => {
   .menu-bar
     .logo-area
       .logo-img
+        p //TODO Logo img
         //- ElImagePlus(:src="logo" fit="contain")
     .menu-list(v-scroll-more)
       LayoutMenuList(
@@ -54,11 +55,8 @@ onMounted(() => {
         :menuList="storeMenu.menuList"
       )
       .bottom-gap
-    //- .info-area
-      //- p {{ $t('common.validUntil')}}
-      //-  p {{ $t('common.analyzedCount')}}
-      p {{ $t('common.remainingAnalysisCount') }}
-      .num {{ 100 }}
+    .info-area
+      p Copy right
 </template>
 
 <style lang="scss" scoped>
@@ -74,10 +72,9 @@ onMounted(() => {
   display: grid;
   grid-template-rows: auto 1fr auto;
   overflow: hidden;
-  background-color: #27618f;
+  background-color: $menu-bg;
   z-index: 1;
   transition: width .4s ease;
-  border-right: 1px solid $primary;
 
   .logo-area {
     @include col(4px, center);
@@ -90,7 +87,6 @@ onMounted(() => {
     @include fs(18px);
     height: 50px;
     padding: 0 20px;
-    color: white;
     border-top: 1px solid rgb(255 255 255 / 50%);
     .num {
       @include fs(26px);
@@ -101,10 +97,11 @@ onMounted(() => {
 
 // 組件 ----
 .logo-img {
+  @include center;
   width: 100%;
   height: 86px;
   padding: 12px 0;
-  background-color: $white;
+  background-color: #00000022;
   border-radius: 4px;
 }
 

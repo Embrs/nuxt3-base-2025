@@ -6,9 +6,14 @@
  */
 
 const menuBase: MenuBaseInfo[] = [
-  { key: 'dashboard', icon: '', name: '儀表板' }, // 儀表板
-  { key: 'customer', icon: '', name: '客戶管理' }, // 客戶管理
-  { key: 'staff', icon: '', name: '員工管理' } // 員工管理
+  { key: 'a', name: 'A', icon: 'material-symbols:dashboard' }, // A
+  { key: 'b', name: 'B', icon: 'material-symbols:dashboard' }, // B
+  { key: 'c', name: 'C', icon: 'material-symbols:dashboard' }, // C
+  { key: 'd', name: 'D', icon: 'material-symbols:dashboard' }, // D
+  { key: 'e', name: 'E', icon: 'material-symbols:dashboard' }, // E
+  { key: 'dashboard', name: '儀表板', icon: 'mdi:monitor-dashboard' }, // 儀表板
+  { key: 'customer', name: '客戶管理', icon: 'material-symbols:person-pin' }, // 客戶管理
+  { key: 'staff', name: '員工管理', icon: 'material-symbols:person-apron' } // 員工管理
 
 ];
 

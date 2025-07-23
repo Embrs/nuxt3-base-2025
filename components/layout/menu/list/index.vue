@@ -98,13 +98,14 @@ const ChildrenCount = (list: MenuItem[], sum: number = 0): number => {
   align-items: center;
   grid-template-columns: 1fr auto;
   padding-right: 10px;
-  color: $primary;
+  color: $menu-text;
   z-index: 1;
   transition:  background-color .4s ease;
   user-select: none;
   cursor: pointer;
   &:hover {
-    background-color: $primary;
+    // filter: grayscale(20%);
+    background-color: $menu-hover-bg;
   }
 
   @include rwd-pc {
@@ -117,7 +118,7 @@ const ChildrenCount = (list: MenuItem[], sum: number = 0): number => {
 
 .level-1 {
   margin-top: 4px;
-  color: $white;
+  color: $menu-text;
 }
 
 .menu-item {
@@ -135,9 +136,10 @@ const ChildrenCount = (list: MenuItem[], sum: number = 0): number => {
     content: '';
     transition: opacity .4s ease, width .4s ease;
   }
-  svg {
-    min-width: 24px !important;
+  .iconify {
+    // min-width: 30px !important;
     @include fs(24px);
+    transform: translateY(1px);
   }
 }
 
@@ -149,8 +151,9 @@ const ChildrenCount = (list: MenuItem[], sum: number = 0): number => {
 }
 
 .current-page {
-  color: $primary !important;
-  background-color: $secondary !important;
+  font-weight: 700;
+  color: $menu-active-text !important;
+  background-color: $menu-active-bg !important;
 }
 
 .arrow-icon {
