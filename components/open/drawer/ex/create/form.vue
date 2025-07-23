@@ -1,20 +1,33 @@
 <script setup lang="ts">
-// OpenDialogExInfoForm // TODO
+// OpenDrawerExCreateForm // TODO
 // -- 引入 --------------------------------------------------------------------------------------------
 const $mitt = UseMitt();
-const $ask = UseAsk();
 
 // -- 資料 --------------------------------------------------------------------------------------------
 // 準備就緒
 const isReady = defineModel<boolean>('isReady', { default: false });
 
 type Props = {
-  id: number; // ID
+  type: 'edit' | 'create'
+  id?: number; // ID
 }
 const props = defineProps<Props>();
 
+const elForm = useTemplateRef('elForm');
+
 // 加載中
 const isLoading = ref(true);
+
+// 是新增
+const isCreate = computed(() => props.type === 'create');
+
+const rules = computed(() => {
+  return {
+    '//TODO': [
+      { required: true, message: '請輸入', trigger: 'change' }
+    ]
+  };
+});
 
 // -- 接收事件 -----------------------------------------------------------------------------------------
 
@@ -25,7 +38,6 @@ const InitFlow = (): boolean => {
   isReady.value = false;
   try {
     // TODO
-    // if (!await Api()) return false;
     isReady.value = true;
     return true;
   } catch (err) {
@@ -35,17 +47,36 @@ const InitFlow = (): boolean => {
   }
 };
 
-/** 刪除流程 */
-const DeleteFlow = async (): Promise<boolean> => {
+/** 新增流程 */
+const CreateFlow = async (): Promise<boolean> => {
   isLoading.value = true;
   try {
-    // 詢問刪除
-    if (!await $ask.Delete()) return false;
-    // 刪除api
+    // 驗證
+    if (!await FormValidate()) return false;
+    // 建立
     // if (!await Api()) return false;
-    // 刷新頁面
+    // 重加載
     $mitt.EmitReload();
-    ElMessage.success('刪除成功');
+    // 關閉
+    EmitClose();
+    return true;
+  } catch (err) {
+    return false;
+  } finally {
+    isLoading.value = false;
+  }
+};
+
+/** 編輯流程 */
+const EditFlow = async (): Promise<boolean> => {
+  isLoading.value = true;
+  try {
+    // 驗證
+    if (!await FormValidate()) return false;
+    // 更新
+    // if (!await Api()) return false;
+    // 刷新
+    $mitt.EmitRefresh();
     // 關閉
     EmitClose();
     return true;
@@ -57,12 +88,11 @@ const DeleteFlow = async (): Promise<boolean> => {
 };
 
 // -- 函式 --------------------------------------------------------------------------------------------
-/** 開啟編輯 */
-const OpenEditDialog = () => {
-  // const _params: OpenDialogExEdit = {
-  //   id: 123
-  // };
-  // $open.OpenDialogExEdit(_params);
+// 驗證
+const FormValidate = async () => {
+  let pass = true;
+  await elForm.value?.validate((_pass) => { pass = _pass; });
+  return pass;
 };
 
 // -- Api ---------------------------------------------------------------------------------------------
@@ -70,13 +100,15 @@ const OpenEditDialog = () => {
 // -- 生命週期 -----------------------------------------------------------------------------------------
 onMounted(async () => {
   if (!await InitFlow()) EmitClose();
-  $mitt.OnRefresh(InitFlow);
-  $mitt.OnReload(InitFlow);
 });
 
 // -- 發送事件 -----------------------------------------------------------------------------------------
-type Emit = { 'on-close': [] }
+type Emit = { 'on-change': [], 'on-close': [] }
 const emit = defineEmits<Emit>();
+
+const EmitChange = () => {
+  emit('on-change');
+};
 
 const EmitClose = () => {
   emit('on-close');
@@ -84,27 +116,31 @@ const EmitClose = () => {
 
 // -- 對外暴露 ----------------------------------------------------------------------------------------
 defineExpose({
-  DeleteFlow,
-  OpenEditDialog
+  CreateFlow,
+  EditFlow
 });
 </script>
 
 <template lang="pug">
-.OpenDialogExInfoForm(v-loading="isLoading")
+.OpenDrawerExCreateForm(v-loading="isLoading")
   ElForm(
     v-if="isReady"
+    ref="elForm"
+    :rules="rules"
     label-position="top"
     size="large"
     require-asterisk-position="right"
+    @submit.prevent
   )
     //- 基本資料區 ----------------------------------------------
-    .g-form-title 基本資料
-
+    .g-form-title {{ '基本資料' }}
+    .g-form-two-col
+    p(v-for="item in 100" :key="item") {{ item }}
 </template>
 
 <style lang="scss" scoped>
 // 佈局 ----
-.OpenDialogExInfoForm {
+.OpenDrawerExCreateForm {
   min-height: 300px;
 }
 

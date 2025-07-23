@@ -59,7 +59,7 @@ const ClickAction = $lodash.debounce((action: string) => {
       // const _params: OpenDialogStockInInfo = {
       //   id: 123
       // };
-      // $dialog.OpenDialogStockInInfo(_params);
+      // $open.OpenDialogStockInInfo(_params);
       break;
     }
   }

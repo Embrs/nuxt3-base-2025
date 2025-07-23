@@ -19,7 +19,7 @@ export const UseMitt = () => {
   // ----------------------------------------------------------------
   const OnRefresh = (fn: Fn) => On('refresh', fn);
   const OnReload = (fn: Fn) => On('reload', fn);
-  const OnDialogOpen = (fn: Fn) => On('dialog-open', fn);
+  const OnDialogOpen = (fn: Fn) => On('open-com', fn);
   const OnDialogCloseAll = (fn: Fn) => On('dialog-close-all', fn);
 
   // clearEvent: 是否清除自己事件，用於關閉刷新時
@@ -39,7 +39,7 @@ export const UseMitt = () => {
   // 移至 dialog-fn.ts
   // const EmitDialogOpen = <Res>(type: OpenType, params: OpenParams = {}):Promise<Res | undefined> =>
   //   new Promise((resolve) => $emitter.emit(
-  //     'dialog-open', {
+  //     'open-com', {
   //       uuid: `open-${$tool.CreateUUID()}`,
   //       resolve,
   //       type,

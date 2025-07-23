@@ -16,7 +16,7 @@ const ClickOpenDemo = $lodash.debounce(async () => {
   const openParams: OpenDialogDemo = {
     demo: 'test123'
   };
-  await $dialog.OpenDialogDemo(openParams);
+  await $open.OpenDialogDemo(openParams);
   // console.log('dialog');
 }, 400, { leading: true, trailing: false });
 

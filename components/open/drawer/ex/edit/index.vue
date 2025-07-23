@@ -1,5 +1,5 @@
 <script setup lang="ts">
-// OpenDialogExEdit // TODO
+// OpenDrawerExEdit // TODO
 // -- 引入 --------------------------------------------------------------------------------------------
 const $dialogBase = UseDialoBase();
 
@@ -36,14 +36,14 @@ const ClickAction = $lodash.debounce(async (active: string) => {
 </script>
 
 <template lang="pug">
-ElDialogPlus.OpenDialogExEdit(
+ElDrawerPlus.OpenDrawerExEdit(
   v-model="$dialogBase.visible.value"
   type="edit"
   :title="title"
   :isChange="$dialogBase.isChange.value"
   width="600px"
 )
-  OpenDialogExCreateForm(
+  OpenDrawerExCreateForm(
     :id="props.params.id"
     ref="elForm"
     v-model:isReady="isReady"

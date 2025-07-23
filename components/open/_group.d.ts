@@ -13,6 +13,9 @@ type OpenType =
   | 'OpenDialogExInfo'
   | 'OpenDialogExEdit'
   | 'OpenDialogExCreate'
+  | 'OpenDrawerExInfo'
+  | 'OpenDrawerExEdit'
+  | 'OpenDrawerExCreate'
 
 // Params -----------------------------------------------------------------------------------------------
 type OpenParams = 

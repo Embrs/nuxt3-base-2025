@@ -7,7 +7,7 @@ const ClickCreate = $lodash.debounce(() => {
   // const _params: OpenDialogStockInCreate = {
   //   // supplierId?: number // 供應商 Id
   // };
-  // $dialog.OpenDialogStockInCreate(_params);
+  // $open.OpenDialogStockInCreate(_params);
 }, 1000, { leading: true, trailing: false });
 </script>
 

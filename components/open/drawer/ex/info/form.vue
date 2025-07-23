@@ -1,5 +1,5 @@
 <script setup lang="ts">
-// OpenDialogExInfoForm // TODO
+// OpenDrawerExInfoForm // TODO
 // -- 引入 --------------------------------------------------------------------------------------------
 const $mitt = UseMitt();
 const $ask = UseAsk();
@@ -58,11 +58,11 @@ const DeleteFlow = async (): Promise<boolean> => {
 
 // -- 函式 --------------------------------------------------------------------------------------------
 /** 開啟編輯 */
-const OpenEditDialog = () => {
-  // const _params: OpenDialogExEdit = {
+const OpenEditDrawer = () => {
+  // const _params: OpenDrawerExEdit = {
   //   id: 123
   // };
-  // $open.OpenDialogExEdit(_params);
+  // $open.OpenDrawerExEdit(_params);
 };
 
 // -- Api ---------------------------------------------------------------------------------------------
@@ -85,12 +85,12 @@ const EmitClose = () => {
 // -- 對外暴露 ----------------------------------------------------------------------------------------
 defineExpose({
   DeleteFlow,
-  OpenEditDialog
+  OpenEditDrawer
 });
 </script>
 
 <template lang="pug">
-.OpenDialogExInfoForm(v-loading="isLoading")
+.OpenDrawerExInfoForm(v-loading="isLoading")
   ElForm(
     v-if="isReady"
     label-position="top"
@@ -104,7 +104,7 @@ defineExpose({
 
 <style lang="scss" scoped>
 // 佈局 ----
-.OpenDialogExInfoForm {
+.OpenDrawerExInfoForm {
   min-height: 300px;
 }
 

@@ -1,4 +1,45 @@
 
+/* drawer --------------- */
+.el-drawer__body {
+  padding: 0 !important;
+}
+.el-drawer__header {
+  padding: 10px !important;
+  margin: 0 !important;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+
+[type="info"]
+.el-drawer__header {
+  background-color: #fff;
+}
+
+[type="info"]
+.el-drawer__header span,
+[type="info"]
+.el-drawer__close-btn {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+[type="edit"]
+.el-drawer__header {
+  background-color: var(--primary);
+}
+[type="edit"]
+.el-drawer__header span,
+[type="edit"]
+.el-drawer__close-btn {
+  color: #fff;
+  font-weight: 700;
+}
+
+.el-drawer__footer {
+  border-top: 1px solid #eee;
+  padding: 10px 20px !important;
+  margin: 0 !important;
+}
 /* dialog --------------- */
 .el-overlay-dialog {
   display: flex;
@@ -21,7 +62,7 @@
 }
 
 .el-dialog__header {
-  border-bottom: 1px solid var(--gray);
+  border-bottom: 1px solid #eee;
   padding: 10px 20px !important;
   font-weight: 700;
 } 
@@ -34,7 +75,7 @@
 
 .el-dialog__footer {
   min-height: 54px;
-  border-top: 1px solid var(--gray);
+  border-top: 1px solid #eee;
   padding: 10px 20px !important;
 }
 
@@ -152,7 +193,7 @@
 
 /* table --------------- */
 .el-table .even-row {
-  --el-table-tr-bg-color: var(--gray);
+  --el-table-tr-bg-color: #eee;
 }
 
 /* dropdown --------------- */

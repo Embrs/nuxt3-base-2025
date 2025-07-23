@@ -10,9 +10,12 @@ const storeSelf = StoreSelf();
   NuxtLink(to="/bgm/customer") Customer
   NuxtLink(to="/bgm/staff") Staff
 
-  ElButton(@click="$dialog.OpenDialogExCreate") OpenDialogExCreate
-  ElButton(@click="$dialog.OpenDialogExInfo") OpenDialogExInfo
-  ElButton(@click="$dialog.OpenDialogExEdit") OpenDialogExEdit
+  ElButton(@click="$open.OpenDialogExCreate") OpenDialogExCreate
+  ElButton(@click="$open.OpenDialogExInfo") OpenDialogExInfo
+  ElButton(@click="$open.OpenDialogExEdit") OpenDialogExEdit
+  ElButton(@click="$open.OpenDrawerExCreate") OpenDrawerExCreate
+  ElButton(@click="$open.OpenDrawerExInfo") OpenDrawerExInfo
+  ElButton(@click="$open.OpenDrawerExEdit") OpenDrawerExEdit
 </template>
 
 <style lang="scss" scoped>

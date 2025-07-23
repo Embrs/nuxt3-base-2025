@@ -1,20 +1,14 @@
 <script setup lang="ts">
-// OpenDialogExEdit // TODO
+// OpenDrawerExCreate // TODO
 // -- 引入 --------------------------------------------------------------------------------------------
 const $dialogBase = UseDialoBase();
 
 // -- 資料 --------------------------------------------------------------------------------------------
-type Props = {
-  params: any // OpenDialogExEdit; // 參數
-}
-
-const props = defineProps<Props>();
-
 const elForm = useTemplateRef('elForm');
 
 // 標題
 const title = computed(() => {
-  return `Ex 修改【ID：${props.params.id}】`;
+  return 'Ex 新增';
 });
 
 // 準備就緒
@@ -26,7 +20,7 @@ const ClickAction = $lodash.debounce(async (active: string) => {
   $dialogBase.isSendLock.value = true;
   switch (active) {
     case 'submit': {
-      await elForm.value?.EditFlow();
+      await elForm.value?.CreateFlow();
       break;
     }
   }
@@ -36,18 +30,17 @@ const ClickAction = $lodash.debounce(async (active: string) => {
 </script>
 
 <template lang="pug">
-ElDialogPlus.OpenDialogExEdit(
+ElDrawerPlus.OpenDrawerExCreate(
   v-model="$dialogBase.visible.value"
   type="edit"
   :title="title"
   :isChange="$dialogBase.isChange.value"
   width="600px"
 )
-  OpenDialogExCreateForm(
-    :id="props.params.id"
+  OpenDrawerExCreateForm(
     ref="elForm"
     v-model:isReady="isReady"
-    type="edit"
+    type="create"
     @on-change="$dialogBase.OnChange"
     @on-close="$dialogBase.OnClose"
   )
@@ -61,5 +54,5 @@ ElDialogPlus.OpenDialogExEdit(
       type="primary"
       :disabled="$dialogBase.isSendLock.value"
       @click="ClickAction('submit')"
-    ) 送出
+    ) 建立
 </template>
