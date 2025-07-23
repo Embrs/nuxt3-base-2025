@@ -16,7 +16,9 @@ const ClickCreate = $lodash.debounce(() => {
   .filter-area
     //- LyFilterDateRange(@on-change="ChangeFilter")
   .ctrl-area
-    ElButton(type="warning" size="large" @click="ClickCreate") {{ '新增' }}
+    ElButton(type="success" @click="ClickCreate")
+      NuxtIcon(name="el-icon-plus")
+      p {{ '新增' }}
   .table-area
     PageStaffTable(ref="elTable")
 </template>

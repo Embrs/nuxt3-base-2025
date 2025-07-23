@@ -65,16 +65,25 @@ const ChildrenCount = (list: MenuItem[], sum: number = 0): number => {
       :class="[`level-${props.level}`,{'current-page': currentPage === menuItem.key}]"
       @click="ClickMenuItem(menuItem)"
     )
-      .menu-item(
-        :class="{'current-group': menuItem.canOpen && menuItem.isOpen}"
+      ElTooltip(
+        :disabled="!storeTool.isMenuMini"
+        class="box-item"
+        effect="dark"
+        :content="menuItem.name"
+        placement="right-start"
+        :enterable="false"
       )
-        NuxtIcon(v-if="menuItem.icon" :name="menuItem.icon")
-        p {{ menuItem.name }}
-      NuxtIcon.arrow-icon(
-        v-if="menuItem.canOpen"
-        name="ic:round-keyboard-arrow-left"
-        :class="{'rotate-90': menuItem.isOpen}"
-      )
+        .menu-item(
+          :class="{'current-group': menuItem.canOpen && menuItem.isOpen}"
+        )
+          NuxtIcon(v-if="menuItem.icon" :name="menuItem.icon")
+          p.one-text(v-if="!menuItem.icon && storeTool.isMenuMini") {{ menuItem.name?.[0] }}
+          p.menu-text {{ menuItem.name }}
+        NuxtIcon.arrow-icon(
+          v-if="menuItem.canOpen"
+          name="ic:round-keyboard-arrow-left"
+          :class="{'rotate-90': menuItem.isOpen}"
+        )
     .list-area(v-if="menuItem.canOpen")
       LayoutMenuList(
         :isOpen="menuItem.isOpen"
@@ -126,6 +135,7 @@ const ChildrenCount = (list: MenuItem[], sum: number = 0): number => {
   position: relative;
   padding: 6px 4px;
   padding-left: v-bind('paddingLeft');
+  transition: padding-left .4s ease;
   &::after {
     width: 0%;
     height: 1px;
@@ -142,7 +152,11 @@ const ChildrenCount = (list: MenuItem[], sum: number = 0): number => {
     transform: translateY(1px);
   }
 }
-
+.one-text {
+  @include fs(20px);
+  text-align: center;
+  width: 100%;
+}
 .current-group {
   &::after {
     width: 100%;

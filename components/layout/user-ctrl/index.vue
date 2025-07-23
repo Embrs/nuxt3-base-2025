@@ -15,12 +15,12 @@ const ClickSignOut = $lodash.debounce(async () => {
 
 // 開啟自己-資訊
 const ClickOpenDrawerSelfInfo = $lodash.debounce(() => {
-  // $open.OpenDialogSelfInfo();
+  $open.OpenDialogSelfInfo();
 }, 1000, { leading: true, trailing: false });
 
 // 開啟修改個人密碼
 const ClickOpenDrawerChangeSelfPassword = $lodash.debounce(() => {
-  // $open.OpenDialogSelfChangePassword();
+  $open.OpenDialogSelfChangePassword();
 }, 1000, { leading: true, trailing: false });
 
 </script>
@@ -30,7 +30,6 @@ const ClickOpenDrawerChangeSelfPassword = $lodash.debounce(() => {
   ElDropdown
     ElButton(
       type="primary"
-      size="large"
       :circle="storeTool.isMobile"
       :link="storeTool.isPc"
     )

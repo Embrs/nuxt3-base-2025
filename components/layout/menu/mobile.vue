@@ -63,6 +63,7 @@ storeMenu.InitMenuList();
   .menu-bar(:class="{'open-menu': storeTool.isMenuOpen}")
     .logo-area
       .logo-img
+        p //TODO Logo img
         //- ElImagePlus(:src="logo" fit="contain")
     .menu-list(v-scroll-more)
       LayoutMenuList(
@@ -115,11 +116,13 @@ storeMenu.InitMenuList();
 
 // 組件 ----
 .logo-img {
+  @include center;
   width: 100%;
   height: 86px;
   padding: 12px 0;
-  background-color: $white;
+  background-color: #00000022;
   border-radius: 4px;
+  color: $white;
 }
 
 .menu-list {

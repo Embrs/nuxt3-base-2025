@@ -23,3 +23,10 @@ interface SelfInfoRes {
  * 2: staff
  */
 type RoleType = 1 | 2
+
+// 修改自己密碼 -----------------------------------------------------------------------------------------------
+/** 修改自己密碼 參數 */
+type ChangSelfPwdParams = {
+  old_password: string
+  new_password: string
+}

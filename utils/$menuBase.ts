@@ -14,7 +14,6 @@ const menuBase: MenuBaseInfo[] = [
   { key: 'dashboard', name: '儀表板', icon: 'mdi:monitor-dashboard' }, // 儀表板
   { key: 'customer', name: '客戶管理', icon: 'material-symbols:person-pin' }, // 客戶管理
   { key: 'staff', name: '員工管理', icon: 'material-symbols:person-apron' } // 員工管理
-
 ];
 
 export default Object.freeze(menuBase);

@@ -31,7 +31,7 @@ const tableInfo = ref({
 });
 const btnColWidth = computed(() => {
   if (storeTool.isPc) return 110;
-  return 65;
+  return 110;
 });
 const btnSize = computed(() => storeTool.isPc ? 'default' : 'large');
 
@@ -134,9 +134,9 @@ defineExpose({ SearchFlow });
       ElTableColumn(prop="equipment" :label="`ee`" width="100" )
       ElTableColumn(prop="consumables" :label="`ff`" min-width="100" )
 
-      ElTableColumn(fixed="right" :label=" `操作`" :width="btnColWidth")
+      ElTableColumn(fixed="right" :label=" `操作`" width="94")
         template(#default)
-          ElButton(:size="btnSize" type="primary" @click="ClickAction('detail')") 詳情
+          ElButton(type="primary" @click="ClickAction('detail')") 詳情
 
   .page-area
     ElPaginationPlus(

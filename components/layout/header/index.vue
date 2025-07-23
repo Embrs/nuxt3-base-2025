@@ -4,6 +4,7 @@
 const storeMenu = StoreMenu();
 const storeRouteCurrent = StoreRouteCurrent();
 const storeTool = StoreTool();
+
 // -- 資料 --------------------------------------------------------------------------------------------
 // 麵包屑
 const crumbsList = computed(() => {
@@ -22,9 +23,17 @@ const menuIcon = computed(() => {
   if (storeTool.isMenuOpen) return 'mingcute:close-fill';
   return 'ph:list-bold';
 });
+const menuMiniIcon = computed(() => {
+  if (storeTool.isMenuMini) return 'material-symbols:arrow-menu-open-rounded';
+  return 'material-symbols:arrow-menu-close';
+});
+
 // -- 接收事件 -----------------------------------------------------------------------------------------
 const ClickMenuCtrl = () => {
   storeTool.isMenuOpen = !storeTool.isMenuOpen;
+};
+const ClickMenuMiniCtrl = () => {
+  storeTool.isMenuMini = !storeTool.isMenuMini;
 };
 </script>
 
@@ -32,6 +41,7 @@ const ClickMenuCtrl = () => {
 .LayoutHeader
   .left-area
     NuxtIcon.menu-ctrl.web-hidden(:name="menuIcon" @click="ClickMenuCtrl")
+    NuxtIcon.menu-mini-icon.mobile-hidden(:name="menuMiniIcon" @click="ClickMenuMiniCtrl")
     .bread-crumbs
       NuxtLinkLocale.bread-crumb-item(
         v-for="crumbsItem of crumbsList" :key="crumbsItem.key"
@@ -68,7 +78,11 @@ const ClickMenuCtrl = () => {
   color: $primary;
   // transform: rotate(-90deg);
 }
-
+.menu-mini-icon {
+  @include btn-click;
+  @include wh(30px);
+  color: $primary;
+}
 .bread-crumbs {
   @include row;
   @include fs(16px, 400);
@@ -101,6 +115,11 @@ const ClickMenuCtrl = () => {
 }
 .web-hidden {
   @include rwd-pc {
+    display: none;
+  }
+}
+.mobile-hidden {
+  @include rwd-mobile {
     display: none;
   }
 }

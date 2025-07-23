@@ -13,6 +13,9 @@ type OpenType =
   | 'OpenDialogExInfo'
   | 'OpenDialogExEdit'
   | 'OpenDialogExCreate'
+  | 'OpenDialogSelfChangePassword'
+  | 'OpenDialogSelfInfo'
+
   | 'OpenDrawerExInfo'
   | 'OpenDrawerExEdit'
   | 'OpenDrawerExCreate'

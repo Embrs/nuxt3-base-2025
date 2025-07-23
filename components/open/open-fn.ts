@@ -29,6 +29,18 @@ export const OpenDialogExCreate = (): Promise<void> => {
 };
 
 /** Ex Info */
+/** 自己-修改密碼 */
+export const OpenDialogSelfChangePassword = (): Promise<void> => {
+  return EmitOpenCom('OpenDialogSelfChangePassword');
+};
+
+/** 自己-資訊 */
+export const OpenDialogSelfInfo = (): Promise<void> => {
+  return EmitOpenCom('OpenDialogSelfInfo');
+};
+
+// ------------------------------------------------------
+/** Ex Info */
 export const OpenDrawerExInfo = (): Promise<void> => {
   return EmitOpenCom('OpenDrawerExInfo');
 };

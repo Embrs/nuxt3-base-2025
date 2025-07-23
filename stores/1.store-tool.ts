@@ -19,6 +19,8 @@ export const StoreTool = defineStore('StoreTool', () => {
   const isMobile = computed(() => windowWidth.value < pcSize);
   /** menu 開關 */
   const isMenuOpen = ref(false);
+  /** menu mini 開關 */
+  const isMenuMini = UseStorage('tool_isMenuMini', { default: false });
   /** 背景尺寸 */
   const bgmLayoutZoom = ref(1);
   const bgmLayoutWidth = ref(0);
@@ -85,6 +87,7 @@ export const StoreTool = defineStore('StoreTool', () => {
     windowWidth,
     /** menu 開關 */
     isMenuOpen,
+    isMenuMini,
     bgmLayoutZoom,
     bgmLayoutWidth,
     bgmLayoutHeight,

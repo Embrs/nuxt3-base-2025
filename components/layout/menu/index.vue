@@ -2,6 +2,7 @@
 // LayoutMenu 選單列表
 // -- 引入 --------------------------------------------------------------------------------------------
 // import logo from '@/assets/img/logo.svg';
+const storeTool = StoreTool();
 
 // -- 資料 --------------------------------------------------------------------------------------------
 const storeMenu = StoreMenu();
@@ -42,7 +43,7 @@ onMounted(() => {
 
 <template lang="pug">
 #LayoutMenu
-  .menu-bar
+  .menu-bar(:class="{ 'menu-mini': storeTool.isMenuMini }")
     .logo-area
       .logo-img
         p //TODO Logo img
@@ -56,7 +57,7 @@ onMounted(() => {
       )
       .bottom-gap
     .info-area
-      p Copy right
+      p Copyright © 2025
 </template>
 
 <style lang="scss" scoped>
@@ -67,6 +68,7 @@ onMounted(() => {
 }
 .menu-bar {
   width: 250px;
+  transition: width .4s ease;
   height: 100%;
   position: relative;
   display: grid;
@@ -126,6 +128,31 @@ onMounted(() => {
   }
   @include btn-click;
   @include fs(24px);
+}
+
+.menu-mini {
+  width: 50px;
+  overflow: hidden;
+  .logo-area {
+    display: none;
+  }
+  .info-area {
+    display: none;
+  }
+  :deep(.menu-list) {
+    .level-1 {
+      border-top: 1px solid #ffffff32;
+    }
+    .menu-item {
+      padding-left: 10px !important;
+    }
+    .menu-text {
+      display: none;
+    }
+    .arrow-icon {
+      display: none;
+    }
+  }
 }
 
 </style>

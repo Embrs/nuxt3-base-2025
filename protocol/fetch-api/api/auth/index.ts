@@ -20,3 +20,9 @@ export const GetSelfInfo = () => {
   if (isMock) return mock.GetSelfInfo(); // Mock
   return methods.get<SelfInfoRes>('/api/self-info');
 };
+
+/** 修改自己密碼 */
+export const ChangSelfPwd = (params: ChangSelfPwdParams) => {
+  if (isMock) return mock.Default(); // Mock
+  return methods.post('/api/base/slef/password', params);
+};
