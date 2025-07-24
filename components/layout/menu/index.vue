@@ -110,7 +110,7 @@ onMounted(() => {
 .menu-list {
   height: 100%;
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
   // padding-bottom: 30px;
   .bottom-gap {
     height: 30px;
