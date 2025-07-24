@@ -154,5 +154,29 @@ onMounted(() => {
     }
   }
 }
-
+// -----------------------------------------------------------------------------------------------
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+   width: 10px;
+  height: 10px;
+  position: absolute;
+  background:#00000036;
+  filter: invert(100%);
+  background-clip: padding-box !important; 
+  border: 2px solid transparent !important;
+  cursor: pointer !important;
+  border-radius: 10px !important;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00000081;
+}
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
 </style>
