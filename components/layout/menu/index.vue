@@ -165,7 +165,7 @@ onMounted(() => {
   position: absolute;
   background:#00000036;
   filter: invert(100%);
-  background-clip: padding-box !important; 
+  background-clip: padding-box !important;
   border: 2px solid transparent !important;
   cursor: pointer !important;
   border-radius: 10px !important;
