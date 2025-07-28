@@ -158,11 +158,11 @@ export default defineNuxtConfig({
         { name: 'format-detection', content: 'telephone=no,email=no,adress=no' } // 去除擾人自動偵測
       ],
       link: [
-        { rel: 'icon', href: '/favicon.ico', sizes: 'any' },
-        { rel: 'icon', href: '/favicon.svg', type: 'image/x-icon' },
-        { rel: 'icon', href: '/favicon.svg', type: 'image/x-icon', media: '(prefers-color-scheme: dark)' },
-        { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' },
-        { rel: 'apple-touch-icon', href: '/favicon.svg' }
+        { rel: 'icon', href: '/favicon.ico', sizes: 'any' }
+        // { rel: 'icon', href: '/favicon.svg', type: 'image/x-icon' },
+        // { rel: 'icon', href: '/favicon.svg', type: 'image/x-icon', media: '(prefers-color-scheme: dark)' },
+        // { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' },
+        // { rel: 'apple-touch-icon', href: '/favicon.svg' }
       ]
     }
   },
