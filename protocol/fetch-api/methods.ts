@@ -39,7 +39,7 @@ const Fetch = <T>(url: string, option: AnyObject, _showErr = true): Promise<ApiR
 
         // 響應攔截
         onResponse ({ response }) {
-          const _res = FilterRes(response, 9997);
+          const _res = FilterRes(response, 9997, _showErr);
 
           // TODO 確認登出情境
           // SignOut();
@@ -48,7 +48,7 @@ const Fetch = <T>(url: string, option: AnyObject, _showErr = true): Promise<ApiR
 
         // 錯誤處理
         onResponseError ({ response }) {
-          const _res = FilterRes(response, 9998);
+          const _res = FilterRes(response, 9998, _showErr);
           return Promise.reject(_res);
         }
       }
@@ -91,7 +91,7 @@ export default {
     Fetch<T>(url, { method: 'get', body: $tool.JsonToFormData(body) }, _showErr).catch((err) => err),
 
   /** 檔案上傳(進度條) */
-  xhrFileUpload: <T>(url: string, body: AnyObject = {}, progressObj: FileProgress): Promise<ApiRes<T>> => {
+  xhrFileUpload: <T>(url: string, body: AnyObject = {}, progressObj: FileProgress, _showErr = true): Promise<ApiRes<T>> => {
     try {
       const storeAuth = StoreAuth();
       return new Promise((resolve) => {
@@ -104,7 +104,7 @@ export default {
         });
         xhr.addEventListener('loadend', (e: any) => {
           let _res: ApiRes<T> = JSON.parse(e?.currentTarget?.responseText || '') || {};
-          _res = FilterRes({ _data: _res }, 9996);
+          _res = FilterRes({ _data: _res }, 9996, _showErr);
           resolve(_res);
         });
         xhr.open('POST', url, true);
@@ -112,7 +112,7 @@ export default {
         xhr.send($tool.JsonToFormData(body));
       });
     } catch (_err) {
-      const _res = FilterRes({}, 9999);
+      const _res = FilterRes({}, 9999, _showErr);
       return Promise.reject(_res);
     }
   }
