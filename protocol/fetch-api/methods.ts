@@ -7,16 +7,19 @@ const SignOut = () => {
 };
 
 // 回傳調整
-const FilterRes = (response: any, errCode = 9999) => {
+const FilterRes = (response: any, errCode = 9999, _showErr = true) => {
   const r = response?._data;
   const _res = { data: {}, status: { code: errCode, message: { zh_tw: '', en: '', ja: '' } } };
   if (r?.data) _res.data = r?.data;
   if (r?.status) _res.status = r?.status;
+  if (_showErr /** code !==0 */) {
+    // TODO show error
+  }
   return _res as ApiRes<any>;
 };
 
 // 預設請求
-const Fetch = <T>(url: string, option: AnyObject): Promise<ApiRes<T>> => {
+const Fetch = <T>(url: string, option: AnyObject, _showErr = true): Promise<ApiRes<T>> => {
   try {
     const storeAuth = StoreAuth();
     // const { apiBase } = useRuntimeConfig();
@@ -51,7 +54,7 @@ const Fetch = <T>(url: string, option: AnyObject): Promise<ApiRes<T>> => {
       }
     );
   } catch (_err) {
-    const _res = FilterRes({}, 9999);
+    const _res = FilterRes({}, 9999, _showErr);
     return Promise.reject(_res);
   }
 };
@@ -60,32 +63,32 @@ const Fetch = <T>(url: string, option: AnyObject): Promise<ApiRes<T>> => {
 // 自動導出
 export default {
   /** 取得  */
-  get: <T>(url: string, query: AnyObject = {}) =>
-    Fetch<T>(url, { method: 'get', query }).catch((err) => err),
+  get: <T>(url: string, query: AnyObject = {}, _showErr = true) =>
+    Fetch<T>(url, { method: 'get', query }, _showErr).catch((err) => err),
 
   /** 建立 */
-  post: <T>(url: string, body: AnyObject = {}) =>
-    Fetch<T>(url, { method: 'post', body }).catch((err) => err),
+  post: <T>(url: string, body: AnyObject = {}, _showErr = true) =>
+    Fetch<T>(url, { method: 'post', body }, _showErr).catch((err) => err),
 
   /** 單一編輯 */
-  patch: <T>(url: string, body: AnyObject = {}) =>
-    Fetch<T>(url, { method: 'patch', body }).catch((err) => err),
+  patch: <T>(url: string, body: AnyObject = {}, _showErr = true) =>
+    Fetch<T>(url, { method: 'patch', body }, _showErr).catch((err) => err),
 
   /** 更新 */
-  put: <T>(url: string, body: AnyObject = {}) =>
-    Fetch<T>(url, { method: 'put', body }).catch((err) => err),
+  put: <T>(url: string, body: AnyObject = {}, _showErr = true) =>
+    Fetch<T>(url, { method: 'put', body }, _showErr).catch((err) => err),
 
   /** 刪除 */
-  delete: <T>(url: string, query: AnyObject = {}) =>
-    Fetch<T>(url, { method: 'delete', query }).catch((err) => err),
+  delete: <T>(url: string, query: AnyObject = {}, _showErr = true) =>
+    Fetch<T>(url, { method: 'delete', query }, _showErr).catch((err) => err),
 
   /** 檔案上傳 */
-  fileUpload: <T>(url: string, body: AnyObject = {}) =>
-    Fetch<T>(url, { method: 'post', body: $tool.JsonToFormData(body) }).catch((err) => err),
+  fileUpload: <T>(url: string, body: AnyObject = {}, _showErr = true) =>
+    Fetch<T>(url, { method: 'post', body: $tool.JsonToFormData(body) }, _showErr).catch((err) => err),
 
   /** 檔案下載 */
-  fileDownload: <T>(url: string, body: AnyObject = {}) =>
-    Fetch<T>(url, { method: 'get', body: $tool.JsonToFormData(body) }).catch((err) => err),
+  fileDownload: <T>(url: string, body: AnyObject = {}, _showErr = true) =>
+    Fetch<T>(url, { method: 'get', body: $tool.JsonToFormData(body) }, _showErr).catch((err) => err),
 
   /** 檔案上傳(進度條) */
   xhrFileUpload: <T>(url: string, body: AnyObject = {}, progressObj: FileProgress): Promise<ApiRes<T>> => {
