@@ -14,7 +14,7 @@ export default defineEventHandler(async (event) => {
     return await proxyRequest(event, target, { fetch });
   } catch (error) {
     // 可記錄錯誤，或回傳自訂錯誤訊息
-    setResponseStatus(event, 502); // Bad Gateway
-    return { error: 'API Proxy Failed', detail: error instanceof Error ? error.message : String(error) };
+    setResponseStatus(event, 9999); // Bad Gateway
+    return { error: 'Nuxt API Proxy Failed', detail: error instanceof Error ? error.message : String(error) };
   }
 });
