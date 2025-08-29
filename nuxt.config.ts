@@ -155,7 +155,8 @@ export default defineNuxtConfig({
         version
       },
       meta: [
-        { name: 'format-detection', content: 'telephone=no,email=no,adress=no' } // 去除擾人自動偵測
+        { name: 'format-detection', content: 'telephone=no,email=no,adress=no' }, // 去除擾人自動偵測
+        { name: 'viewport', content: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' } // 禁止縮放
       ],
       link: [
         { rel: 'icon', href: '/favicon.ico', sizes: 'any' }
