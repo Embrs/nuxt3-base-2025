@@ -3,6 +3,13 @@ import weekOfYear from 'dayjs/plugin/weekOfYear'; // 引入 weekOfYear 插件
 
 dayjs.extend(weekOfYear);
 
+// 擴展 dayjs 的類型定義
+declare module 'dayjs' {
+  interface Dayjs {
+    CreateCalendar: typeof CreateCalendar;
+  }
+}
+
 /** 取得日曆 */
 const CreateCalendar = (_year: number, _month: number) => {
   // 月份起始日和行事曆起始日
@@ -30,8 +37,7 @@ const CreateCalendar = (_year: number, _month: number) => {
   return _calendar;
 };
 
-export default {
-  dayjs,
-  /** 取得日曆 */
-  CreateCalendar
-};
+// 將 CreateCalendar 方法添加到 dayjs 的靜態方法中
+(dayjs as any).CreateCalendar = CreateCalendar;
+
+export default dayjs;
